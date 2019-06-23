@@ -1,0 +1,92 @@
+======================================================================================================================
+Concepts and understanding
+======================================================================================================================
+Python allows you to express:
+
+	1) one or more tables
+	2) relationship among tables which can be 1-, 1-n, n-1 and n-n
+	
+One can choose to use expression language (writing SQL query using python constructs) or ORM queries. Former one 
+is more closer to DB API calls which I used to write in  2000s.
+
+
+
+
+
+======================================================================================================================
+Representation of swift api tables
+======================================================================================================================
+
+class Models(Base):
+    __tablename__ = 'models'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    employees = relationship(
+        'Employee',
+        secondary='department_employee_link'
+    )
+ 
+class Services(Base):
+    __tablename__ = 'services'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+	is_relocatble = Column(Boolean)
+	type = Column(Boolean)
+ 
+class NodeRoles(Base):
+    __tablename__ = 'node_roles'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    model = relationship('Models',
+                         backref=backref('node_roles',
+                                         uselist=True,
+                                         cascade='delete,all'))
+										 
+class DiskGroups(Base):
+    __tablename__ = 'disk_groups'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    model = relationship('Models',
+                         backref=backref('disk_groups',
+                                         uselist=True,
+                                         cascade='delete,all'))
+	 
+class Networks(Base):
+    __tablename__ = 'network_groups'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    model = relationship('Models',
+                         backref=backref('network_groups',
+                                         uselist=True,
+                                         cascade='delete,all'))
+
+class DepartmentEmployeeLink(Base):
+    __tablename__ = 'department_employee_link'
+    department_id = Column(Integer, ForeignKey('department.id'), primary_key=True)
+    employee_id = Column(Integer, ForeignKey('employee.id'), primary_key=True)
+	
+class NodeNetworkMap(Base):
+    __tablename__ = 'node_network_map'
+	role_id = Column(Integer, ForeignKey('node_roles.id'), primary_key=True)
+    network_group_id = Column(Integer, ForeignKey('netowrk_groups.id'), primary_key=True)
+										 
+class NodeServiceMap(Base):
+    __tablename__ = 'node_service_map'
+	role_id = Column(Integer, ForeignKey('node_roles.id'), primary_key=True)
+    service_id = Column(Integer, ForeignKey('netowrk_groups.id'), primary_key=True)
+	
+class NodeDiskMap(Base):
+    __tablename__ = 'node_service_map'
+	role_id = Column(Integer, ForeignKey('node_roles.id'), primary_key=True)
+    service_id = Column(Integer, ForeignKey('disk_groups.id'), primary_key=True)
+										 
+ 
+
+
+======================================================================================================================
+References
+======================================================================================================================
+
+http://pythoncentral.io/overview-sqlalchemys-expression-language-orm-queries/
+http://pythoncentral.io/sqlalchemy-orm-examples/
+http://pythoncentral.io/sqlalchemy-association-tables/
