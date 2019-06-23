@@ -1,0 +1,515 @@
+Contents:
+
+1) Core: Monitors and OSD
+2) RadosGateway: Swift/S3 protocol
+3) RBD: Block storage 
+4) MDS: File storage
+5) iSCSIGateway
+6) Ceph internals: PGs, storage pools etc.
+7) Ceph deployment / consumption / administrator guidelines
+8) Ceph management software
+9) Ceph billing/monitoring/metering
+10) Ceph and OpenStack
+11) Ceph product backlog
+12) Ceph commands
+13) Ceph thematic discussion (a blog path)
+14) Ceph clients
+15) References
+16) Exploration and Questions
+
+
+
+======================================================================================================================
+Ceph client(s)
+======================================================================================================================
+
+1) client requests -> crush_fn(object, crush rule set) -> osd
+
+
+
+
+
+======================================================================================================================
+Core: Monitors and OSD
+======================================================================================================================
+
+Monitors and OSDs are core component. These two must be deployed to create a ceph cluster. Role of monitor is 
+more like a manager while OSD do the job of data operation.
+
+1) Notable points about monitor
+
+------------------------------
+Notable points about monitor
+------------------------------
+
+1) Maintains information of
+	a) {state of peer, cluster configuration}
+	b) cluster map (five maps): {osd map, mon map, pg map, crush map, mds map}
+2) Composition of maps:
+	a) monitor map = {cluster id, epoch of mon-map creation, mon host name}
+	b) osd map = {cluster id, epoch for osd-map creation, host info, pool info like replication level, osd info like state, count, weight, last clean time etc.}
+	c) crush map = {storage device info, failure domain hierarchy, failure handling rule set}
+	d) pg map = {pg id, object count, state stamp, up and acting osd set, in-placement group version, timestamp etc.}
+	e) mds map = {metadata pool id, mds count, epoch for mds map, mds state}
+3) Monitors use PAXOS algorithm to reach consensus 
+
+
+======================================================================================================================
+Ceph deployment / consumption / administrator guidelines
+======================================================================================================================
+
+
+-------------------------
+Consumption advice
+-------------------------
+1) Default deployment of ceph creates default pool. User is recommended to create new pool as and when required.
+2) User can perform following pool operations:
+	- Change replica level of a pool later to any number. Default replica level is 2.
+	- Can create policy either with replication policy or erasure coding but not both at the same time.
+	- Define CRUSH rule set for a pool
+	- Can take snapshot of pool
+	- Can control user access to pools. You can say which user ID is supposed to access objects of which pool.
+	  Does it mean pool level access control is there? or, does it meant that object level access control is 
+	  there?
+
+-------------------------
+Hardware requirement(s)
+-------------------------
+
+Monitor:
+	- Low end server: single CPU with 4 GB RAM is good enough. 
+	- Storage enough to store logs if we are storing there (in order of few GB). 
+	- VM can be also used
+	- The network for a monitor node should be redundant, since the monitor does not participate in cluster recovery. 
+	  A redundant NIC with 1 Gbps is sufficient. Redundancy at the network level is important as the monitor forms 
+	  quorum with other monitors, and failure of more than 50 percent of the monitor nodes would create a problem while 
+      connecting to a cluster.
+Object Storage Device(OSD):
+	- 1 GB / TB RAM 
+	- 1 GHz of CPU
+	- 2-4 journal per SSD
+    - 10 Gbps front end and 40 Gbps backend network
+	- Ultra sire: separate management and emergency network
+MDS:
+	- 1 Gbps
+	- 4X1 GHz core
+	- More RAM, better for us. What is minimum to start with?
+		
+
+		
+		
+-----------------
+Ceph admin tips
+-----------------
+	
+- service Ceph [options] [command] [daemons] can also be used to manage ceph daemon (starting from A/B release)r
+
+- Scaling up a Ceph cluster is a online process.
+
+- Scaling down a Ceph cluster is a online process.
+
+- Removing a OSD causes rebalancing of ceph cluster which ultimately causes data movement. It effectively results 
+  in migrating placement groups to other osds. At this point of time, there will be drop in ceph cluster performance 
+  and ceph cluster will become unhealthy. But, it is fine as cluster will still be capable to server client requests. 
+  {ceph -s} will show HEALTH_WARN.
+  
+- Marking OSDs out using { ceph osd out <id> } result in osd not to be part of cluster but services keep running. We 
+  need to login to each node and ensure that services are not running.
+  
+- Why is it important to have ceph.conf same everywhere?
+
+  sysvinit (in line with RedHat) can be used to manage ceph daemons. 
+  Use {/etc/init.d/ceph [options] [command] [daemons]} 
+	
+  The Ceph options include:
+		• --verbose (-v): Used for verbose logging
+		• --allhosts (-a): Executes on all nodes mentioned in ceph.conf, otherwise on localhost
+		• --conf (-c): Uses alternate configuration file
+	
+  If you see -allhosts option, it rely on ceph.conf. Having ceph.conf with all host details will greatly help. 
+  Unfortunately, it is not so as of today in Helion 2.1 Ceph. As a result, we can not use /etc/init.d/ceph as 
+  effectively as we want.		
+
+- What can I do with /etc/initi.d/ceph?
+
+  As an admin you can do following using /etc/init.d/ceph (i.e. sysvinit command):
+	a) start/stop/restart daemon on localhost or on all host mentioned in ceph.conf
+	b) start/stop/restart a specific daemon
+	c) status of a specific daemon (/etc/init.d/ceph status osd.0). Will osd.0 be unique across cluster? Answer is yes.
+       The following command will give you what you are looking for: ceph osd tree  
+	   We can do same for other daemons like mds and monitors.
+  
+----------------------
+Ceph admin procedure
+----------------------
+
+- Scale up a procedure with online I/O going on
+- Scale down a procedure with online I/O going on
+- Repair disk procedure
+
+
+
+1) Scale up a procedure with online I/O going on:	
+		a) Prepare the node
+		b) Create a Ceph volume. Ensure that it is mounted. Use {df -h /mnt/ceph-vol1} 
+		c) Get list of disks of new node to be added to cluster. Use {ceph-deploy disk list <new-node-ip>} 
+		d) Generate I/O to cluster. Use {dd if=/dev/zero of=/mnt/ceph-vol1/file1 count=10240 bs=1M} 
+		e) Add disks of new node to cluster
+		f) Check cluster status and see cluster is expanding while I/O is going on. Use {watch ceph status}
+		g) After node is added check cluster status. Use:
+				- ceph osd tree
+				- ceph status
+				
+2) Scale down cluster procedure with online I/O going on
+		a) Identify node and osd running on it.
+		b) Generate I/O to cluster. Use {dd if=/dev/zero of=/mnt/ceph-vol1/file1 count=10240 bs=1M} 
+		c) Take OSD out one by one. Use {ceph osd out <osd-id>} 
+		d) Watch recovery process. Use {ceph -w}. Cluster health should be HEALTH_WARN.
+		e) Check osd tree reflects osd down status. Use {ceph osd tree} 
+		f) Stop ceph service on node being removed from cluster
+		g) Remove osd from cluster map. Use following commands
+				- ceph osd crush remove <id> 
+				- ceph status
+		h) Cluster should become healthy but osd map will still have old references. See number of osd count. 
+		   Cluster health should be HEALTH_OK.
+	    i) Remove osd authentication key. Use {ceph auth del <id>}
+		j) Remove osd. Use {ceph osd rm <id> ; ceph status}. Cluster health should be HEALTH_OK.
+		k) Remove node from CRUSH map. Use {ceph osd crush remove <hostname>}
+	
+3) Repair disk procedure:
+		a) Usage of { ceph -s } should reflect HEALTH_OK if nothing has failed.
+		b) Fail the disk
+		c) Failing disk will mark osd out of cluster within pre-defined interval (default is 300s). But, if 
+		   you know disk is failed then you can pro-actively mark osd out.
+		d) Remove osd from CRUSH map
+		e) Remove osd authentication key
+		f) Use { ceph -s } to check cluster health. It should be HEALTH_OK.
+		g) Add new disk
+		h) Get list of disks of node. Use { ceph-deploy disk list <hostname> }
+		i) Zap the disk -> Create osd. Can we practically validate that osd got same id as what we were looking for?
+		j) Wait for ceph cluster to be active.
+	
+			
+-------------------------
+Deployment advice
+-------------------------
+
+1) Server characteristics:
+		- Recommendation for journal disk is to use one SSD per 4-5 OSD for journal disks.
+		- Use 1 GB / TB RAM for OSD node. If your system is having less memory then create a RAID volume and run 
+		  OSD against it.
+		- Usage of RAID is discouraged.
+		- Monitor server characteristics: 
+			a) low end server
+			b) good cpu and ram, 
+			c) low disk storage of few GBs, 
+			d) enough to store logs
+		- Odd number of monitor is best practice. 3 monitor for production ready cluster is recommended.
+		- Scatter monitor nodes across all failure domains. If you have multiple data centres in a single high-speed 
+		  network, your monitor nodes should belong to different data centres.
+2) Ceph configuration:
+		- In order to monitor entire cluster OSDs from a single node, the ceph.conf file must have information of 
+		  all the OSDs with their host name.
+		- Log rotation policy should be applied. Store logs on different partition
+		- Do not leave cluster in unhealthy state for long
+3) Watch:
+		- Watch file system utilization for hosts running monitor
+		- Watch logs generation rate: 1 GB / hour = ALERT
+		- Watch NIC speed for monitor: 1 Gbps
+		- Watch operating system disk/partition used for Ceph cluster (need alert)
+
+
+
+======================================================================================================================
+RadosGateway: Swift/S3 protocol
+======================================================================================================================	
+
+RadosGateway support Swift/S3 access protocol from Ceph storage system. 
+
+Supported features are:	
+	- Multi-tenancy
+	- Object access:
+		a) Native
+		b) Swift API
+		c) S3 API
+		d) Admin API (used by application to manage storage system)
+	- Common namespace for Swift and S3 are same. It means that one can write objects using S3 API and read same object
+	  using Swift API.
+	
+
+======================================================================================================================
+RBD: Block storage
+======================================================================================================================	
+
+RBD provides volume ability on top of native object storage functionality.
+
+Features:
+	- Core block storage functionality:
+		a) Native kernel support for Linux
+		b) Full and incremental snapshots
+		c) Thin provisioning
+		d) Copy-on-write clone
+		e) In-memory cache
+	- Supports images up to 16 exabytes
+	- No support for hyper-v and ESX as of today - plan is there to support
+	- Volumes can be used for VMs of hypervisor (using librbd) as well as direct host OS (using KRBD).
+
+
+
+======================================================================================================================
+MDS: File storage
+======================================================================================================================	
+
+CephFS is a POSIX compliant file system. MDS is required (at least one): meta data and data are stored separately.
+
+Features:
+	- Natively integrated with Linux kernel
+	- Core file system:
+		a) Dynamic rebalancing
+		b) Sub-directory snapshot
+	- Usage models:
+		a) ceph-fuse - user space driver
+		b) Samba
+		c) Ganesha
+		d) Custom client using libcephfs
+
+
+	
+	
+======================================================================================================================
+Ceph commands
+======================================================================================================================
+
+----------------------------------------------------------------------------------------------------------------------
+service ceph status osd  #status of all osd on a given node
+----------------------------------------------------------------------------------------------------------------------
+service ceph -a status osd #status of all osd of cluster
+----------------------------------------------------------------------------------------------------------------------
+ceph osd ls #check osd id
+----------------------------------------------------------------------------------------------------------------------
+ceph osd stat #check osd map and state
+----------------------------------------------------------------------------------------------------------------------
+ceph osd tree #list osd status
+----------------------------------------------------------------------------------------------------------------------
+ceph {osd/mon/mds/crush/pg} dump
+----------------------------------------------------------------------------------------------------------------------
+ceph daemon mon.ceph-node1 mon_status
+----------------------------------------------------------------------------------------------------------------------
+service ceph status mon
+----------------------------------------------------------------------------------------------------------------------
+ceph mon stat #status of monitor(s)
+----------------------------------------------------------------------------------------------------------------------
+ceph health #cluster health status
+----------------------------------------------------------------------------------------------------------------------
+ceph health detail #cluster health status in detail
+----------------------------------------------------------------------------------------------------------------------
+ceph -w  #watch cluster events
+----------------------------------------------------------------------------------------------------------------------
+ceph df #capacity status
+----------------------------------------------------------------------------------------------------------------------
+watch ceph -s #continuously print ceph cluster status
+----------------------------------------------------------------------------------------------------------------------
+ceph auth list #list of keys
+----------------------------------------------------------------------------------------------------------------------
+ceph quorum_status #checks monitor quorum status
+----------------------------------------------------------------------------------------------------------------------
+ceph osd blacklist ls #list all blacklisted clients
+----------------------------------------------------------------------------------------------------------------------
+ceph pg 2.7d query #get a pg status
+----------------------------------------------------------------------------------------------------------------------
+ceph pg dump #provides a lot of information about pgs
+----------------------------------------------------------------------------------------------------------------------
+ceph pg dump_stuck unclean #list of pgs which are stuck in unclean/stale/inactive state
+----------------------------------------------------------------------------------------------------------------------
+
+
+======================================================================================================================
+Ceph internals: PGs, storage pools etc.
+======================================================================================================================
+	
+It is too generic area. So, we will address each aspect independently.
+
+	- Crush map
+	- Placement groups
+
+-------------
+CRUSH map
+-------------
+
+	- what it is?
+
+	  It tells where to write and where to read from client data. It has property to understand infrastructure 
+	  components and ability to define failure zones like disk pool, power racks, disks and rooms etc. Failure in 
+	  infrastructure components or failure zone causes AUTO-RECOVERY to be triggered which in turn might cause date 
+	  movement. Because of this, CRUSH map has to be defined very carefully. Advantage is that it make Ceph daemons 
+	  to make cluster self healing and self managing without any human intervention.
+	  
+	- what are constituents of crush map?
+	
+	  Crush map has following components expressed in file:
+			a) Crush map devices
+			b) Crush map bucket types - defines a new failure domain
+			c) Crush map bucket definition - defines hierarchical cluster architecture as well as algorithm for 
+			   a given bucket type.
+			d) Crush map ruleset - defines the way to select an appropriate bucket for data placement in pools
+
+	- when is it created?	
+	  
+	  Default crush map is created at the time of cluster deployment. Administrator is recommended to create 
+	  custom crush map for production deployment. how to customize a CRUSH map. CRUSH map modification and tuning 
+	  is quite an interesting and important part of Ceph; with it comes an enterprise-grade production storage 
+	  solution. 
+	  
+	- Administrator tells how a CRUSH map should look like. What is default?
+
+	- How can one inject a new crush map? Or, how can I define two pool of different type?
+		
+		a) Retrieve your  cluster crush map. Use {ceph osd getcrushmap -o crushmap_compiled_file}
+		b) Decompile crush map to make it human readable. 
+		   Use {crushtool -d crushmap_compiled_file -o crushmap_decompiled_file}
+		c) Make changes to crush map. Let us assume that we do want to create two pool backed by SSD and SAS drive 
+		   only respectively to cater specific performance use cases.  For this make following changes:
+				- Define two new bucket definition (not the type, we will use root type) say SSD and SAS with 
+				  each having its own hosts
+			    - Add new rules for SAS and SATA pools
+		d) Compile new crush map. Use {crushtool -c crushmap_decompiled_file -o newcrushmap}
+		e) Inject crush map into cluster. {Use ceph osd setcrushmap -i newcrushmap}. This step will cause data 
+		   movement in cluster. After sufficient length, cluster health should be HEALTH_OK.
+		f) Wait for cluster state to be HEALTH_OK
+		g) Create ssd and sata pools. Use { ceph osd pool create sata 64 64; ceph osd pool create ssd 64 64 }
+		h) Assign new rule set for these new pools. Use { ceph osd pool set sata crush_ruleset 3; ceph osd pool set ssd crush_ruleset 4 }
+		i) Verify things are working as expected. Write data on each pools. 
+				a) Use {dd if=/dev/zero of=sata.pool bs=1M count=32 conv=fsync} to create sata object
+				b) Use {dd if=/dev/zero of=ssd.pool bs=1M count=32 conv=fsync} to create ssd object
+				c) See these files are created. Use { ls -lf *.pool }
+				d) Put sata object to sata pool. Use { rados -p sata put sata.pool.object sata.pool } 
+				e) Put ssd object to ssd pool. Use { rados -p ssd put ssd.pool.object ssd.pool } 
+				f) Check osd map for pool objects. Use { ceph osd map ssd ssd.pool.object; ceph osd map sata sata.pool.object}
+
+	
+--------------------
+Placement groups
+--------------------
+
+Think PGs like a LUN of specific RAID group where it goes in enabled/disabled/degraded state etc. PGs can be 
+in multiple states (we will look better representation later):
+
+------------------------------------------------------------------------------------------------------------------
+State			| 		Description
+------------------------------------------------------------------------------------------------------------------
+Peering			|	
+Active			|	
+Clean			|
+Remapped		|  When there is a change in acting OSD set for a given PGs. But, why is there a change in acting set? Does it happen if we inject new node? or, Does it happen whenever rebalancing of node starts?
+Backfilling		|
+Degraded		|
+Recovering		|
+Stale			|  When (1) OSD fail to report statistics to monitor in 5s or (2) any OSD reports that its primary OSD is down to monitor.
+------------------------------------------------------------------------------------------------------------------
+
+	
+	
+	
+	
+======================================================================================================================
+Ceph product backlog
+======================================================================================================================
+
+- Deployment and post-day zero manageability
+	- As an user, I want to distribute monitor across failure zone of cloud
+	- As an user, I want to change osd down time out interval
+	- As an user, I want to insert disk gradually starting with weight of zero in a given cluster
+	- As an user, I want to define my own crush map or customize cluster layout instead of living with default layout
+	- As an user, I will like to reconfigure ceph default configuration post deployment
+	- As an user, I want redundant networks (via NIC bonding etc) for monitor
+- Automation
+	- As an user, I will like pg_num and pgp_num to be automatically adjusted as soon as new OSD is inserted. 
+	  Formula for computing pg_num and pgp_num can be pre-defined.
+	- As an user, I want to configure following parameters implicitly based on cluster capacity. 
+	  See http://docs.ceph.com/docs/hammer/rados/configuration/mon-config-ref/.
+			mon osd full ratio = .80
+			mon osd nearfull ratio = .70
+
+
+
+
+	
+======================================================================================================================
+Ceph cluster monitoring
+======================================================================================================================	
+
+See separate document. It itself is a big topic and hence covered independently.
+	
+
+	
+
+======================================================================================================================
+Ceph thematic discussion (a blog path)
+======================================================================================================================
+
+It is open-ended discussion based on reading, conversation or deployment experiences. 
+
+	- Tuning Ceph parameters [Sunday, 27-March-2016]
+
+-----------------------------------------------
+Tuning Ceph parameters [Sunday, 27-March-2016]
+-----------------------------------------------
+Ceph cluster deployment is very easy with default configuration. We just need to deploy OSD and Monitor. However, 
+ceph cluster needs to be tuned for various parameter over a course of time like when we insert or remove OSD or we do 
+add or remove pool. Parameters can be:
+	1) pg_num
+	2) replication count
+	3) osd pools
+	4) pgp_num
+	
+Do we need to have some tooling to help user to do it? Or, should we allow them to live on own? It looks little bit 
+stretched to achieve ansible play if we want to go complete automatic. Why? It is because ansible does not persist 
+any data and is not expected to be aware of previous state of cluster. So, we might have to bring something like 
+REST API. Not sure! 
+
+
+
+	
+======================================================================================================================
+Exploration and Questions
+======================================================================================================================	
+
+-------------
+Exploration
+-------------
+
+- Ceph object gateway has admin API, which claims to do cluster management. What is it?
+
+
+-----------
+Questions
+-----------
+
+1) Is it possible to run ceph osd with different version? What is point of showing version information against each
+  osd in following command: service ceph -a status osd?
+
+2) What is significance of weight in ceph osd tree command?
+
+3) Removal of a node should involve marking osd out and stopping ceph service. Did we capture this in Helion 2.1?
+	
+4) What is significance of { ceph -w --watch-error }? Can we cook one monitoring dashboards around it, something like
+   number of errors in last 300 seconds? I think that it will be useful.	
+	
+5) Once an OSD goes down, Ceph changes the state of all its PGs that are assigned to this OSD as degraded. After 
+   the OSD comes UP, it has to peer again to make the degraded PGs clean. If the OSD remains down and out for more 
+   than 300 seconds, Ceph recovers all the PGs that are degraded from their replica PGs to maintain the replication 
+   count. Clients can perform I/O even after PGs are in a degraded stage. There can be one more reason why a 
+   placement group can be degraded; this is when one or more objects inside a PG become unavailable. Ceph assumes 
+   the object should be in the PG, but it's not actually available. In such cases, Ceph marks the PG as degraded 
+   and tries to recover the PG form its replica. WHEN IS IT POSSIBLE THAT OBJECTS ARE NOT AT EXPECTED PLACE by
+   Ceph. Whyyyyyyyyyyyyyy will happen so?
+	
+	
+	
+	
+	
+======================================================================================================================
+References
+======================================================================================================================
+
+http://ceph.com/docs/master/start/hardware-recommendations/
