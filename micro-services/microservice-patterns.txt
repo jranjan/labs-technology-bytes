@@ -1,0 +1,130 @@
+
+Content:
+
+
+
+
+
+
+======================================================================================================================	
+Concepts
+======================================================================================================================	
+
+1) Monoliths vs. Micro-services
+
+Monoliths vs. Micro-services
+---------------------------------------------------------------------------------------------------------------------
+
+Django kind of application relying on MVC pattern assumed layered architecture. It did apply separation of concern
+by segregating user layer, business layer and persistence layer. But all business layer was embedded in one place.
+So, if there is any scale required in some portion of business layer, entire model needs to be changed. That's why
+it is called a monoliths application. 
+
+Micro-services are different. They divide a domain into of set of functional unites which can interact with each 
+other. A good architect needs to understand this and should be able to create a design which address the following 
+aspects:
+
+	- x, y, and z scale
+	- services are neither fat nor thin
+	- ability to function a service without depending on each other
+	- divided around domain - a very fundamental need for designer to understand it
+
+Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
+
+
+
+
+======================================================================================================================	
+Observations
+======================================================================================================================
+
+
+
+Micro-services benefits
+---------------------------
+
+	- An exclusive business domain for each microservice, facilitating the implementation of new features
+	- Better definition of business without cyclic dependency between them
+	- Independent deployment
+	- Simplicity to identify errors
+	- Technological independence among microservices
+	- Independence between teams
+	- Implementation of isolation
+	- Possible scalability for specific microservice 
+	- Showing you how to make the transition from 
+
+Architectural steps
+--------------------
+
+1) Identifying areas to apply the principle of sole responsibility for each microservice is crucial to application architecture.
+
+2) Express resilient published interfaces (not the public interface):
+
+		- Published versioned interfaces: An efficient version control to indicate when something, deprecated is key. 
+		  Not only that, but it will also indicate what the new version is and when the deprecated version will be deactivated permanently.
+		- Small published interfaces: A large payload is much more susceptible to change than a more specialized payload. 
+		  Applying the concepts of DDD on these payloads is very healthy.
+		- Published external interfaces: Do not create the concept of published interfaces for internal development teams. 
+		  This creates a slow process of change and implementation features.
+
+    The published interface is what the microservice developers release. The published interface is what will be consumed by the 
+	internet. A good example is the Single Sign-On (SSO) API.
+	
+3) Deploy micro-services independently
+
+4) Define upgrade logic taking care of the following points:
+
+		- Never share libraries between microservices
+		- Strong delimitation of microservice domains
+		- Establish a client-server relationship between microservices
+		- Deploy in separate containers
+
+5) Design for scale (beauty my friend):: x axis: horizontal scaling, y axis: functional scaling, z axis: data partitioning
+
+6) Documentation of communication.
+   The Swagger API is a good alternative solution for such problems.
+
+7) Use endpoint builder strategy.
+   In this case, the heavy point of information actually is compositions of other lighter data sources.
+   Types: heavy endpoint vs. light endpoint. The former is big no for the mobile world.
+   Whom it is meant for? web applications or mobile application.
+
+
+   
+
+Implementation mechanism used for application elements
+---------------------------------------------------------------------
+
+1) Asynchronous communication. 
+
+   Use message broker, e.g. RabbitMQ, ActiveMQ, ZeroMQ, Kafka, and Redis. 
+   Each of these options has its own peculiarities, some are faster, others are more resilient. Again, the business setting is going to determine which technology is used.
+
+2) Caching techniques.
+   Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
+
+   
+======================================================================================================================	
+Area to explore
+======================================================================================================================
+	
+
+======================================================================================================================	
+Questions
+======================================================================================================================
+
+1) What is reverse HTTP proxy? It is really confusing. In case of proxy, server does not know who it is talking 
+   to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
+   See https://www.youtube.com/watch?v=ozhe__GdWC8
+
+
+
+
+======================================================================================================================	
+References
+======================================================================================================================
+
+https://learning.oreilly.com/library/view/microservice-patterns-and/9781788474030/ (the book)
+https://medium.com/@alokmalakar/architecting-a-ci-cd-pipeline-for-container-and-microservice-based-applications-120f4b470681 (Architecting a CI/CD pipeline for container and microservice-based applications)
+https://blog.paloaltonetworks.com/2019/03/containers-fueling-move-devsecops/ (Containers: Fueling Your Move to DevSecOps)
+
