@@ -1,8 +1,9 @@
 Content:
 
 1) Concepts
-2) Benefits
-3) Best practices
+2) Architecture, Design and Implementation aspect(s)
+3) Benefits
+4) Best practices
 
 
 
@@ -52,6 +53,54 @@ aspects:
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 
+   
+======================================================================================================================================	
+Architecture, Design and Implementation aspect(s)
+======================================================================================================================================	
+
+Aspects:
+
+1) Communication
+2) Interface (or contract) declaration
+3) Dependency management
+4) Usage of persistent mechanism
+
+----------------------------------------------
+Communication
+----------------------------------------------
+
+For asynchronous communication, use the pattern of 'Smart Endpoint and Dumb Pipes". Use message broker, e.g. RabbitMQ, 
+ActiveMQ, ZeroMQ, Kafka, and Redis. Each of these options has its own peculiarities, some are faster, others are more resilient. 
+Again, the business setting is going to determine which technology is used.
+
+
+----------------------------------------------
+Interface (or contract) declaration
+----------------------------------------------
+
+Contract is everything.
+
+
+
+----------------------------------------------
+Dependency management
+----------------------------------------------
+
+
+----------------------------------------------
+Usage of persistent mechanism
+----------------------------------------------
+
+----------------------------------------------
+Caching techniques.
+----------------------------------------------
+
+Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
+
+   
+   
+   
+   
 =====================================================================================================================================	
 Benefits
 =====================================================================================================================================
@@ -75,6 +124,10 @@ Benefits
 - Release
 	- Deliever software faster
 	- Response faster to change 
+
+
+
+
 
 
 =====================================================================================================================================	
@@ -125,20 +178,6 @@ Architectural steps
    Types: heavy endpoint vs. light endpoint. The former is big no for the mobile world.
    Whom it is meant for? web applications or mobile application.
 
-
-   
----------------------------------------------------------
-Implementation mechanism used for application elements
----------------------------------------------------------
-
-1) Asynchronous communication. 
-
-   Use message broker, e.g. RabbitMQ, ActiveMQ, ZeroMQ, Kafka, and Redis. 
-   Each of these options has its own peculiarities, some are faster, others are more resilient. Again, the business setting is going 
-   to determine which technology is used.
-
-2) Caching techniques.
-   Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
 
    
 
