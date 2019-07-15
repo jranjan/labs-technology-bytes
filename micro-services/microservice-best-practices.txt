@@ -7,9 +7,9 @@ Content:
 
 
 
-======================================================================================================================	
+=======================================================================================================================================	
 Concepts
-======================================================================================================================	
+=======================================================================================================================================	
 
 
 -------------------------------
@@ -35,9 +35,9 @@ Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 
 
-======================================================================================================================	
+=====================================================================================================================================	
 Benefits
-======================================================================================================================
+=====================================================================================================================================
 
 	- An exclusive business domain for each microservice, facilitating the implementation of new features
 	- Better definition of business without cyclic dependency between them
@@ -50,9 +50,9 @@ Benefits
 	- Showing you how to make the transition from 
 
 
-======================================================================================================================	
+=====================================================================================================================================	
 Best practices
-======================================================================================================================
+=====================================================================================================================================
 
 1) Architectural steps
 2) Implementation mechanism used for application elements
@@ -66,7 +66,8 @@ Architectural steps
 2) Express resilient published interfaces (not the public interface):
 
 		- Published versioned interfaces: An efficient version control to indicate when something, deprecated is key. 
-		  Not only that, but it will also indicate what the new version is and when the deprecated version will be deactivated permanently.
+		  Not only that, but it will also indicate what the new version is and when the deprecated version will be 
+		  deactivated permanently.
 		- Small published interfaces: A large payload is much more susceptible to change than a more specialized payload. 
 		  Applying the concepts of DDD on these payloads is very healthy.
 		- Published external interfaces: Do not create the concept of published interfaces for internal development teams. 
@@ -103,16 +104,17 @@ Implementation mechanism used for application elements
 1) Asynchronous communication. 
 
    Use message broker, e.g. RabbitMQ, ActiveMQ, ZeroMQ, Kafka, and Redis. 
-   Each of these options has its own peculiarities, some are faster, others are more resilient. Again, the business setting is going to determine which technology is used.
+   Each of these options has its own peculiarities, some are faster, others are more resilient. Again, the business setting is going 
+   to determine which technology is used.
 
 2) Caching techniques.
    Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
 
    
 
-======================================================================================================================	
+======================================================================================================================================	
 Questions
-======================================================================================================================
+======================================================================================================================================
 
 1) What is reverse HTTP proxy? It is really confusing. In case of proxy, server does not know who it is talking 
    to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
