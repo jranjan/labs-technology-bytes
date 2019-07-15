@@ -3,6 +3,7 @@ Content:
 1) Concepts
 2) Architecture, Design and Implementation aspect(s)
 3) 12-factor apps
+4) Cloud native apps
 4) Benefits
 5) Best practices
 
@@ -205,7 +206,27 @@ container is not a web-app.
 	- Same for microservice and webapp
 
 
-   
+=====================================================================================================================================	 
+Cloud native apps   
+=====================================================================================================================================	
+
+These are characestristics of cloud native apps.
+
+1) Operability
+	- Expose control of application/system lifecycle
+2) Observability
+	- Provide meaningful signals for observing state, health, and performance
+3) Elasticity
+	- Grow and shrink to fit in available resources and to meet fluctuating demand
+4) Resilience
+	- Fast automatic recovery from failures
+5) Agility
+	- Fast deployment, iteration, and reconfiguration.
+	
+Everyone is part of CNCF even Microsoft, Apple, Amazon. All these because of Kuberentes.
+
+
+
 =====================================================================================================================================	
 Benefits
 =====================================================================================================================================
@@ -277,7 +298,18 @@ Best practices: steps or habit to adapt for goodness
    Whom it is meant for? web applications or mobile application.
 
 
-   
+
+
+======================================================================================================================================	
+Microservice challenges   
+======================================================================================================================================	
+
+- Explosion in the number of processes to manage
+- New and not well understood by many teams
+- Heavy netwrok utilization and increased latency
+- Small to medium applications may be hard to deploy and manage
+- Integration is not longer any one in development problem
+
 
 ======================================================================================================================================	
 Questions
@@ -308,4 +340,7 @@ https://blog.paloaltonetworks.com/2019/03/containers-fueling-move-devsecops/
 
 Microservice interview questions::
 https://www.edureka.co/blog/interview-questions/microservices-interview-questions/
+
+Heroku:
+https://devcenter.heroku.com/articles/getting-started-with-nodejs
 
