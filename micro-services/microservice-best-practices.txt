@@ -13,6 +13,19 @@ Concepts
 
 
 -------------------------------
+What is microservice?
+-------------------------------
+
+A fine grained atomically deployable service accessed by platform agnostic network API.
+
+
+-------------------------------
+What is microservice not?
+-------------------------------
+
+It is a pattern! You apply where it fits. It is not supposed to be applied everywhere. :-)
+
+-------------------------------
 Monoliths vs. Micro-services
 -------------------------------
 
