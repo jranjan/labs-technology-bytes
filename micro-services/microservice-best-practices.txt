@@ -6,7 +6,7 @@ Content:
 4) Cloud native apps
 4) Benefits
 5) Best practices
-
+6) Good to know
 
 
 
@@ -318,6 +318,17 @@ Questions
 1) What is reverse HTTP proxy? It is really confusing. In case of proxy, server does not know who it is talking 
    to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
    See https://www.youtube.com/watch?v=ozhe__GdWC8
+
+
+======================================================================================================================================	
+Glossary
+======================================================================================================================================
+
+Bounded Context:
+-------------------
+Bounded Context is a central pattern in Domain-Driven Design [DDD] (term coined by Eric Evans in his 2003 book). DDD decomposes
+complex software systems into bounded contexts based on natural partitions in the real world problem domain and the unique
+perspectives that those contexts embody.
 
 
 
