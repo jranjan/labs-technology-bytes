@@ -12,6 +12,10 @@ Concepts
 =======================================================================================================================================	
 
 
+1) What is microservice?
+2) What is microservice not?
+3) Monoliths vs. Micro-services
+
 -------------------------------
 What is microservice?
 -------------------------------
@@ -23,7 +27,9 @@ A fine grained atomically deployable service accessed by platform agnostic netwo
 What is microservice not?
 -------------------------------
 
-It is a pattern! You apply where it fits. It is not supposed to be applied everywhere. :-)
+It is a pattern! You apply where it fits. It is not supposed to be applied everywhere. :-) There are many other architectural 
+patterns which is not going to go away. For e.g. monolithic systems for equity transaction as the focus here is of getting 
+low latency than anything else.
 
 -------------------------------
 Monoliths vs. Micro-services
@@ -46,29 +52,40 @@ aspects:
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 
-
-
 =====================================================================================================================================	
 Benefits
 =====================================================================================================================================
 
-	- An exclusive business domain for each microservice, facilitating the implementation of new features
-	- Better definition of business without cyclic dependency between them
-	- Independent deployment
-	- Simplicity to identify errors
+	
+- Architectural lities (scalability, availability, extensibility etc)
+	- Fine grained scaling
+	- Possible scalability for specific microservice 
 	- Technological independence among microservices
+	- Flexibility to embrace newer techonologies
+	- Resilience
+- Manageability
+	- Simplicity to identify errors
+	- Independent deployment
+- Engineering benefits from implementation perspective
 	- Independence between teams
 	- Implementation of isolation
-	- Possible scalability for specific microservice 
-	- Showing you how to make the transition from 
+	- An exclusive business domain for each microservice, facilitating the implementation of new features
+	- Better definition of business without cyclic dependency between them
+	- Organizational alignment
+- Release
+	- Deliever software faster
+	- Response faster to change 
 
 
 =====================================================================================================================================	
 Best practices
 =====================================================================================================================================
 
+
 1) Architectural steps
 2) Implementation mechanism used for application elements
+
+
 
 --------------------
 Architectural steps
