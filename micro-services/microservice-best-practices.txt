@@ -2,8 +2,10 @@ Content:
 
 1) Concepts
 2) Architecture, Design and Implementation aspect(s)
-3) Benefits
-4) Best practices
+3) 12-factor apps
+4) Benefits
+5) Best practices
+
 
 
 
@@ -16,6 +18,7 @@ Concepts
 1) What is microservice?
 2) What is microservice not?
 3) Monoliths vs. Micro-services
+4) Microservice precursors
 
 -------------------------------
 What is microservice?
@@ -52,7 +55,22 @@ aspects:
 
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
+-------------------------------------
+Microservice precursors
+-------------------------------------
 
+The chronological order are:
+
+Service Oriented Architecture (SOA)
+	+ Service 
+	- Layered architecture 
+	- Usage of ESB (anti-pattern of Smart endpoint and Dumb queue)
+Domain-Driven Design
+Hexagonal Architecture
+Agile methodology
+Continuous integration and Continuous Delivery
+Virtualization
+DevOps (a new paradigm of release software)
    
 ======================================================================================================================================	
 Architecture, Design and Implementation aspect(s)
@@ -98,8 +116,15 @@ Caching techniques.
 Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
 
    
-   
-   
+=====================================================================================================================================
+12-factor apps
+=====================================================================================================================================	
+
+
+
+
+
+
    
 =====================================================================================================================================	
 Benefits
@@ -131,18 +156,8 @@ Benefits
 
 
 =====================================================================================================================================	
-Best practices
+Best practices: steps or habit to adapt for goodness
 =====================================================================================================================================
-
-
-1) Architectural steps
-2) Implementation mechanism used for application elements
-
-
-
---------------------
-Architectural steps
---------------------
 
 1) Identifying areas to apply the principle of sole responsibility for each micro-service is crucial to application architecture.
 
@@ -157,7 +172,7 @@ Architectural steps
 		  This creates a slow process of change and implementation features.
 
     The published interface is what the micro-service developers release. The published interface is what will be consumed by the 
-	internet. A good example is the Single Sign-On (SSO) API.
+    internet. A good example is the Single Sign-On (SSO) API.
 	
 3) Deploy micro-services independently
 
@@ -207,4 +222,7 @@ https://medium.com/@alokmalakar/architecting-a-ci-cd-pipeline-for-container-and-
 
 Containers: Fuelling Your Move to DevSecOps::
 https://blog.paloaltonetworks.com/2019/03/containers-fueling-move-devsecops/
+
+Microservice interview questions::
+https://www.edureka.co/blog/interview-questions/microservices-interview-questions/
 
