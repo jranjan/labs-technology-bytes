@@ -1,5 +1,153 @@
+Architecture, Design and Implementation aspect(s)
 
-Content:
+- Communication and its pattern
+- Interface (or contract) declaration
+- Dependency management
+- Usage of persistent mechanism
+
+
+======================================================================================================================	
+Communication and its pattern
+======================================================================================================================	
+
+For asynchronous communication, use the pattern of 'Smart Endpoint and Dumb Pipes". Use message broker, e.g. RabbitMQ, 
+ActiveMQ, ZeroMQ, Kafka, and Redis. Each of these options has its own peculiarities, some are faster, others are more resilient. 
+Again, the business setting is going to determine which technology is used.
+
+Communications are the lifeblood of microservices. The following schemes are typically employed:
+
+	1) Request/Response
+		- REST
+		- RPC
+			- gRPC/ProtoBuf
+				- Fast
+				- Nice properties while decomposing monolith application
+				- Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
+			- Apache Thrift
+			- JSON RPC			
+	2) Messaging
+		- Broadcast
+		- Pub/Sub (aka multicast)
+			- Kafka
+			- Nats
+		- Anycast
+		- Unicast
+		- AWS SQS and SNS.  It is good if services are running in AWS
+	3) Streaming: characterised by a continuous flow of data from a server to a connected client.
+
+
+------------------------------------------------
+Patterns:
+------------------------------------------------
+
+Smart Endpoint and Dumb Pipes
+
+
+------------------------------------------------
+REST
+------------------------------------------------
+
+- HTTP 1.0 vs. HTTP 2.0, a huge difference in terms of efficiency
+
+- Six Constraints. These are not limitations but a way to implement RESTful API which adhere (or live under) these guidelines. It is API
+  style not a protocol - always remember!
+		1) Client-server
+		2) Statelss
+		3) Cacheable
+		4) Layered system
+		5) Code on demand (optional)
+		6) Uniform interface
+	
+- RESTful web services
+		- A web application implemented using HTTP and REST principles.
+		- Collect of resources
+		- Idempotent methods: GET, OPTIONS, HEAD, PUT and DELETE. 
+		- PATCH vs. PUT. PATCH is not idempotent but not PUT. For e.g. if your PATCH call is applied 10 times, it should 
+		  do same thing 10 times. For e.g. adding a phone number.
+		- REST is not protocol but uses standards like HTTP, URI, JSON etc.
+
+	------------------------------------------------------------------------------------------------
+  	HTTP method 					|  		Idempotent				| 		Safe (immutable)
+  	------------------------------------------------------------------------------------------------
+	OPTIONS							|		Y						|		Y
+	GET								|		Y						|		Y
+	HEAD							|		Y						| 		Y
+	PUT								|		Y						|		N
+	POST 							|		N						|		N
+	DELETE							|		N						|		N
+	PATCH							|		N						|		N
+	------------------------------------------------------------------------------------------------
+	
+	Idempotent does mean that you get same result irrespective of number of times you perform the operations. 
+	Think verbs at resource level! Does it create new resource? If no then it is idempotent.  For e.g. 
+	once order id is created then it does not matter how many times you apply PUT with same payload. The answer
+	is yes. 
+	
+	
+- Implementation platforms (YOU NEED TO GET HANDS ON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. Remember difference between: Specification
+  vs. Protocol vs. SDK or platforms.
+		- Java
+			- JAX-RS: Jersey, MOCy
+		- Python
+			- Django REST framework
+			- Flask
+		- Scala
+			- Play
+		- Node.js
+			- Connect
+			- Express
+		- Go
+			- Net/HTTP 
+			- gin (layer over Net/HTTP)
+		- Ruby
+			- Sinatra
+			- Rails-API
+		- PHP
+			- F3
+					
+- Open API Inititatives
+	- Vendor neutral open governance structure under the Linux foundation
+	- Swagger is adopted by OAI
+	- RAML: a REST API codification competior to OAI
+	
+- Backend API implementation
+	- REST is predominantly used over the infrastructure of the web. 
+	- In backend systems, web technologies can be cumbersome. This is becoming less the case with HTTP2.
+	- Usage (not for frontend)
+		- Apache Thrift: Facebook, Twitter
+		- Protocol Buffers: Google
+	- There are benefits to a homogeneous solution but non functional requirements must also be considered when
+	  designing end to end corporate solutions.
+	
+======================================================================================================================	
+Interface (or contract) declaration
+======================================================================================================================	
+
+Contract is everything.
+
+
+
+
+======================================================================================================================	
+Dependency management
+======================================================================================================================	
+
+
+
+
+======================================================================================================================	
+Usage of persistent mechanism
+======================================================================================================================	
+
+
+
+======================================================================================================================	
+Caching techniques.
+======================================================================================================================	
+
+Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
+
+
 
 
 
@@ -105,17 +253,13 @@ Implementation mechanism used for application elements
 
    
 ======================================================================================================================	
-Area to explore
-======================================================================================================================
-	
-
-======================================================================================================================	
 Questions
 ======================================================================================================================
 
-1) What is reverse HTTP proxy? It is really confusing. In case of proxy, server does not know who it is talking 
-   to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
-   See https://www.youtube.com/watch?v=ozhe__GdWC8
+   
+*********** Can we pass body in GET?
+
+See https://stackoverflow.com/questions/978061/http-get-with-request-body
 
 
 
@@ -124,7 +268,4 @@ Questions
 References
 ======================================================================================================================
 
-https://learning.oreilly.com/library/view/microservice-patterns-and/9781788474030/ (the book)
-https://medium.com/@alokmalakar/architecting-a-ci-cd-pipeline-for-container-and-microservice-based-applications-120f4b470681 (Architecting a CI/CD pipeline for container and microservice-based applications)
-https://blog.paloaltonetworks.com/2019/03/containers-fueling-move-devsecops/ (Containers: Fueling Your Move to DevSecOps)
 
