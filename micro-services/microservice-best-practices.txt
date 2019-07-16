@@ -1,12 +1,12 @@
 Content:
 
-1) Concepts
-2) Architecture, Design and Implementation aspect(s)
-3) 12-factor apps
-4) Cloud native apps
-4) Benefits
-5) Best practices
-6) Good to know
+- Concepts
+- Architecture, Design and Implementation aspect(s)
+- 12-factor apps
+- Cloud native apps
+- Benefits
+- Best practices
+- Good to know
 
 
 
@@ -75,52 +75,11 @@ DevOps (a new paradigm of release software)
 
 
 
-
-
-
-
 ======================================================================================================================================	
 Architecture, Design and Implementation aspect(s)
 ======================================================================================================================================	
 
-Aspects:
-
-1) Communication
-2) Interface (or contract) declaration
-3) Dependency management
-4) Usage of persistent mechanism
-
-----------------------------------------------
-Communication
-----------------------------------------------
-
-For asynchronous communication, use the pattern of 'Smart Endpoint and Dumb Pipes". Use message broker, e.g. RabbitMQ, 
-ActiveMQ, ZeroMQ, Kafka, and Redis. Each of these options has its own peculiarities, some are faster, others are more resilient. 
-Again, the business setting is going to determine which technology is used.
-
-
-----------------------------------------------
-Interface (or contract) declaration
-----------------------------------------------
-
-Contract is everything.
-
-
-
-----------------------------------------------
-Dependency management
-----------------------------------------------
-
-
-----------------------------------------------
-Usage of persistent mechanism
-----------------------------------------------
-
-----------------------------------------------
-Caching techniques.
-----------------------------------------------
-
-Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
+See https://github.com/jranjan/labs-technology-bytes/edit/master/micro-services/microservice-patterns.txt 
 
 
    
@@ -223,7 +182,8 @@ These are characestristics of cloud native apps.
 5) Agility
 	- Fast deployment, iteration, and reconfiguration.
 	
-Everyone is part of CNCF even Microsoft, Apple, Amazon. All these because of Kuberentes.
+Everyone is part of CNCF even Microsoft, Apple, Amazon. All these because of Kuberentes. Rules of 12-factor apps goes well with 
+cloud native apps but not all rules apply as it is.
 
 
 
@@ -315,9 +275,13 @@ Microservice challenges
 Questions
 ======================================================================================================================================
 
-1) What is reverse HTTP proxy? It is really confusing. In case of proxy, server does not know who it is talking 
-   to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
-   See https://www.youtube.com/watch?v=ozhe__GdWC8
+*********** What is reverse HTTP proxy? 
+
+It is really confusing. In case of proxy, server does not know who it is talking 
+to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
+See https://www.youtube.com/watch?v=ozhe__GdWC8
+
+*********** What is difference between gRPC and ProtoBuf
 
 
 ======================================================================================================================================	
