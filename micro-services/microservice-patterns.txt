@@ -23,6 +23,7 @@ Communications are the lifeblood of microservices. The following schemes are typ
 				- Fast
 				- Nice properties while decomposing monolith application
 				- Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
+                - Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
 			- Apache Thrift
 			- JSON RPC			
 	2) Messaging
@@ -67,15 +68,15 @@ REST
 		- REST is not protocol but uses standards like HTTP, URI, JSON etc.
 
 	------------------------------------------------------------------------------------------------
-  	HTTP method 					|  		Idempotent				| 		Safe (immutable)
+  	HTTP method 	| 	Idempotent	| 		Safe (immutable)
   	------------------------------------------------------------------------------------------------
-	OPTIONS							|		Y						|		Y
-	GET								|		Y						|		Y
-	HEAD							|		Y						| 		Y
-	PUT								|		Y						|		N
-	POST 							|		N						|		N
-	DELETE							|		N						|		N
-	PATCH							|		N						|		N
+	OPTIONS			|		Y		|		Y
+	GET		     	|		Y		|		Y
+	HEAD			|		Y		| 		Y
+	PUT			    |		Y		|		N
+	POST 			|		N		|		N
+	DELETE			|		N		|		N
+	PATCH			|		N		|		N
 	------------------------------------------------------------------------------------------------
 	
 	Idempotent does mean that you get same result irrespective of number of times you perform the operations. 
@@ -119,6 +120,8 @@ REST
 	- There are benefits to a homogeneous solution but non functional requirements must also be considered when
 	  designing end to end corporate solutions.
 	
+    
+    
 ======================================================================================================================	
 Interface (or contract) declaration
 ======================================================================================================================	
