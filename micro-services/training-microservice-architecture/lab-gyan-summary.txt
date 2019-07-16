@@ -1,7 +1,8 @@
 The objective of this document is to capture all learning which one gets typically of hands on instead of conceptual understanding of 
 the subject only. 
 
-  
+1) How did I prepare my development setup?
+2) How did I packaged my webapp as a container and launched it after that?  
 
 
 
@@ -9,7 +10,7 @@ the subject only.
 
 
 =========================================================================================================================================
-Amalgation of tools to create dev environment  
+How did I prepare my development setup?
 =========================================================================================================================================
 
 Steps followed:
@@ -27,9 +28,9 @@ Steps followed:
  
  
  
- ----------------------------------------------------------------------
- Created developer centeric development environment (i.e. venv)
- ----------------------------------------------------------------------
+----------------------------------------------------------------------
+Created developer centeric development environment (i.e. venv)
+----------------------------------------------------------------------
   
 user@ubuntu:~/trash-can/inv$ virtualenv venv
 
@@ -56,15 +57,8 @@ Python 3.5.2
 # (venv) user@ubuntu:~/trash-can/inv$ deactivate ----------------------------------- to deactivate venv
 
 
-
-
-
-
-
-
-
 ----------------------------------------------------------------------
-reate repository for version control (git init does that :-))
+Create repository for version control (git init does that :-))
 ----------------------------------------------------------------------
 
 For this project we'll use the Git source code control system to ensure that we do not accidentally delete or overwrite our work. 
@@ -119,6 +113,113 @@ Untracked files:
 (use "git add <file>..." to include in what will be committed)
 inv.py
 (venv) user@ubuntu:~/trash-can/inv$
+
+
+
+=========================================================================================================================================
+How did I packaged my webapp as a container and launched it after that?  
+=========================================================================================================================================
+
+I was using venv for development isolation which is file centric isolation. It was good so far! But I want run time isolation and 
+want to give a hardened artefact to someone. That is what container image is all about.
+
+Steps::
+
+	- Install docker
+	- Create docker file
+	- Build docker image with tag (if you want - ideally you should as it does help in versioning)
+	- Run container
+	- Checked-in my docker file into repo
+	
+Learnings::
+
+	Learn to have patience to debug if thing does not work. Always ask: where the log is!!!
+	In this case, docker log command clearly hinted that.
+	
+Commands::
+
+user@ubuntu:~$ wget -qO- https://get.docker.com/ | sh
+
+user@ubuntu:~$ sudo usermod -a -G docker user
+
+user@ubuntu:~$ id user
+uid=1000(user) gid=1000(user) groups=1000(user),4(adm),24(cdrom),27(sudo),
+30(dip),46(plugdev),110(lxd),115(lpadmin),116(sambashare),999(docker)
+
+user@ubuntu:~$ id
+uid=1000(user) gid=1000(user) groups=1000(user),4(adm),24(cdrom),27(sudo),
+30(dip),46(plugdev),110(lxd), 115(lpadmin),116(sambashare)
+
+user@ubuntu:~$ sudo reboot
+
+user@ubuntu:~$ cd trash-can/
+
+user@ubuntu:~/trash-can/inv$ vim Dockerfile
+
+user@ubuntu:~/trash-can/inv$ cat Dockerfile
+
+FROM ubuntu:16.04
+RUN apt-get update -y && \
+    apt-get install -y python-pip && \
+    pip install flask && \
+    rm -rf /var/lib/apt/lists/*
+ENV FLASK_APP=inv.py    
+COPY . /app
+WORKDIR /app
+ENTRYPOINT ["python"]
+CMD ["-m", "flask", "run", "-h", "0.0.0.0", "-p", "8080"]
+EXPOSE 8080
+
+user@ubuntu:~/trash-can/inv$ vim .dockerignore
+
+user@ubuntu:~/trash-can/inv$ cat .dockerignore
+
+venv/
+.git/
+.gitignore
+Dockerfile
+.dockerignore
+*.pyc
+
+user@ubuntu:~/trash-can/inv$ docker build -t trash-can/inv:0.1 ~/trash-can/inv/
+
+user@ubuntu:~/trash-can/inv$ docker image ls
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+trash-can/inv       0.1                 882b420bbbb7        2 minutes ago       404MB
+ubuntu              16.04               2d696327ab2e        3 weeks ago         122MB
+rxmllc/hello        latest              05a3bd381fc2        3 weeks ago         1.84kB
+user@ubuntu:~/trash-can/inv$
+
+user@ubuntu:~/trash-can/inv$ docker container run --name=inv -d -p=8080:8080 trash-can/inv:0.1
+e35619c100b08948d4c75b9977fe56de8f3fe21f5f6605c322a28b95231ae950
+
+user@ubuntu:~/trash-can/inv$ docker container logs inv
+
+user@ubuntu:~/trash-can/inv$ curl -svv http://localhost:8080/
+
+user@ubuntu:~/trash-can/inv$ docker container rm $(docker container stop $(docker container ls -aq))
+e35619c100b0
+2eb632068254
+
+user@ubuntu:~/trash-can/inv$ git status
+
+user@ubuntu:~/trash-can/inv$ git add .dockerignore
+
+user@ubuntu:~/trash-can/inv$ git add Dockerfile
+
+user@ubuntu:~/trash-can/inv$ git commit -m "Dockerfile and .dockerignore for trash can inventory service"
+
+[master 5240d6f] Dockerfile and .dockerignore for trash can inventory service
+ 2 files changed, 18 insertions(+)
+ create mode 100644 .dockerignore
+ create mode 100644 Dockerfile
+
+user@ubuntu:~/trash-can/inv$ git status
+
+
+
+
 
 
 
