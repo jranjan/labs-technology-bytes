@@ -295,6 +295,52 @@ complex software systems into bounded contexts based on natural partitions in th
 perspectives that those contexts embody.
 
 
+======================================================================================================================================	
+Micro-service packaging
+======================================================================================================================================	
+
+-----------------------------------
+Docker, Container and Kubernetes
+-----------------------------------
+
+Docker exposes its functionality using REST API and run as daemon. Docker is more like a dump worker leveraging Linux kernel
+capabilities like cgroug, network namespace etc. The fun is brought by Google. At this point of time, Google runs 2 billion
+containers. Docker uses containerd underneath - low level engine under docker. Core docker components are:
+
+	- Docker Engine
+	- Docker Client
+	- Docker Remote API
+	- Docker Images
+	- Registries
+	- Docker containers
+	
+
+
+
+Alternatives to docker:
+	
+    - Virtual machine
+    	  - Not a great way to package app
+	  - Stronger isolation
+	  - VMware VIC (boots a photon OS and runs containers) - heavier than regular container but lighter than VM
+	  - Kata containers (not docker compliant, but OCI compliant)
+    - RedHat Solutions
+    	  - Rocket
+	  - CRI-O is open source RedHat container manager - a pure container manager
+    - Joyent SmartOS and Triton
+    - Mesos
+    - LXC
+    - LXD/OpenVZ
+
+
+
+-----------------------------------
+Interesting observation
+-----------------------------------
+
+- CoreOS (minimal OS) -> Rocket (an alternated for Docker)
+- Google invested in CoreOS bought by RedHat which in turn is bought by IBM.
+- Docker contributed 5% code in OCI (The Open Container Initiative)
 
 
 ======================================================================================================================	
