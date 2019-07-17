@@ -294,7 +294,7 @@ The Saga Pattern
     	   - Choregoraphy
 	   	- Try to map it with General problem (of army one)
 		- Compensating transaction helps here.
-	   - 
+	   
    
    
 ======================================================================================================================	
