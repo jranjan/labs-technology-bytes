@@ -1,6 +1,7 @@
 Architecture, Design and Implementation aspect(s)
 
 - Communication and its pattern
+- Loosely coupled systems
 - Interface (or contract) declaration
 - Dependency management
 - Usage of persistent mechanism
