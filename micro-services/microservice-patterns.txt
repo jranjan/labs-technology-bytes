@@ -2,9 +2,8 @@ Architecture, Design and Implementation aspect(s)
 
 - Communication and its pattern
 - Loosely coupled systems
-- Interface (or contract) declaration
-- Dependency management
-- Usage of persistent mechanism
+- Cloud native transaction and event processing
+- Microservice pattern
 
 Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects.
 
@@ -241,15 +240,27 @@ Contract is everything.
 
 
 ======================================================================================================================	
-Dependency management
+Cloud native transaction and event processing
 ======================================================================================================================	
 
+Definition of state: All the stored information, at a given instant in time, to which program has.
 
+Elaboration of ACID theorem::
 
+    1) Atomicity: requires that each transation is all or nothing.
+    2) Consistency: ensures that any transaction will bring database from one valid state to another.
+    3) Isolation: ensures that the concurrent execution of transaction results in a system state 
+       that would be obtained if transaction were executed serially
+    4) Durability: means that once a transaction has been committed, it will remain so, even in 
+       the event of pwoer loss, crashes or errors.
 
-======================================================================================================================	
-Usage of persistent mechanism
-======================================================================================================================	
+Elaboration of CAP theorem::
+
+    1) Consistency: all nodes see the same data at the same time.
+    2) Availabilty: gurantees every request receives a response whether successful or failed. 
+    3) Partition tolerance: the system operates despite message loss or failure of part of the system. It is key to scale.
+    
+You can get two of above in any clustered system. For e.g. Swift claims for AP. 
 
 
 
@@ -260,30 +271,31 @@ Caching techniques.
 Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
 
 
-	
+
 
 ======================================================================================================================	
-Observations
-======================================================================================================================
+Microservice pattern
+======================================================================================================================	
 
+[1] CQRS (Command Query Responsibility Segregation)
+[2] Event sourcing
+[3] The Saga Pattern
 
+Event Sourcing::
 
-
-
-
+    - It is the process of capturing all inputs as events
+    - Rely on immutablity
+    
+The Saga Pattern
+	
+    - It is used to solve problem a business transaction span multiple service.
+    - A saga is a sequenec of local transactions.
+    - Implementation mechanism or coordinate sagas
+    	   - Choregoraphy
+	   	- Try to map it with General problem (of army one)
+		- Compensating transaction helps here.
+	   - 
    
-
-Implementation mechanism used for application elements
----------------------------------------------------------------------
-
-1) Asynchronous communication. 
-
-   Use message broker, e.g. RabbitMQ, ActiveMQ, ZeroMQ, Kafka, and Redis. 
-   Each of these options has its own peculiarities, some are faster, others are more resilient. Again, the business setting is going to determine which technology is used.
-
-2) Caching techniques.
-   Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
-
    
 ======================================================================================================================	
 Questions
