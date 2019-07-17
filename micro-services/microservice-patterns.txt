@@ -6,6 +6,8 @@ Architecture, Design and Implementation aspect(s)
 - Dependency management
 - Usage of persistent mechanism
 
+Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects.
+
 
 ======================================================================================================================	
 Communication and its pattern
@@ -121,7 +123,113 @@ REST
 	- There are benefits to a homogeneous solution but non functional requirements must also be considered when
 	  designing end to end corporate solutions.
 	
+	
+======================================================================================================================	
+Loosely coupled systems
+======================================================================================================================	
+
+3 popular techniques: Streaming, Messaging and RPC. It is worth to note the following points:
+      
+      - Streaming can be sync but is usually async.
+      - Message is almost always sync or async
+      - RPC can be either sync of async.
+      - REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
+
+[Architectural and Design aspect] Before you choosing coupling mechanism, ask yourself?
+
+      [*] Do you need streaming kind of scnearios to be solved?
+      [*] Your calls are aync or async?
+      [*] Is odering of async calls are needed?
+      [*] How much de-coupling you need, are you OK to have middleware?
+
+
+------------------------------------------------------------------
+Messaging
+------------------------------------------------------------------
+
+Important aspects:
+
+     - Types of messaging systems
+     - High profile messaging platforms
+     - High profile messaging platforms
+     - [Architectural aspect] Ask yoruself before picking message system?
+
+Types of messaging systems::
+     - Raw Network messaging
+           - UDP
+	   - Fast as it gets
+	   - True multicase, True broadcast
+	   - No store, no forward
+     - Library based
+           - Can offer some delivery assurance (retry)
+	   - Coupled with publisher and cosumer. It does matter who comes first!
+	   - Deploys in process
+	   - No server or middleware required
+	   - Super low latency
+           - Examples: ZeroMQ, Nanomsg
+     - Message Oriented Middleware
+           - Store and forward
+	   - Completely decoupled with publisher and consumer. So, it does not matter who comes first! 
+	   - Pub/sub
+	   - Perhaps various transaction levels
+	   - Routing 
+	   - More complicate deployment
+	   - Not for the fastest messaging solution
+	   - Examples: NATS, Kafka, RabbitMQ, AWS SQS and SNS, AMQP
+	      
+High profile messaging platforms:: [@]
     
+    - Websphere MQ (IBM centric, trying to open source)
+    - Apache QPID (AMQP, free)
+    - ActiveMQ  (AMQP, free, apache community) 
+    - RabbitMQ (Erlang basedm elegant, fast, reliable, Erlang is used in Telcos)
+    - ZeroMQ (library based, very fast but brokerless, requiring rendezvous)
+    
+[@] Designed in pre-era of cloud computing
+
+
+High profile messaging platforms::
+	
+    - Tibco Rendezvous [RV] (Popular in financial applications, fast and expensive)
+    - Information Ultra Messaging
+    - ZeroMQ
+    - NATS 
+    	- Open soruce messaging brroker designed for microservices and cloud native applications
+	- Faster in line with Kafka
+	- Earlier written as Ruby, no in Go
+	- CNCF project
+	- Does not worry about persist the messages. Durability is lost!
+    - Apache Kafka 
+    	- Created at Linkedin
+	- 3 times faster than RabbitMQ
+	- Scalable
+    	- Persists the message for 7 days, gives durability!
+	- Developed in Java
+	- Collection of brokers! 
+	- It seems to be more interesting and valuable. So, a detailed investigation is warranted!
+    - Apache Pulsar (Created at Yahoo)
+    - Redis
+    	 - Using it as key though it is in-memory key-value pair
+    
+    
+    
+ [Architectural and Design aspect] Ask yoruself before picking message system?::
+
+    [*] Do you neeed durability?
+    [*] What is your performance requirement?
+    [*] Do you neeed middleware? Or, are you fine with library mode for better latency like ZeroMQ?
+	
+
+[Architecture and Design aspects] Cloud native applications::
+
+    [*] Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
+    [*] Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
+    [*] Need resilency! Mechanism to resilency is typically replicas. Note that replication is very different from scale.
+    [*] Easy scalability! Many ways to achieve. Auto-addition of instances or partitioning are some ways to achieve same.
+    [*] ATOMICITY. Application must be designed to take care of this. Leverage some tools or sequencing or something else to achieve it.
+
+
+
     
 ======================================================================================================================	
 Interface (or contract) declaration
@@ -152,39 +260,7 @@ Caching techniques.
 Varnish Cache, defined as: the Varnish Cache accelerator is a web application also known as reverse HTTP proxy caching. 
 
 
-
-
-
-
-
-
-======================================================================================================================	
-Concepts
-======================================================================================================================	
-
-1) Monoliths vs. Micro-services
-
-Monoliths vs. Micro-services
----------------------------------------------------------------------------------------------------------------------
-
-Django kind of application relying on MVC pattern assumed layered architecture. It did apply separation of concern
-by segregating user layer, business layer and persistence layer. But all business layer was embedded in one place.
-So, if there is any scale required in some portion of business layer, entire model needs to be changed. That's why
-it is called a monoliths application. 
-
-Micro-services are different. They divide a domain into of set of functional unites which can interact with each 
-other. A good architect needs to understand this and should be able to create a design which address the following 
-aspects:
-
-	- x, y, and z scale
-	- services are neither fat nor thin
-	- ability to function a service without depending on each other
-	- divided around domain - a very fundamental need for designer to understand it
-
-Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
-
-
-
+	
 
 ======================================================================================================================	
 Observations
@@ -192,54 +268,7 @@ Observations
 
 
 
-Micro-services benefits
----------------------------
 
-	- An exclusive business domain for each microservice, facilitating the implementation of new features
-	- Better definition of business without cyclic dependency between them
-	- Independent deployment
-	- Simplicity to identify errors
-	- Technological independence among microservices
-	- Independence between teams
-	- Implementation of isolation
-	- Possible scalability for specific microservice 
-	- Showing you how to make the transition from 
-
-Architectural steps
---------------------
-
-1) Identifying areas to apply the principle of sole responsibility for each microservice is crucial to application architecture.
-
-2) Express resilient published interfaces (not the public interface):
-
-		- Published versioned interfaces: An efficient version control to indicate when something, deprecated is key. 
-		  Not only that, but it will also indicate what the new version is and when the deprecated version will be deactivated permanently.
-		- Small published interfaces: A large payload is much more susceptible to change than a more specialized payload. 
-		  Applying the concepts of DDD on these payloads is very healthy.
-		- Published external interfaces: Do not create the concept of published interfaces for internal development teams. 
-		  This creates a slow process of change and implementation features.
-
-    The published interface is what the microservice developers release. The published interface is what will be consumed by the 
-	internet. A good example is the Single Sign-On (SSO) API.
-	
-3) Deploy micro-services independently
-
-4) Define upgrade logic taking care of the following points:
-
-		- Never share libraries between microservices
-		- Strong delimitation of microservice domains
-		- Establish a client-server relationship between microservices
-		- Deploy in separate containers
-
-5) Design for scale (beauty my friend):: x axis: horizontal scaling, y axis: functional scaling, z axis: data partitioning
-
-6) Documentation of communication.
-   The Swagger API is a good alternative solution for such problems.
-
-7) Use endpoint builder strategy.
-   In this case, the heavy point of information actually is compositions of other lighter data sources.
-   Types: heavy endpoint vs. light endpoint. The former is big no for the mobile world.
-   Whom it is meant for? web applications or mobile application.
 
 
    
@@ -264,6 +293,29 @@ Questions
 *********** Can we pass body in GET?
 
 See https://stackoverflow.com/questions/978061/http-get-with-request-body
+
+
+*********** Can a distributed system be consistent any way?
+
+Answer is no. It does not matter who tells what. Ceph tells that it is consistent storage system but in reality, it might not 
+be. Swift (anyhow) declares that it is eventual consitent. A bitter truth is that all distributed systems are eventual consistent.
+I am findinig difficulty to ingest. But the example of General(2)-Enemy(3)-General(3) problem gives data point which is difficult 
+to ignore. So, time to revisit CAP theorem for distributed system? :-)
+
+General (2) ------------------ Enemey (3) ----------------- General (2)
+			<Need to atttack enemy together>
+General (2) -------------- plans attack at midnight ------> General (2)
+General (2) <-------------- Sends acknowledgement --------- General (2) ------------- Phase 1 commit
+General (2) --------------- Sends ACK for ACK  -----------> General (2)
+General (2) <----------- Acknowledge ACK of ACK ----------- General (2)  ------------ Phase 2 commit
+                   ....................................
+		   ....................................
+		   ....................................
+		   
+You just increase the probability of consistency with multiple phase commit at the cost of high latency but you are never guranted. :-)	
+		   
+
+
 
 
 
