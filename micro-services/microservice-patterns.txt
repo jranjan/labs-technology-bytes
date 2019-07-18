@@ -388,6 +388,21 @@ Need for its existence:
 	 	- Network configuration and management
 		- Durable volume management
 
+Orchestrator:
+
+	- Open source
+		- Kubernetes
+		- Mesos
+		- DockerSwarm
+	- Cloud hosted
+		- AWS
+		- GKE
+		- EKS
+	
+	
+	
+	
+	
 ======================================================================================================================	
 Caching techniques.
 ======================================================================================================================	
