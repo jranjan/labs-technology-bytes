@@ -3,7 +3,10 @@ Architecture, Design and Implementation aspect(s)
 - Communication and its pattern
 - Loosely coupled systems
 - Cloud native transaction and event processing
+- Orchestration of microservices
+- Persistence in polyglot environment
 - Microservice pattern
+
 
 Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects.
 
@@ -230,14 +233,112 @@ High profile messaging platforms::
 
 
     
+    
+    
+    
+    
+    
 ======================================================================================================================	
-Interface (or contract) declaration
+Persistence in polyglot environment
 ======================================================================================================================	
 
-Contract is everything.
+Usageg of messaging was more towards loosely couple and achieving collaboration. A problem is still to be solved - that is about 
+the mangaging state inside micro-service - which has been solved for years by RDBMS. Here, what RBMS gave:
+	
+	- ATOMIC transaction
+	- Schema (semantic validation)
+	- SQL (query) to get different set of data
+
+Here is what RDBMS does not give or list of things which no-SQL consumers wants:
+
+	- No SQL
+	- Scalability: only scale vertically, no horizontal sale
+	- Concurrency: a notoroious thing to achieve
+	- Designed in era of single node computer or set of small cluster
+	
+In recent times, two patterns have emerged for scaling RDBMS or SQL database) but its own limitations of 
+implementation complexity, usage of commodity hardware has resulted in failure:
+
+	- Most of databases use clustering  and replication mechnism. Some do auto-sharding (but primitive). 
+	- Applications natively build sharding algorithms and runs bunch of nodes. YouTube was using MySQL but now moved 
+	  to creating new one where they put a facade in front of MySQL which runs on set of distributed cluster. Query 
+	  is very faster. 
+	
+Looks like SQL is in many places! Head of its reference in Hadoop as well. Because of the following issues the world is moving 
+towards NoSQL
 
 
+-----------------------------------------------------------------------
+Common databases
+-----------------------------------------------------------------------
 
+Everyone mentioned below does support cross-feature. For e.g. DynamoDB supports key-value pair as well
+
+	- Relational database
+		- Postgress
+		- MySQL (YouTube was using it but now moved to creating new one)
+	- Key-value
+		- Redis (AWS solution)
+		- etcd
+		- Memcached (AWS solution)
+		- Riak
+		- LevelDB		
+	- Document
+		- AWS DynamoDB
+		- MongoDB
+		- CouchDB
+		- Couchbase
+		- MarkLogic
+		- OrientDB
+		- ArangoDB
+	- Column
+	        - Neptune (AWS solution)
+		- Neo4J
+		- OrientDB
+		- ArangoDB
+		- Titan (can use DynamoDB as backend)
+		- FlockDB
+		- Giraph
+	- Graph
+
+
+-----------------------------------------------------------------------
+NoSQL database
+-----------------------------------------------------------------------
+
+ - No schema and hence so semantic validation
+      - there is hidden truth: there is implicit schemas
+      - Changing the structure of data during the life of an application has an impact on the application. So adding a filed is not
+        a big issue unlike RDBMS where adding a column is a challenge.
+      - Many NoSQL datanase operate on aggregates.
+      - It works best as application databases - dedicated for single application - context oriented technology. 
+
+-----------------------------------------------------------------------
+Mechanism to scale
+-----------------------------------------------------------------------
+
+	- Replication
+		- Copies of same data on multiple nodes
+		- More used for availability but gives scale as side benefit.
+		- Benefits:
+		     - Read scale
+		     - Availabiltiy
+		     - Geographical distributability
+		     - Task Offloading: replcias present excellent platforms for backkup, analytis, application development and 
+		       testing environment
+	- Partitioning
+		- Two ways: Vertical (sets of colums are placed on different nodes) aad horizontal (aka shading - sets of 
+		  rows are placed on different nodes). In fact, there is a third way - a combination of these two.
+		- Vertical paritioning is little not worthy as you need entire row in entity
+		- Horizontal partitioning (or sharding) is faster almost proportional to number of rows.
+
+[Architecture and Design aspects] Peristene related questions:
+
+      [*] Mechaism to scale: replicaiton and partitioning (vertical or horizontal or combination of both) 
+      [*] Do you query data most of times which involves join of tables? In that case, which partitioning technique.
+      [*] Choosing a database does not only performance but for easy ccoding, retrieval, speed etc. So, look at application logic!
+      [*] Choose application centric database!
+      [*] Tow most important thing to consider microservice design are: programming language and persistent mechanism (database)
 
 ======================================================================================================================	
 Cloud native transaction and event processing
@@ -263,6 +364,29 @@ Elaboration of CAP theorem::
 You can get two of above in any clustered system. For e.g. Swift claims for AP. 
 
 
+
+======================================================================================================================	
+Orchestration of microservices
+======================================================================================================================	
+
+Container maangement is another form of orchestration
+
+Need for its existence:
+
+	- Container scheduling
+	- Container management
+	        - Monitoring and recovery
+	        - Image upgrade rollout
+		- Scaling
+		- Logging
+	- Service endpoints
+		- Discovery
+		- HA
+		- Load balancers
+		- Auto scaling
+	- External services
+	 	- Network configuration and management
+		- Durable volume management
 
 ======================================================================================================================	
 Caching techniques.
