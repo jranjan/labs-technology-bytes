@@ -304,7 +304,9 @@ Bounded Context:
 -------------------
 Bounded Context is a central pattern in Domain-Driven Design [DDD] (term coined by Eric Evans in his 2003 book). DDD decomposes
 complex software systems into bounded contexts based on natural partitions in the real world problem domain and the unique
-perspectives that those contexts embody. See https://martinfowler.com/bliki/BoundedContext.html for more details.
+perspectives that those contexts embody. 
+
+See https://martinfowler.com/bliki/BoundedContext.html for more details.
 
 
 
@@ -315,26 +317,37 @@ References
 Hexagonal architecture blog::
 https://medium.com/@cptsudoku/hexagonal-microservices-will-make-you-smile-3850019196c1
 
+
 Ebook on micro-services::
 https://learning.oreilly.com/library/view/microservice-patterns-and/9781788474030/ (the book)
+
 
 Architecting a CI/CD pipeline for container and microservice-based applications::
 https://medium.com/@alokmalakar/architecting-a-ci-cd-pipeline-for-container-and-microservice-based-applications-120f4b470681 ()
 
+
 Containers: Fuelling Your Move to DevSecOps::
 https://blog.paloaltonetworks.com/2019/03/containers-fueling-move-devsecops/
+
 
 Microservice interview questions::
 https://www.edureka.co/blog/interview-questions/microservices-interview-questions/
 
+
 Heroku:
 https://devcenter.heroku.com/articles/getting-started-with-nodejs
+
 
 Implementing microservice using gRPC in go:
 https://github.com/RX-M/kubecon-eu-2019
 https://github.com/RX-M/kubecon-eu-2019/tree/master/step01
 
+
 Kubernetes certification:
 https://github.com/cncf/curriculum
 https://linuxacademy.com/linux/training/course/name/cloud-native-certified-kubernetes-administrator-cka (CKA certification)
 https://medium.com/platformer-blog/how-i-passed-the-cka-certified-kubernetes-administrator-exam-8943aa24d71d (how to prepare for exam)
+
+
+Vitess and other CNCF webinars: 
+https://www.cncf.io/community/webinars/ 
