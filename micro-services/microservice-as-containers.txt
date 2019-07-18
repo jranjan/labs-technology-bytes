@@ -1,1 +1,36 @@
 
+Kubernetes flow
+
+API server get 'Create POD' request
+Scheduler watches for event
+Scheduler identify who can serve based on data available in etcd
+    Node agent kubelet keeps publishing metric to API server
+    API server publish to etcd
+Scheduler feeds data to API server
+API server talk to kubelet to create pod
+
+
+
+Components using gRPC through streaming 
+
+  - Scheduler for 
+  - Kubelet of new binding events
+  
+Components using gRPC as RPC
+
+  - Kube-controller-manager
+  
+  
+Never run a pod directly. Always run deployment though it is more than pod template + replica count. It saves you from node crash.
+
+Kubectl says create a deployment
+Kube-apiserver gets request and writes to etcd saying its created
+Kube-controller-manager (like a garage) discovers deployment
+Kube-controller-manager takes template and request for pod creation
+Kube-scheduler pitch in and find node to host pod
+Kube-scheduler updates selected node to kubernetes master
+Kube-apiserver calls kubelet to create pod
+
+
+  
+    
