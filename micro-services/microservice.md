@@ -281,7 +281,7 @@ items among academecian.
 
 
 
-#Glossary
+# Glossary
 
 
 ### Bounded Context:
