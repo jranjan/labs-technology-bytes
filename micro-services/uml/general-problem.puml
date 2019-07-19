@@ -1,0 +1,58 @@
+@startuml
+
+
+skinparam sequence {
+    TitleFontSize 36
+    TitleFontName Tahoma
+    TitleFontColor DarkBlue
+
+
+	ArrowColor DeepSkyBlue
+	ActorBorderColor DeepSkyBlue
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+
+	ParticipantBorderColor DeepSkyBlue
+	ParticipantBackgroundColor DodgerBlue
+	ParticipantFontName Impact
+	ParticipantFontSize 20
+	ParticipantFontColor #A9DCDF
+
+	ActorBackgroundColor aqua
+	ActorFontColor DeepSkyBlue
+	ActorFontSize 17
+	ActorFontName Aapex
+}
+
+
+actor General_1
+actor General_2 #Blue
+actor Enemy #Red
+
+
+note left General_1
+    General_1 and General_2
+    have 2 soliders but located
+    in differnt side.
+
+    Enemy has 3 soliders.
+
+    They need to attack together and
+    for that they need to attack together.
+end note
+
+General_1 -> General_2: Plan attack at midnight
+General_2 -> General_1: Sends ACK
+General_1 -> General_2: Sends ACK of ACK
+General_2 -> General_1: Sends ACK of ACK of ACK
+
+note left General_1
+    As we can see that nothing can be
+    assured in distributed system. So,
+    we have to believe in eventual
+    consistency only. No distributed
+    system is conssitent in reality.
+    All are eventual consistent
+end note
+
+@enduml
