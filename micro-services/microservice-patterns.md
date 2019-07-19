@@ -7,7 +7,7 @@
 - Persistence in polyglot environment
 - Microservice pattern
 
-### Ask yourself while designing cloud native applications?
+![Attack enmey problem](/micro-services/images/ask.png)
 
    1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
    2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
