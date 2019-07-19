@@ -41,10 +41,10 @@ Micro-services are different. They divide a domain into of set of functional uni
 other. A good architect needs to understand this and should be able to create a design which address the following 
 aspects:
 
-	- x, y, and z scale
-	- services are neither fat nor thin
-	- ability to function a service without depending on each other
-	- divided around domain - a very fundamental need for designer to understand it
+    * x, y, and z scale
+    * services are neither fat nor thin
+    * ability to function a service without depending on each other 
+    * divided around domain - a very fundamental need for designer to understand it
 
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
