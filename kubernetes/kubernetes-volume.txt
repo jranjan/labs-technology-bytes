@@ -78,4 +78,4 @@ It is specifically mentioned wherever the aspect applies to only subset of file,
 		- Do we need to share same volume across clusters? Or, is it fine to have different volume but replicated?
 		- Do we need to share same volume by different cluster at same time? Or, it is fail-over (active-passive) usage?
 5. [Multiplicity and scalability]		
-		
+		 
