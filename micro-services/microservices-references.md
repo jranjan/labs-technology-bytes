@@ -23,7 +23,7 @@
 
 # Implementation references
 * Implementing microservices using gRPC
-     * Kubecon webinars
+     * Kubecon webinars 
            * https://github.com/RX-M/kubecon-eu-2019
            * https://github.com/RX-M/kubecon-eu-2019/tree/master/step01
 
