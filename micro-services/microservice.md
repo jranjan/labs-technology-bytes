@@ -41,10 +41,10 @@ Micro-services are different. They divide a domain into of set of functional uni
 other. A good architect needs to understand this and should be able to create a design which address the following 
 aspects:
 
-    * x, y, and z scale
-    * services are neither fat nor thin
-    * ability to function a service without depending on each other 
-    * divided around domain - a very fundamental need for designer to understand it
+* x, y, and z scale
+* services are neither fat nor thin
+* ability to function a service without depending on each other 
+* divided around domain - a very fundamental need for designer to understand it
 
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
@@ -53,16 +53,16 @@ Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 The chronological order are:
 
-	Service Oriented Architecture (SOA)
-		+ Service 
-		- Layered architecture 
-		- Usage of ESB (anti-pattern of Smart endpoint and Dumb queue)
-	Domain-Driven Design
-	Hexagonal Architecture
-	Agile methodology
-	Continuous integration and Continuous Delivery
-	Virtualization
-	DevOps (a new paradigm of release software)
+1. Service Oriented Architecture (SOA)
+       *  Service 
+       *  Layered architecture 
+       *  Usage of ESB (anti-pattern of Smart endpoint and Dumb queue)
+2. Domain-Driven Design
+3. Hexagonal Architecture
+4. Agile methodology
+5. Continuous integration and Continuous Delivery
+6. Virtualization
+7. DevOps (a new paradigm of release software)
 
 
 
