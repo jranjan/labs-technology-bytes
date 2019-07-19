@@ -32,4 +32,4 @@
 
 
 # Vitess and other CNCF webinars
-* [Webniars](https://www.cncf.io/community/webinars/)
+* [Webinars](https://www.cncf.io/community/webinars/)
