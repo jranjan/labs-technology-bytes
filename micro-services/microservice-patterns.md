@@ -21,25 +21,25 @@ Again, the business setting is going to determine which technology is used.
 
 Communications are the lifeblood of microservices. The following schemes are typically employed:
 
-	1) Request/Response
-		- REST
-		- RPC
-			- gRPC/ProtoBuf
-				- Fast
-				- Nice properties while decomposing monolith application
-				- Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
-                - Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
-			- Apache Thrift
-			- JSON RPC			
-	2) Messaging
-		- Broadcast
-		- Pub/Sub (aka multicast)
-			- Kafka
-			- Nats
-		- Anycast
-		- Unicast
-		- AWS SQS and SNS.  It is good if services are running in AWS
-	3) Streaming: characterised by a continuous flow of data from a server to a connected client.
+Request/Response
+    1. REST
+    2. RPC
+	* gRPC/ProtoBuf
+	* Fast
+	* Nice properties while decomposing monolith application
+	* Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
+        * Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
+            * Apache Thrift
+            * JSON RPC			
+    3. Messaging
+	* Broadcast
+	* Pub/Sub (aka multicast)
+	    * Kafka
+	    * NATS
+		* Anycast
+		* Unicast
+		* AWS SQS and SNS.  It is good if services are running in AWS
+         * Streaming: characterised by a continuous flow of data from a server to a connected client.
 
 
 ------------------------------------------------
