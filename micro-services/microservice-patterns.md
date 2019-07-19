@@ -64,21 +64,21 @@ Communications are the lifeblood of microservices. The following schemes are typ
 	  do same thing 10 times. For e.g. adding a phone number.
 	* REST is not protocol but uses standards like HTTP, URI, JSON etc.
 
-| HTTP method    | Idempotent   | Safe (immutable)   |
-| :------------- | :----------: | -----------------: |
-| OPTIONS        |    Y         |     Y              |
-| GET            |    Y         |     Y              |
-| HEAD           |    Y         |     Y              |
-| PUT            |    Y         |     N              |
-| POST           |    N         |     N              |
-| DELETE         |    N         |     N              |
-| PATCH          |    N         |     N              |
+                         | HTTP method    | Idempotent   | Safe (immutable)   |
+                         | :------------- | :----------: | -----------------: |
+                         | OPTIONS        |    Y         |     Y              |
+                         | GET            |    Y         |     Y              |
+                         | HEAD           |    Y         |     Y              |
+                         | PUT            |    Y         |     N              |
+                         | POST           |    N         |     N              |
+                         | DELETE         |    N         |     N              |
+                         | PATCH          |    N         |     N              |
 
 	
-Idempotent does mean that you get same result irrespective of number of times you perform the operations. 
-Think verbs at resource level! Does it create new resource? If no then it is idempotent.  For e.g. 
-once order id is created then it does not matter how many times you apply PUT with same payload. The answer
-is yes. 
+    Idempotent does mean that you get same result irrespective of number of times you perform the operations. 
+    Think verbs at resource level! Does it create new resource? If no then it is idempotent.  For e.g. 
+    once order id is created then it does not matter how many times you apply PUT with same payload. The answer
+    is yes. 
 	
 	
 4. Implementation platforms (YOU NEED TO GET HANDS ON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. Remember difference between: Specification
