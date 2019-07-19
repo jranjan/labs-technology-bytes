@@ -7,7 +7,7 @@
 - Persistence in polyglot environment
 - Microservice pattern
 
-![Attack enmey problem](/micro-services/images/ask-01.jpg =250x250)
+![Attack enmey problem](/micro-services/images/ask-01.jpg | width=100)
 
    1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
    2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
