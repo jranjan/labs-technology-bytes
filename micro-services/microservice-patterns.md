@@ -365,10 +365,10 @@ Varnish Cache, defined as: the Varnish Cache accelerator is a web application al
 # Commonly used microservice pattern
 
 
-[1] CQRS (Command Query Responsibility Segregation)
-[2] Event sourcing
-[3] The Saga Pattern
-[4] Smart Endpoint and Dumb Pipes
+1. CQRS (Command Query Responsibility Segregation)
+2. Event sourcing
+3. The Saga Pattern
+4. Smart Endpoint and Dumb Pipes
 
 ### Event Sourcing::
 
