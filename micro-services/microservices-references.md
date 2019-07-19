@@ -23,8 +23,9 @@
 
 # Implementation references
 * Implementing microservices using gRPC
-     * https://github.com/RX-M/kubecon-eu-2019
-     * https://github.com/RX-M/kubecon-eu-2019/tree/master/step01
+     * Kubecon webinars
+           * https://github.com/RX-M/kubecon-eu-2019
+           * https://github.com/RX-M/kubecon-eu-2019/tree/master/step01
 
 
 # Ebook
@@ -32,4 +33,4 @@
 
 
 # Vitess and other CNCF webinars
-* [Webinars](https://www.cncf.io/community/webinars/)
+* [CNCF community webinars](https://www.cncf.io/community/webinars/)
