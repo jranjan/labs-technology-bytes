@@ -125,7 +125,7 @@ Communications are the lifeblood of microservices. The following schemes are typ
    4.  How much de-coupling you need, are you OK to have middleware?
 
 
-### Messaging
+## Messaging
 
 
 Important aspects:
@@ -135,7 +135,7 @@ Important aspects:
 * High profile messaging platforms
 
 
-#### Types of messaging systems::
+### Types of messaging systems::
      
   1. Raw Network messaging
           - UDP
@@ -159,7 +159,7 @@ Important aspects:
 	   - Not for the fastest messaging solution
 	   - Examples: NATS, Kafka, RabbitMQ, AWS SQS and SNS, AMQP
 	      
-#### High profile messaging platforms designed in pre-era of cloud computing
+### High profile messaging platforms designed in pre-era of cloud computing
     
   1. Websphere MQ (IBM centric, trying to open source)
   2. Apache QPID (AMQP, free)
@@ -168,7 +168,7 @@ Important aspects:
   5. ZeroMQ (library based, very fast but brokerless, requiring rendezvous)
     
 
-#### High profile messaging platforms
+### High profile messaging platforms
 	
    1. Tibco Rendezvous [RV] (Popular in financial applications, fast and expensive)
    2. Information Ultra Messaging
