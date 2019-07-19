@@ -64,6 +64,11 @@ Communications are the lifeblood of microservices. The following schemes are typ
 	  do same thing 10 times. For e.g. adding a phone number.
 	* REST is not protocol but uses standards like HTTP, URI, JSON etc.
 
+| HTTP method     | Idempotent     | Safe (immutable)     |
+| :------------- | :----------: | -----------: |
+|  Cell Contents | More Stuff   | And Again    |
+| You Can Also   | Put Pipes In | Like this \| |
+
 	------------------------------------------------------------------------------------------------
   	HTTP method 	| 	Idempotent	| 		Safe (immutable)
   	------------------------------------------------------------------------------------------------
@@ -148,20 +153,21 @@ Important aspects:
      - High profile messaging platforms
      - [Architectural aspect] Ask yoruself before picking message system?
 
-Types of messaging systems::
-     - Raw Network messaging
+#### Types of messaging systems::
+     
+     1. Raw Network messaging
            - UDP
 	   - Fast as it gets
 	   - True multicase, True broadcast
 	   - No store, no forward
-     - Library based
+     2. Library based
            - Can offer some delivery assurance (retry)
 	   - Coupled with publisher and cosumer. It does matter who comes first!
 	   - Deploys in process
 	   - No server or middleware required
 	   - Super low latency
            - Examples: ZeroMQ, Nanomsg
-     - Message Oriented Middleware
+     3. Message Oriented Middleware
            - Store and forward
 	   - Completely decoupled with publisher and consumer. So, it does not matter who comes first! 
 	   - Pub/sub
