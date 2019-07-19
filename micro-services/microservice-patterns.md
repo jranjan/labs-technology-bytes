@@ -21,9 +21,9 @@ Again, the business setting is going to determine which technology is used.
 
 Communications are the lifeblood of microservices. The following schemes are typically employed:
 
-Request/Response
-    1. REST
-    2. RPC
+1. Request/Response
+    * REST
+    * RPC
 	* gRPC/ProtoBuf
 	* Fast
 	* Nice properties while decomposing monolith application
@@ -31,46 +31,38 @@ Request/Response
         * Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
             * Apache Thrift
             * JSON RPC			
-    3. Messaging
-	* Broadcast
-	* Pub/Sub (aka multicast)
-	    * Kafka
-	    * NATS
-		* Anycast
-		* Unicast
-		* AWS SQS and SNS.  It is good if services are running in AWS
-         * Streaming: characterised by a continuous flow of data from a server to a connected client.
+2. Messaging
+     * Broadcast
+     * Pub/Sub (aka multicast)
+	 * Kafka
+	 * NATS
+	     * Anycast
+	     * Unicast
+	     * AWS SQS and SNS.  It is good if services are running in AWS
+3. Streaming: characterised by a continuous flow of data from a server to a connected client.
 
 
-------------------------------------------------
-Patterns:
-------------------------------------------------
 
-Smart Endpoint and Dumb Pipes
+### REST (request and response)
 
+1. HTTP 1.0 vs. HTTP 2.0, a huge difference in terms of efficiency
 
-------------------------------------------------
-REST
-------------------------------------------------
-
-- HTTP 1.0 vs. HTTP 2.0, a huge difference in terms of efficiency
-
-- Six Constraints. These are not limitations but a way to implement RESTful API which adhere (or live under) these guidelines. It is API
-  style not a protocol - always remember!
-		1) Client-server
-		2) Statelss
-		3) Cacheable
-		4) Layered system
-		5) Code on demand (optional)
-		6) Uniform interface
+2. Six Constraints. These are not limitations but a way to implement RESTful API which adhere (or live under) these guidelines. 
+   It is API style not a protocol - always remember!
+	* Client-server
+	* Statelss
+	* Cacheable
+	* Layered system
+	* Code on demand (optional)
+	* Uniform interface
 	
-- RESTful web services
-		- A web application implemented using HTTP and REST principles.
-		- Collect of resources
-		- Idempotent methods: GET, OPTIONS, HEAD, PUT and DELETE. 
-		- PATCH vs. PUT. PATCH is not idempotent but not PUT. For e.g. if your PATCH call is applied 10 times, it should 
-		  do same thing 10 times. For e.g. adding a phone number.
-		- REST is not protocol but uses standards like HTTP, URI, JSON etc.
+3. RESTful web services
+        * A web application implemented using HTTP and REST principles.
+	* Collect of resources
+	* Idempotent methods: GET, OPTIONS, HEAD, PUT and DELETE. 
+	* PATCH vs. PUT. PATCH is not idempotent but not PUT. For e.g. if your PATCH call is applied 10 times, it should 
+	  do same thing 10 times. For e.g. adding a phone number.
+	* REST is not protocol but uses standards like HTTP, URI, JSON etc.
 
 	------------------------------------------------------------------------------------------------
   	HTTP method 	| 	Idempotent	| 		Safe (immutable)
@@ -90,8 +82,8 @@ REST
 	is yes. 
 	
 	
-- Implementation platforms (YOU NEED TO GET HANDS ON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. Remember difference between: Specification
-  vs. Protocol vs. SDK or platforms.
+4. Implementation platforms (YOU NEED TO GET HANDS ON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. Remember difference between: Specification
+   vs. Protocol vs. SDK or platforms.
 		- Java
 			- JAX-RS: Jersey, MOCy
 		- Python
@@ -111,19 +103,19 @@ REST
 		- PHP
 			- F3
 					
-- Open API Inititatives
+5. Open API Inititatives
 	- Vendor neutral open governance structure under the Linux foundation
 	- Swagger is adopted by OAI
 	- RAML: a REST API codification competior to OAI
 	
-- Backend API implementation
-	- REST is predominantly used over the infrastructure of the web. 
-	- In backend systems, web technologies can be cumbersome. This is becoming less the case with HTTP2.
-	- Usage (not for frontend)
-		- Apache Thrift: Facebook, Twitter
-		- Protocol Buffers: Google
-	- There are benefits to a homogeneous solution but non functional requirements must also be considered when
-	  designing end to end corporate solutions.
+6. Backend API implementation
+      * REST is predominantly used over the infrastructure of the web. 
+      * In backend systems, web technologies can be cumbersome. This is becoming less the case with HTTP2.
+      * Usage (not for frontend)
+           * Apache Thrift: Facebook, Twitter
+           * Protocol Buffers: Google
+      * There are benefits to a homogeneous solution but non functional requirements must also be considered when
+	designing end to end corporate solutions.
 	
 	
 
@@ -132,10 +124,10 @@ REST
 
 3 popular techniques: Streaming, Messaging and RPC. It is worth to note the following points:
       
-      - Streaming can be sync but is usually async.
-      - Message is almost always sync or async
-      - RPC can be either sync of async.
-      - REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
+      * Streaming can be sync but is usually async.
+      * Message is almost always sync or async
+      * RPC can be either sync of async.
+      * REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
 
 [Architectural and Design aspect] Before you choosing coupling mechanism, ask yourself?
 
@@ -190,7 +182,7 @@ High profile messaging platforms:: [@]
 [@] Designed in pre-era of cloud computing
 
 
-High profile messaging platforms::
+### High profile messaging platforms
 	
     - Tibco Rendezvous [RV] (Popular in financial applications, fast and expensive)
     - Information Ultra Messaging
@@ -313,20 +305,19 @@ Everyone mentioned below does support cross-feature. For e.g. DynamoDB supports 
 
 ### Mechanism to scale
 
-	- Replication
-		- Copies of same data on multiple nodes
-		- More used for availability but gives scale as side benefit.
-		- Benefits:
-		     - Read scale
-		     - Availabiltiy
-		     - Geographical distributability
-		     - Task Offloading: replcias present excellent platforms for backkup, analytis, application development and 
-		       testing environment
-	- Partitioning
-		- Two ways: Vertical (sets of colums are placed on different nodes) aad horizontal (aka shading - sets of 
-		  rows are placed on different nodes). In fact, there is a third way - a combination of these two.
-		- Vertical paritioning is little not worthy as you need entire row in entity
-		- Horizontal partitioning (or sharding) is faster almost proportional to number of rows.
+1. Replication
+     * Copies of same data on multiple nodes
+     * More used for availability but gives scale as side benefit.
+     * Benefits:
+         * Read scale
+         * Availabiltiy
+         * Geographical distributability
+         * Task Offloading: replcias present excellent platforms for backkup, analytis, application development and testing environment
+2. Partitioning
+      * Two ways: Vertical (sets of colums are placed on different nodes) aad horizontal (aka shading - sets of 
+	rows are placed on different nodes). In fact, there is a third way - a combination of these two.
+      * Vertical paritioning is little not worthy as you need entire row in entity
+      * Horizontal partitioning (or sharding) is faster almost proportional to number of rows.
 
 [Architecture and Design aspects] Peristene related questions:
 
@@ -343,20 +334,19 @@ Everyone mentioned below does support cross-feature. For e.g. DynamoDB supports 
 
 Definition of state: All the stored information, at a given instant in time, to which program has.
 
-Elaboration of ACID theorem::
+### Elaboration of ACID theorem
 
-    1) Atomicity: requires that each transation is all or nothing.
-    2) Consistency: ensures that any transaction will bring database from one valid state to another.
-    3) Isolation: ensures that the concurrent execution of transaction results in a system state 
-       that would be obtained if transaction were executed serially
-    4) Durability: means that once a transaction has been committed, it will remain so, even in 
-       the event of pwoer loss, crashes or errors.
+1. Atomicity: requires that each transation is all or nothing.
+2. Consistency: ensures that any transaction will bring database from one valid state to another.
+3. Isolation: ensures that the concurrent execution of transaction results in a system state that would be obtained if 
+   transaction were executed serially
+4. Durability: means that once a transaction has been committed, it will remain so, even in the event of pwoer loss, crashes or errors.
 
-Elaboration of CAP theorem::
+### Elaboration of CAP theorem:
 
-    1) Consistency: all nodes see the same data at the same time.
-    2) Availabilty: gurantees every request receives a response whether successful or failed. 
-    3) Partition tolerance: the system operates despite message loss or failure of part of the system. It is key to scale.
+1.  Consistency: all nodes see the same data at the same time.
+2.  Availabilty: gurantees every request receives a response whether successful or failed. 
+3.  Partition tolerance: the system operates despite message loss or failure of part of the system. It is key to scale.
     
 You can get two of above in any clustered system. For e.g. Swift claims for AP. 
 
@@ -415,6 +405,7 @@ Varnish Cache, defined as: the Varnish Cache accelerator is a web application al
 [1] CQRS (Command Query Responsibility Segregation)
 [2] Event sourcing
 [3] The Saga Pattern
+[4] Smart Endpoint and Dumb Pipes
 
 ### Event Sourcing::
 
