@@ -254,34 +254,16 @@ towards NoSQL
 
 Everyone mentioned below does support cross-feature. For e.g. DynamoDB supports key-value pair as well
 
-	- Relational database
-		- Postgress
-		- MySQL (YouTube was using it but now moved to creating new one)
-	- Key-value
-		- Redis (AWS solution)
-		- etcd
-		- Memcached (AWS solution)
-		- Riak
-		- LevelDB		
-	- Document
-		- AWS DynamoDB
-		- MongoDB
-		- CouchDB
-		- Couchbase
-		- MarkLogic
-		- OrientDB
-		- ArangoDB
-	- Column
-	        - Neptune (AWS solution)
-		- Neo4J
-		- OrientDB
-		- ArangoDB
-		- Titan (can use DynamoDB as backend)
-		- FlockDB
-		- Giraph
-	- Graph
 
-
+   | Type                          | Examples                                                         | 
+   | :---------------------------- | :--------------------------------------------------------------: | 
+   | Relational database source    | Postgress, MySQL (old user Youtube)                              | 
+   | Key-value                     | Redis (AWS), etcd, Memcached (AWS, Riak, LevelDB                 |
+   | Document                      | SynamDB (AWS), MongoDB, CouchDB, MarkLogic, OrientDB, ArangoDB   |
+   | Column                        | Neptune (AWS). Neo4J, OrientDB, ArangoDB, Titan, FlockDB, Giraph |
+   | Graph                         | ?                                                                |
+	
+	
 
 ### NoSQL database
 
@@ -367,7 +349,7 @@ Container maangement is another form of orchestration
 ### Common orchestrator
 
 
-   | Type           | ExamplesIdempotent                      | 
+   | Type           | Examples                                | 
    | :------------- | :-------------------------------------: | 
    | Open source    | Kubernetes, Mesos, Docker Swarm         | 
    | Cloud hosted   | AWS, GKE, EKS                           |
