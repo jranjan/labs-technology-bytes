@@ -48,6 +48,7 @@ aspects:
 
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
+
 ### Microservice precursors
 
 The chronological order are:
@@ -66,7 +67,7 @@ The chronological order are:
 
 
 
-## Architecture, Design and Implementation aspect(s)
+# Architecture, Design and Implementation aspect(s)
 
 See https://github.com/jranjan/labs-technology-bytes/edit/master/micro-services/microservice-patterns.txt 
 
@@ -257,7 +258,7 @@ cloud native apps but not all rules apply as it is.
 
 It is really confusing. In case of proxy, server does not know who it is talking 
 to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
-See https://www.youtube.com/watch?v=ozhe__GdWC8
+Watch [Reverse http proxy](https://www.youtube.com/watch?v=ozhe__GdWC8).
 
 
 ####  What is fail-over in case of cloud native application?
