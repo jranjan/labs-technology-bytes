@@ -25,12 +25,12 @@ Communications are the lifeblood of microservices. The following schemes are typ
     * REST
     * RPC
 	* gRPC/ProtoBuf
-	* Fast
-	* Nice properties while decomposing monolith application
-	* Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
-        * Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
-            * Apache Thrift
-            * JSON RPC			
+	   * Fast
+	   * Nice properties while decomposing monolith application
+	   * Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
+           * Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
+        * Apache Thrift
+        * JSON RPC			
 2. Messaging
      * Broadcast
      * Pub/Sub (aka multicast)
@@ -123,10 +123,10 @@ is yes.
 
 3 popular techniques: Streaming, Messaging and RPC. It is worth to note the following points:
       
-      * Streaming can be sync but is usually async.
-      * Message is almost always sync or async
-      * RPC can be either sync of async.
-      * REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
+   * Streaming can be sync but is usually async.
+   * Message is almost always sync or async
+   * RPC can be either sync of async.
+   * REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
 
 [Architectural and Design aspect] Before you choosing coupling mechanism, ask yourself?
 
