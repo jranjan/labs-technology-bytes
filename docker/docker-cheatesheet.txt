@@ -1,0 +1,398 @@
+[*] How do I create L2 network?
+[*] How does DNS is configured for container?
+[*] How do I read <specific command> to launch container?
+[*] How do I create a docker volume?
+
+
+========================================================================================================================================
+How do I create L2 network?
+========================================================================================================================================
+
+Docker provides support for software defined networks (SDN). Because we are interested in managing thousands of
+dynamically scaled microservices in any given application, the ability to create arbitrary L2 networks is key to our
+success with microservices.
+
+
+user@ubuntu:~$ docker network create iot-net ------------------- Name is iot-net
+
+
+ubuntu@ip-172-31-39-201:~$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+c886c8a7e653        bridge              bridge              local
+8334a783d958        host                host                local
+23b0cc3e588b        iot-net             bridge              local ---------------- this is bridge network we created. ID is network id.
+0498828ea0fc        none                null                local
+
+
+user@ubuntu:~/trash-can/report$ docker container run -d --name iot-msg --network-alias iot-msg --net iot-net nats
+                                                                                                    |
+                                                                                                    |
+                                                                                  We aksed iot-msg container to user iot-net
+                                                                                  network!!!!!!!!!!!!!!!!!
+                                                                                  
+It got the IP address of "172.18.0.2" with MAC address "02:42:ac:12:00:02". Pretty cool!                                                                                                                                                         
+ubuntu@ip-172-31-39-201:~$ docker container inspect iot-msg
+[
+    {
+        "Id": "80086ddfd47ab88db6145012dfc99692d4e7e544cef5613fadb835459a85c77a",
+        "Created": "2019-07-17T12:09:11.432279619Z",
+        "Path": "/nats-server",
+        "Args": [
+            "-c",
+            "nats-server.conf"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 13459,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2019-07-17T12:09:12.027708195Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:53e0f4ef04305bc8362a1e22bf1289624aaebcfb2ea4c2f17cc5e3901f2fe1cd",
+        "ResolvConfPath": "/var/lib/docker/containers/80086ddfd47ab88db6145012dfc99692d4e7e544cef5613fadb835459a85c77a/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/80086ddfd47ab88db6145012dfc99692d4e7e544cef5613fadb835459a85c77a/hostname",
+        "HostsPath": "/var/lib/docker/containers/80086ddfd47ab88db6145012dfc99692d4e7e544cef5613fadb835459a85c77a/hosts",
+        "LogPath": "/var/lib/docker/containers/80086ddfd47ab88db6145012dfc99692d4e7e544cef5613fadb835459a85c77a/80086ddfd47ab88db6145012dfc99692d4e7e544cef5613fadb835459a85c77a-json.log",
+        "Name": "/iot-msg",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "iot-net",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "shareable",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/d51abaf261461e88e7414940bfec9dec1f28cbb0fe59dc85f609bc0d607ac1b4-init/diff:/var/lib/docker/overlay2/906dfd732ee933b7e9931fdf13b55f2d38e3a2fbef0b19a44eb292f76986d491/diff:/var/lib/docker/overlay2/79a5c477a7407438d361b6cf241f55b41ca4238136c771a5a8b33ad00182a78e/diff",
+                "MergedDir": "/var/lib/docker/overlay2/d51abaf261461e88e7414940bfec9dec1f28cbb0fe59dc85f609bc0d607ac1b4/merged",
+                "UpperDir": "/var/lib/docker/overlay2/d51abaf261461e88e7414940bfec9dec1f28cbb0fe59dc85f609bc0d607ac1b4/diff",
+                "WorkDir": "/var/lib/docker/overlay2/d51abaf261461e88e7414940bfec9dec1f28cbb0fe59dc85f609bc0d607ac1b4/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "80086ddfd47a",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "4222/tcp": {},
+                "6222/tcp": {},
+                "8222/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "-c",
+                "nats-server.conf"
+            ],
+            "ArgsEscaped": true,
+            "Image": "nats",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/nats-server"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "55408163bb7168dce3fdb3bc79d5df06e054f8655f5d9577e774530c21743373",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "4222/tcp": null,
+                "6222/tcp": null,
+                "8222/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/55408163bb71",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "iot-net": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "iot-msg",
+                        "80086ddfd47a"
+                    ],
+                    "NetworkID": "23b0cc3e588bb7fe308e988575bf579ece5f9da499ce121b8e274960e22f4912",
+                    "EndpointID": "da32dc08a0399348bac8f970bfca84b5e5c92e01802fb6eb07609ce8c6c1c4af",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2", ------------------------------------- this is the IP address
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+                                                                            
+
+ubuntu@ip-172-31-39-201:~$ docker network inspect iot-net
+[
+    {
+        "Name": "iot-net", -------------------------------- network name
+        "Id": "23b0cc3e588bb7fe308e988575bf579ece5f9da499ce121b8e274960e22f4912",
+        "Created": "2019-07-17T11:27:42.974968141Z",
+        "Scope": "local",
+        "Driver": "bridge", ------------------------------- bridge driver
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16", ------------ subnet
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": { -------------------------------- list of containers using the network
+            "022f7104a9bd2dd25d6d91cc8829b9714e29dbaafae2b4c3f9ce3a4381cee3c3": {
+                "Name": "sim", ------------------------- simulator container
+                "EndpointID": "3c47dd48f5a46014c27bbb1f6599598d971446f6aa6f13755d05887f5fb32eea",
+                "MacAddress": "02:42:ac:12:00:03",
+                "IPv4Address": "172.18.0.3/16", --------- why is each one having different subnte?
+                "IPv6Address": ""
+            },
+            "325163b52a615992392f9d33d2593a05889dcc9014499c0eaa92c49f92004509": {
+                "Name": "iot-msg", --------------------- iot-msg container
+                "EndpointID": "9fa98f7d1468670607727bbc77a793cae03c4b75287480507029958ede3ad707",
+                "MacAddress": "02:42:ac:12:00:02",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            },
+            "3a00b2e0a56affc992e3b5d4bcfef22598288e770f64a356c59fabecd78fc658": {
+                "Name": "rep", ------------------------- reporting container
+                "EndpointID": "bcd00fff5923d3d4dc10baa8d497ea8560a355238d0e2d77de552cb337cd1bc2",
+                "MacAddress": "02:42:ac:12:00:04",
+                "IPv4Address": "172.18.0.4/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
+
+
+
+
+========================================================================================================================================
+How does DNS is configured for container?
+========================================================================================================================================
+
+Docker configures the containers it runs with a `resolv.conf` configuration that directs the
+container IP stack to use the Docker engine as the name server for user defined networks. The 127.0.0.0/8 address range
+is reserved for loopback operations and Docker hooks the .11 address on port 53 (in iptables) in order to supply
+containers with name resolution. Names unknown to Docker are passed on to the normal DNS resources configured on the
+network.
+
+```
+user@ubuntu:~/trash-can/report$ docker container run --net=iot-net busybox cat /etc/resolv.conf
+
+search localdomain
+nameserver 127.0.0.11
+options ndots:0
+
+Did you read carefully? Who is acting as default DNS server for contaners? It is Docker Engine itself.
+
+
+
+========================================================================================================================================
+How do I read <specific command> to launch container?
+========================================================================================================================================
+
+------------------------
+Example 1:
+------------------------
+`docker run -d --name=iot-msg2 --net=iot-net  nats -c gnatsd.conf --routes=nats-route://ruser:T0pS3cr3t@iot-msg:6222`
+                                                                                                          |
+                                                                                                          |
+                                                                    The "iot-msg" helped to establish a cluster relatinoship
+                                                                    between two NATS broker. Hmm! Need to get into issuing 
+                                                                    commands.
+                                                                    
+Let's examine the command piece by piece:
+
+1) docker container run  :This is the docker command to create and start a new container
+2) -d  :This is the switch used to "detach" the container from the terminal (run it in the background)
+3) --name=iot-msg2: This switch names the container
+4) --net=iot-net: This swtich connects us to the IOT network (the net with all of our containers for this lab)
+5) nats: This specifies the image to run, NATS
+6) -c gnatsd.conf  :Arguments after the image are passed to the image exe, this tells NATS to use the default config file
+7) --routes=nats-route://ruser:T0pS3cr3t@iot-msg:6222: This switch tells NATS to connect (nats-route) as the user
+   "ruser" with the password "T0pS3cr3t" (both NATS defaults that you would override in production) to the server
+  "iot-msg" on the default port (6222).
+  
+ 
+ 
+------------------------
+Example 2:
+------------------------
+ 
+ docker container run --name rep-data -d --net iot-net -v report-data:/data redis redis-server --appendonly yes
+                                       |                        |              
+                                       |                        |                      
+                         detach container from                  |
+                         terminal and run in                    |
+                         background                             |
+                                                                |
+                                                                |
+                                                   Present volume to container
+
+========================================================================================================================================
+How do I create a docker volume?
+========================================================================================================================================
+  
+ubuntu@ip-172-31-39-201:~/trash-can/report$ docker volume create --name report-data
+report-data
+
+ubuntu@ip-172-31-39-201:~/trash-can/report$ docker volume ls
+DRIVER              VOLUME NAME
+local               report-data
+
+ubuntu@ip-172-31-39-201:~/trash-can/report$ docker volume inspect report-data
+[
+    {
+        "CreatedAt": "2019-07-18T08:51:01Z",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/report-data/_data", ---------------------- this is volume mount point. Everything 
+                                                                                          in Linux is a file. So is the volume.
+        "Name": "report-data",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+
+ubuntu@ip-172-31-39-201:~$ sudo ls -l /var/lib/docker/volumes/report-data/_data
+total 4
+-rw-r--r-- 1 999 docker 2373 Jul 18 09:07 appendonly.aof --------------------------------- this is the file our data is getting stored.
