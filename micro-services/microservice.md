@@ -1,4 +1,4 @@
-Content:
+# Content
 
 - Concepts
 - Architecture, Design and Implementation aspect(s)
@@ -8,7 +8,7 @@ Content:
 - Best practices
 - Good to know
 
-Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects.
+Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects specifically.
 
 
 
@@ -158,16 +158,16 @@ container is not a web-app.
 
 These are characestristics of cloud native apps.
 
-	1) Operability
-		- Expose control of application/system lifecycle
-	2) Observability
-		- Provide meaningful signals for observing state, health, and performance
-	3) Elasticity
-		- Grow and shrink to fit in available resources and to meet fluctuating demand
-	4) Resilience
-		- Fast automatic recovery from failures
-	5) Agility
-		- Fast deployment, iteration, and reconfiguration.
+* Operability
+     * Expose control of application/system lifecycle
+* Observability
+     * Provide meaningful signals for observing state, health, and performance
+* Elasticity
+     * Grow and shrink to fit in available resources and to meet fluctuating demon
+* Resilience
+     * Fast automatic recovery from failures
+* Agility
+     * Fast deployment, iteration, and reconfiguration.
 	
 Everyone is part of CNCF even Microsoft, Apple, Amazon. All these because of Kuberentes. Rules of 12-factor apps goes well with 
 cloud native apps but not all rules apply as it is.
@@ -179,22 +179,22 @@ cloud native apps but not all rules apply as it is.
 
 
 	
-- Architectural lities (scalability, availability, extensibility etc)
+* Architectural lities (scalability, availability, extensibility etc)
 	- Fine grained scaling
 	- Possible scalability for specific microservice 
 	- Technological independence among microservices
 	- Flexibility to embrace newer techonologies
 	- Resilience
-- Manageability	
+* Manageability	
 	- Simplicity to identify errors
 	- Independent deployment
-- Engineering benefits from implementation perspective
+* Engineering benefits from implementation perspective
 	- Independence between teams
 	- Implementation of isolation
 	- An exclusive business domain for each microservice, facilitating the implementation of new features
 	- Better definition of business without cyclic dependency between them
 	- Organizational alignment
-- Release
+* Release
 	- Deliever software faster
 	- Response faster to change 
 
@@ -206,13 +206,13 @@ cloud native apps but not all rules apply as it is.
 
 2) Express resilient published interfaces (not the public interface):
 
-		- Published versioned interfaces: An efficient version control to indicate when something, deprecated is key. 
-		  Not only that, but it will also indicate what the new version is and when the deprecated version will be 
-		  deactivated permanently.
-		- Small published interfaces: A large payload is much more susceptible to change than a more specialized payload. 
-		  Applying the concepts of DDD on these payloads is very healthy.
-		- Published external interfaces: Do not create the concept of published interfaces for internal development teams. 
-		  This creates a slow process of change and implementation features.
+      * Published versioned interfaces: An efficient version control to indicate when something, deprecated is key. 
+	Not only that, but it will also indicate what the new version is and when the deprecated version will be 
+	deactivated permanently.
+      * Small published interfaces: A large payload is much more susceptible to change than a more specialized payload. 
+        Applying the concepts of DDD on these payloads is very healthy.
+      * Published external interfaces: Do not create the concept of published interfaces for internal development teams. 
+	This creates a slow process of change and implementation features.
 
     The published interface is what the micro-service developers release. The published interface is what will be consumed by the 
     internet. A good example is the Single Sign-On (SSO) API.
@@ -221,10 +221,10 @@ cloud native apps but not all rules apply as it is.
 
 4) Define upgrade logic taking care of the following points:
 
-		- Never share libraries between micro-services
-		- Strong delimitation of micro-service domains
-		- Establish a client-server relationship between micro-services
-		- Deploy in separate containers
+	* Never share libraries between micro-services
+	* Strong delimitation of micro-service domains
+	* Establish a client-server relationship between micro-services
+	* Deploy in separate containers
 
 5) Design for scale (beauty my friend):: x axis: horizontal scaling, y axis: functional scaling, z axis: data partitioning
 
@@ -243,11 +243,11 @@ cloud native apps but not all rules apply as it is.
 # Microservice challenges   
 
 
-- Explosion in the number of processes to manage
-- New and not well understood by many teams
-- Heavy netwrok utilization and increased latency
-- Small to medium applications may be hard to deploy and manage
-- Integration is not longer any one in development problem
+* Explosion in the number of processes to manage
+* New and not well understood by many teams
+* Heavy netwrok utilization and increased latency
+* Small to medium applications may be hard to deploy and manage
+* Integration is not longer any one in development problem
 
 
 # Open questions
