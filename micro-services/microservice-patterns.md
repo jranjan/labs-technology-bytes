@@ -7,7 +7,7 @@
 - Persistence in polyglot environment
 - Microservice pattern
 
-### Ask yourself while designing cloud native applications?
+![Attack enmey problem](/micro-services/images/ask.jpg)
 
    1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
    2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
@@ -397,15 +397,8 @@ be. Swift (anyhow) declares that it is eventual consitent. A bitter truth is tha
 I am findinig difficulty to ingest. But the example of General(2)-Enemy(3)-General(3) problem gives data point which is difficult 
 to ignore. So, time to revisit CAP theorem for distributed system? :-)
 
-General (2) ------------------ Enemey (3) ----------------- General (2)
-			<Need to atttack enemy together>
-General (2) -------------- plans attack at midnight ------> General (2)
-General (2) <-------------- Sends acknowledgement --------- General (2) ------------- Phase 1 commit
-General (2) --------------- Sends ACK for ACK  -----------> General (2)
-General (2) <----------- Acknowledge ACK of ACK ----------- General (2)  ------------ Phase 2 commit
-                   ....................................
-		   ....................................
-		   ....................................
+![Attack enmey problem](/micro-services/uml/images/general-problem.png)
+
 		   
 You just increase the probability of consistency with multiple phase commit at the cost of high latency but you are never guranted. :-)	
 		   
