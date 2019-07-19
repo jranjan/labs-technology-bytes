@@ -349,18 +349,18 @@ Container maangement is another form of orchestration
 
 Need for its existence:
 
-	- Container scheduling
-	- Container management
-	        - Monitoring and recovery
-	        - Image upgrade rollout
-		- Scaling
-		- Logging
-	- Service endpoints
-		- Discovery
-		- HA
-		- Load balancers
-		- Auto scaling
-	- External services
+   1. Container scheduling
+   2. Container management
+       *  Monitoring and recovery
+       * Image upgrade rollout
+       * Scaling
+       * Logging
+   3. Service endpoints
+	* Discovery
+	* HA
+	* Load balancers
+	* Auto scaling
+	* External services
 	 	- Network configuration and management
 		- Durable volume management
 
