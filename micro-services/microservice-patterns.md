@@ -134,26 +134,26 @@ Communications are the lifeblood of microservices. The following schemes are typ
 
 Important aspects:
 
-     - Types of messaging systems
-     - High profile messaging platforms
-     - High profile messaging platforms
-     - [Architectural aspect] Ask yoruself before picking message system?
+* Types of messaging systems
+* High profile messaging platforms
+* High profile messaging platforms
+
 
 #### Types of messaging systems::
      
-     1. Raw Network messaging
-           - UDP
+  1. Raw Network messaging
+          - UDP
 	   - Fast as it gets
 	   - True multicase, True broadcast
 	   - No store, no forward
-     2. Library based
+  2. Library based
            - Can offer some delivery assurance (retry)
 	   - Coupled with publisher and cosumer. It does matter who comes first!
 	   - Deploys in process
 	   - No server or middleware required
 	   - Super low latency
            - Examples: ZeroMQ, Nanomsg
-     3. Message Oriented Middleware
+  3. Message Oriented Middleware
            - Store and forward
 	   - Completely decoupled with publisher and consumer. So, it does not matter who comes first! 
 	   - Pub/sub
@@ -165,11 +165,11 @@ Important aspects:
 	      
 #### High profile messaging platforms designed in pre-era of cloud computing
     
-    - Websphere MQ (IBM centric, trying to open source)
-    - Apache QPID (AMQP, free)
-    - ActiveMQ  (AMQP, free, apache community) 
-    - RabbitMQ (Erlang basedm elegant, fast, reliable, Erlang is used in Telcos)
-    - ZeroMQ (library based, very fast but brokerless, requiring rendezvous)
+  1. Websphere MQ (IBM centric, trying to open source)
+  2. Apache QPID (AMQP, free)
+  3. ActiveMQ  (AMQP, free, apache community) 
+  4. RabbitMQ (Erlang basedm elegant, fast, reliable, Erlang is used in Telcos)
+  5. ZeroMQ (library based, very fast but brokerless, requiring rendezvous)
     
 
 #### High profile messaging platforms
