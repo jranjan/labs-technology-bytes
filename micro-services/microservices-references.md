@@ -27,7 +27,7 @@
            * https://github.com/RX-M/kubecon-eu-2019
            * https://github.com/RX-M/kubecon-eu-2019/tree/master/step01
 
-
+ 
 # Ebook
 * [Microservice-patterns](https://learning.oreilly.com/library/view/microservice-patterns-and/9781788474030/)
 
