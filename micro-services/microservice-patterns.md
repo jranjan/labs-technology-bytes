@@ -85,7 +85,7 @@ Communications are the lifeblood of microservices. The following schemes are typ
    vs. Protocol vs. SDK or platforms.
    
     			 | Language       | Examples                          |
-                         | :------------- | :-------------------------------: |
+                         | :------------- | --------------------------------: |
                          | Java           |  JAX-RS, Jersey                   |
                          | python         |  DJANGO REST framework, Falsk     |
                          | Scala          |  Play                             |
