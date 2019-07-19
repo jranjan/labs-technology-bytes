@@ -11,7 +11,7 @@
 # Preparatory materials 
 * [Microservice interview questions](https://www.edureka.co/blog/interview-questions/microservices-interview-questions/)
 * Kuberenetes certification
-     * [Cerfication type](https://github.com/cncf/curriculum)
+     * [Certification type](https://github.com/cncf/curriculum)
      * Blogs
           * [How did one guy pass CKAD?](https://medium.com/platformer-blog/how-i-passed-the-cka-certified-kubernetes-administrator-exam-8943aa24d71d)
           
@@ -24,8 +24,8 @@
 # Implementation references
 * Implementing microservices using gRPC
      * Kubecon webinars 
-           * https://github.com/RX-M/kubecon-eu-2019
-           * https://github.com/RX-M/kubecon-eu-2019/tree/master/step01
+          * https://github.com/RX-M/kubecon-eu-2019
+          * https://github.com/RX-M/kubecon-eu-2019/tree/master/step01
 
  
 # Ebook
