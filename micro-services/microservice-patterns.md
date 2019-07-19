@@ -7,8 +7,9 @@
 - Persistence in polyglot environment
 - Microservice pattern
 
-![Ask yourself](/micro-services/images/ask-03.png)
 
+![Ask yourself](/micro-services/images/ask-03.png)
+### Ask yourself for cloud native application
    1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
    2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
    3. Need resilency! Mechanism to resilency is typically replicas. Note that replication is very different from scale.
@@ -280,8 +281,9 @@ No schema and hence so semantic validation is required. But there is is hidden t
       * Vertical paritioning is little not worthy as you need entire row in entity
       * Horizontal partitioning (or sharding) is faster almost proportional to number of rows.
 
-### Ask yourself before choosing peristet solution
 
+![Ask yourself](/micro-services/images/ask-03.png)
+### Ask yourself before choosing peristet solution
 1. Mechaism to scale: replicaiton and partitioning (vertical or horizontal or combination of both) 
 2. Do you query data most of times which involves join of tables? In that case, which partitioning technique.
 3. Choosing a database does not only performance but for easy ccoding, retrieval, speed etc. So, look at application logic!
