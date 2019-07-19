@@ -97,7 +97,9 @@ ubuntu@ip-10-0-0-195:~$
 ```
 
 Notice the new packages.cloud.google.com repository above. If you _do not_ see it in your terminal output, you must fix
-the entry in `/etc/apt/sources.list.d/kubernetes.list` before moving on!
+the entry in `/etc/apt/sources.list.d/kubernetes.list` before moving on! For this you need to do following:
+
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list 
 
 Now we can install standard Kubernetes packages.
 
@@ -759,7 +761,7 @@ Nothing is returned because we are configured to view the "default" cluster name
 ubuntu@ip-10-0-0-195:~$ kubectl get pods --all-namespaces
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
-kube-system   coredns-5c98db65d4-jklpz                0/1     Pending   0          6m14s
+kube-system   coredns-5c98db65d4-jklpz                0/1     Pending   0          6m14s ------------------ It is in pending state because networking is not configured. :-)
 kube-system   coredns-5c98db65d4-vkqkj                0/1     Pending   0          6m14s
 kube-system   etcd-ip-10-0-0-195                      1/1     Running   0          5m26s
 kube-system   kube-apiserver-ip-10-0-0-195            1/1     Running   0          5m24s

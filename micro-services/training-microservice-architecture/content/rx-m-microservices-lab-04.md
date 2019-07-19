@@ -419,7 +419,7 @@ within a Ruby container. We can run a Ruby container, install thrift and then ex
 it:
 
 ```
-user@ubuntu:~/trash-can/levels$ docker container run -v "$PWD:/app" -w "/app" ruby bash -c "gem install thrift && ruby levels-client.rb 172.16.151.239 9095"
+user@ubuntu:~/trash-can/levels$ docker container run -v "$PWD:/app" -w "/app" ruby bash -c "gem install thrift && ruby levels-client.rb 172.31.39.201 9095"
 
 Unable to find image 'ruby:latest' locally
 latest: Pulling from library/ruby
@@ -623,7 +623,7 @@ important feature of this interface is that we can still call the server with th
 For example, rerun your Ruby client without rebuilding the Ruby stubs for the new IDL:
 
 ```
-user@ubuntu:~/trash-can/levels$ docker container run -v "$PWD:/app" -w "/app" ruby bash -c "gem install thrift && ruby levels-client.rb 172.16.151.239 9095"
+user@ubuntu:~/trash-can/levels$ docker container run -v "$PWD:/app" -w "/app" ruby bash -c "gem install thrift && ruby levels-client.rb 172.31.39.201 9095"
 
 Building native extensions. This could take a while...
 Successfully installed thrift-0.10.0.0
@@ -647,7 +647,7 @@ Stop your Thrift server and commit the new code you have created.
 Control + C will stop the server:
 
 ```
-user@ubuntu:~/trash-can/levels$ python levels-server.py
+user@ubuntu:~/trash-can/levels$ python3 levels-server.py
 
 [Server] Started
 ^C

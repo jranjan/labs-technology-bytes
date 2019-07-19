@@ -406,6 +406,14 @@ Try it:
 ```
 ubuntu@ip-172-31-6-251:~/trash-can/report$ docker run -d --name=iot-msg2 --net=iot-net  nats -c gnatsd.conf --routes=nats-route://ruser:T0pS3cr3t@iot-msg:6222
 
+#
+# docker run -d --name=iot-msg2 --net=iot-net  nats -c gnatsd.conf --routes=nats-route://ruser:T0pS3cr3t@iot-msg:6222
+#
+# has changed to:
+#
+# docker run -d --name=iot-msg2 --net=iot-net  nats -c nats-server.conf --routes=nats-route://ruser:T0pS3cr3t@iot-msg:6222
+# 
+
 3b8dffc6f14c8ddaafdd8e4d462b408185713502e1dacd391fa9e9f3e10e8ff3
 
 ubuntu@ip-172-31-6-251:~/trash-can/report$
@@ -414,7 +422,7 @@ ubuntu@ip-172-31-6-251:~/trash-can/report$
 Check the log output of the new broker:
 
 ```
-ubuntu@ip-172-31-6-251:~/trash-can/report$ docker container logs iot-msg2
+ubuntu@ip-172-31-6-251:~/trash-can/report$ docker container logs iot-msg
 
 [1] 2018/07/25 20:31:56.081249 [INF] Starting nats-server version 1.2.0
 [1] 2018/07/25 20:31:56.081306 [INF] Git commit [6608e9a]
