@@ -11,7 +11,7 @@
 # Preparatory materials 
 * [Microservice interview questions](https://www.edureka.co/blog/interview-questions/microservices-interview-questions/)
 * Kuberenetes certification
-     * [Cerfication type]https://github.com/cncf/curriculum
+     * [Cerfication type](https://github.com/cncf/curriculum)
      * Blogs
           * [How did one guy pass CKAD?](https://medium.com/platformer-blog/how-i-passed-the-cka-certified-kubernetes-administrator-exam-8943aa24d71d)
           
@@ -28,7 +28,7 @@
 
 
 # Ebook
-*[Microservice-patterns](https://learning.oreilly.com/library/view/microservice-patterns-and/9781788474030/)
+* [Microservice-patterns](https://learning.oreilly.com/library/view/microservice-patterns-and/9781788474030/)
 
 
 # Vitess and other CNCF webinars
