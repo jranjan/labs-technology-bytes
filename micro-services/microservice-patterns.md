@@ -263,13 +263,12 @@ Everyone mentioned below does support cross-feature. For e.g. DynamoDB supports 
 
 ### NoSQL database
 
-
- - No schema and hence so semantic validation
-      - there is hidden truth: there is implicit schemas
-      - Changing the structure of data during the life of an application has an impact on the application. So adding a filed is not
-        a big issue unlike RDBMS where adding a column is a challenge.
-      - Many NoSQL datanase operate on aggregates.
-      - It works best as application databases - dedicated for single application - context oriented technology. 
+No schema and hence so semantic validation is required. But there is is hidden truth: there is implicit schemas. Few points:
+      
+   * Changing the structure of data during the life of an application has an impact on the application. So adding a filed is not
+     a big issue unlike RDBMS where adding a column is a challenge.
+   * Many NoSQL datanase operate on aggregates.
+   * It works best as application databases - dedicated for single application - context oriented technology. 
 
 ### Mechanism to scale
 
@@ -287,13 +286,13 @@ Everyone mentioned below does support cross-feature. For e.g. DynamoDB supports 
       * Vertical paritioning is little not worthy as you need entire row in entity
       * Horizontal partitioning (or sharding) is faster almost proportional to number of rows.
 
-[Architecture and Design aspects] Peristene related questions:
+### Ask yourself before choosing peristet solution
 
-      [*] Mechaism to scale: replicaiton and partitioning (vertical or horizontal or combination of both) 
-      [*] Do you query data most of times which involves join of tables? In that case, which partitioning technique.
-      [*] Choosing a database does not only performance but for easy ccoding, retrieval, speed etc. So, look at application logic!
-      [*] Choose application centric database!
-      [*] Tow most important thing to consider microservice design are: programming language and persistent mechanism (database)
+1. Mechaism to scale: replicaiton and partitioning (vertical or horizontal or combination of both) 
+2. Do you query data most of times which involves join of tables? In that case, which partitioning technique.
+3. Choosing a database does not only performance but for easy ccoding, retrieval, speed etc. So, look at application logic!
+4. Choose application centric database!
+5. Two most important thing to consider microservice design are: programming language and persistent mechanism (database)
 
 
 
