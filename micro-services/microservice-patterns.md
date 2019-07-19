@@ -174,8 +174,8 @@ Important aspects:
 
 #### High profile messaging platforms
 	
-    - Tibco Rendezvous [RV] (Popular in financial applications, fast and expensive)
-    - Information Ultra Messaging
+   1. Tibco Rendezvous [RV] (Popular in financial applications, fast and expensive)
+   2. Information Ultra Messaging
     - ZeroMQ
     - NATS 
     	- Open soruce messaging brroker designed for microservices and cloud native applications
@@ -183,17 +183,17 @@ Important aspects:
 	- Earlier written as Ruby, no in Go
 	- CNCF project
 	- Does not worry about persist the messages. Durability is lost!
-    - Apache Kafka 
-    	- Created at Linkedin
-	- 3 times faster than RabbitMQ
-	- Scalable
-    	- Persists the message for 7 days, gives durability!
-	- Developed in Java
-	- Collection of brokers! 
-	- It seems to be more interesting and valuable. So, a detailed investigation is warranted!
-    - Apache Pulsar (Created at Yahoo)
-    - Redis
-    	 - Using it as key though it is in-memory key-value pair
+   3. Apache Kafka 
+    	* Created at Linkedin
+	* 3 times faster than RabbitMQ
+	* Scalable
+    	* Persists the message for 7 days, gives durability!
+	* Developed in Java
+	* Collection of brokers! 
+	* It seems to be more interesting and valuable. So, a detailed investigation is warranted!
+   4. Apache Pulsar (Created at Yahoo)
+   5. Redis
+    	* Using it as key though it is in-memory key-value pair
     
     
     
@@ -226,24 +226,24 @@ Important aspects:
 Usageg of messaging was more towards loosely couple and achieving collaboration. A problem is still to be solved - that is about 
 the mangaging state inside micro-service - which has been solved for years by RDBMS. Here, what RBMS gave:
 	
-	- ATOMIC transaction
-	- Schema (semantic validation)
-	- SQL (query) to get different set of data
+1. ATOMIC transaction
+2. Schema (semantic validation)
+3. SQL (query) to get different set of data
 
 Here is what RDBMS does not give or list of things which no-SQL consumers wants:
 
-	- No SQL
-	- Scalability: only scale vertically, no horizontal sale
-	- Concurrency: a notoroious thing to achieve
-	- Designed in era of single node computer or set of small cluster
+* No SQL
+* Scalability: only scale vertically, no horizontal sale
+* Concurrency: a notoroious thing to achieve
+* Designed in era of single node computer or set of small cluster
 	
 In recent times, two patterns have emerged for scaling RDBMS or SQL database) but its own limitations of 
 implementation complexity, usage of commodity hardware has resulted in failure:
 
-	- Most of databases use clustering  and replication mechnism. Some do auto-sharding (but primitive). 
-	- Applications natively build sharding algorithms and runs bunch of nodes. YouTube was using MySQL but now moved 
-	  to creating new one where they put a facade in front of MySQL which runs on set of distributed cluster. Query 
-	  is very faster. 
+* Most of databases use clustering  and replication mechnism. Some do auto-sharding (but primitive). 
+* Applications natively build sharding algorithms and runs bunch of nodes. YouTube was using MySQL but now moved 
+  to creating new one where they put a facade in front of MySQL which runs on set of distributed cluster. Query 
+  is very faster. 
 	
 Looks like SQL is in many places! Head of its reference in Hadoop as well. Because of the following issues the world is moving 
 towards NoSQL
