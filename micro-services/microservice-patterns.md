@@ -397,7 +397,7 @@ be. Swift (anyhow) declares that it is eventual consitent. A bitter truth is tha
 I am findinig difficulty to ingest. But the example of General(2)-Enemy(3)-General(3) problem gives data point which is difficult 
 to ignore. So, time to revisit CAP theorem for distributed system? :-)
 
-![GitHub Logo](//micro-services/uml/images/general-problem.png)
+![Attack enmey problem](/micro-services/uml/images/general-problem.png)
 
 		   
 You just increase the probability of consistency with multiple phase commit at the cost of high latency but you are never guranted. :-)	
