@@ -347,7 +347,7 @@ You can get two of above in any clustered system. For e.g. Swift claims for AP.
 
 Container maangement is another form of orchestration
 
-Need for its existence:
+### Need
 
    1. Container scheduling
    2. Container management
@@ -364,17 +364,13 @@ Need for its existence:
 	 	- Network configuration and management
 		- Durable volume management
 
-Orchestrator:
+### Common orchestrator
 
-	- Open source
-		- Kubernetes
-		- Mesos
-		- DockerSwarm
-	- Cloud hosted
-		- AWS
-		- GKE
-		- EKS
-	
+
+   | Type           | ExamplesIdempotent                      | 
+   | :------------- | :-------------------------------------: | 
+   | Open source    | Kubernetes, Mesos, Docker Swarm         | 
+   | Cloud hosted   | AWS, GKE, EKS                           |
 	
 	
 	
@@ -399,17 +395,17 @@ Varnish Cache, defined as: the Varnish Cache accelerator is a web application al
 
 ### Event Sourcing::
 
-    - It is the process of capturing all inputs as events
-    - Rely on immutablity
+   *  It is the process of capturing all inputs as events
+   *  Rely on immutablity
     
 ### The Saga Pattern
 	
-    - It is used to solve problem a business transaction span multiple service.
-    - A saga is a sequenec of local transactions.
-    - Implementation mechanism or coordinate sagas
-    	   - Choregoraphy
-	   	- Try to map it with General problem (of army one)
-		- Compensating transaction helps here.
+   * It is used to solve problem a business transaction span multiple service.
+   * A saga is a sequenec of local transactions.
+   * Implementation mechanism or coordinate sagas
+       *  Choregoraphy
+       *  Try to map it with General problem (of army one)
+       *  Compensating transaction helps here.
 	   
    
    
