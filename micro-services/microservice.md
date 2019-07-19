@@ -241,8 +241,9 @@ cloud native apps but not all rules apply as it is.
 
 
 
-# Microservice challenges   
+# Microservice challenges 
 
+Here are list:
 
 * Explosion in the number of processes to manage
 * New and not well understood by many teams
@@ -250,6 +251,7 @@ cloud native apps but not all rules apply as it is.
 * Small to medium applications may be hard to deploy and manage
 * Integration is not longer any one in development problem
 
+Every challenge is area of opportunity :-), are you ready to solve it? 
 
 # Open questions
 
@@ -257,8 +259,9 @@ cloud native apps but not all rules apply as it is.
 #### What is reverse HTTP proxy? 
 
 It is really confusing. In case of proxy, server does not know who it is talking 
-to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n)
-Watch [Reverse http proxy](https://www.youtube.com/watch?v=ozhe__GdWC8).
+to (client : server -> n : 1). In case of reverse proxy, client does not know who is talking to (client : server -> 1 : n).
+
+Watch overview [here](https://www.youtube.com/watch?v=ozhe__GdWC8).
 
 
 ####  What is fail-over in case of cloud native application?
