@@ -8,9 +8,6 @@
 - Microservice pattern
 
 
-Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects.
-
-
 
 # Story of microservice's communication and its pattern
 
@@ -120,13 +117,12 @@ Communications are the lifeblood of microservices. The following schemes are typ
    * RPC can be either sync of async.
    * REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
 
-[Architectural and Design aspect] Before you choosing coupling mechanism, ask yourself?
+### Ask yourself
 
-      [*] Do you need streaming kind of scnearios to be solved?
-      [*] Your calls are aync or async?
-      [*] Is odering of async calls are needed?
-      [*] How much de-coupling you need, are you OK to have middleware?
-
+   1.  Do you need streaming kind of scnearios to be solved?
+   2.  Your calls are aync or async?
+   3.  Is odering of async calls are needed?
+   4.  How much de-coupling you need, are you OK to have middleware?
 
 
 ### Messaging
@@ -197,20 +193,20 @@ Important aspects:
     
     
     
- [Architectural and Design aspect] Ask yoruself before picking message system?::
+# Ask yourself
 
-    [*] Do you neeed durability?
-    [*] What is your performance requirement?
-    [*] Do you neeed middleware? Or, are you fine with library mode for better latency like ZeroMQ?
+   1. Do you neeed durability?
+   2. What is your performance requirement?
+   3. Do you neeed middleware? Or, are you fine with library mode for better latency like ZeroMQ?
 	
 
 [Architecture and Design aspects] Cloud native applications::
 
-    [*] Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
-    [*] Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
-    [*] Need resilency! Mechanism to resilency is typically replicas. Note that replication is very different from scale.
-    [*] Easy scalability! Many ways to achieve. Auto-addition of instances or partitioning are some ways to achieve same.
-    [*] ATOMICITY. Application must be designed to take care of this. Leverage some tools or sequencing or something else to achieve it.
+   1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
+   2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
+   3. Need resilency! Mechanism to resilency is typically replicas. Note that replication is very different from scale.
+   4. Easy scalability! Many ways to achieve. Auto-addition of instances or partitioning are some ways to achieve same.
+   5. ATOMICITY. Application must be designed to take care of this. Leverage some tools or sequencing or something else to achieve it.
 
 
 
