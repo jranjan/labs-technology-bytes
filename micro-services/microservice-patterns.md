@@ -1,15 +1,23 @@
 # Contents
 
-- Story of microservice's communication and its pattern
+- Story of microservice's communication
 - Devising loosely coupled systems
 - Cloud native transaction and event processing
 - Orchestration of microservices
 - Persistence in polyglot environment
 - Microservice pattern
 
+### Ask yourself while designing cloud native applications?
+
+   1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
+   2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
+   3. Need resilency! Mechanism to resilency is typically replicas. Note that replication is very different from scale.
+   4. Easy scalability! Many ways to achieve. Auto-addition of instances or partitioning are some ways to achieve same.
+   5. ATOMICITY. Application must be designed to take care of this. Leverage some tools or sequencing or something else to achieve it.
 
 
-# Story of microservice's communication and its pattern
+
+# Story of microservice's communication
 
 
 For asynchronous communication, use the pattern of 'Smart Endpoint and Dumb Pipes". Use message broker, e.g. RabbitMQ, 
@@ -21,12 +29,12 @@ Communications are the lifeblood of microservices. The following schemes are typ
 1. Request/Response
     * REST
     * RPC
-	* gRPC/ProtoBuf
-            * Fast
+	* gRPC/ProtoBuf          
 	    * Nice properties while decomposing monolith application
 	    * Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
 	    * Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
 	    * Apache Thrift
+	    * Fast
         * JSON RPC			
 2. Messaging
      * Broadcast
@@ -117,7 +125,7 @@ Communications are the lifeblood of microservices. The following schemes are typ
    * RPC can be either sync of async.
    * REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
 
-### Ask yourself
+### Ask yourself before you choose meessaging system?
 
    1.  Do you need streaming kind of scnearios to be solved?
    2.  Your calls are aync or async?
@@ -125,8 +133,7 @@ Communications are the lifeblood of microservices. The following schemes are typ
    4.  How much de-coupling you need, are you OK to have middleware?
 
 
-## Messaging
-
+### Usage of messaging system
 
 Important aspects:
 
@@ -135,7 +142,7 @@ Important aspects:
 * High profile messaging platforms
 
 
-### Types of messaging systems::
+#### Types of messaging systems
      
   1. Raw Network messaging
           - UDP
@@ -159,7 +166,7 @@ Important aspects:
 	   - Not for the fastest messaging solution
 	   - Examples: NATS, Kafka, RabbitMQ, AWS SQS and SNS, AMQP
 	      
-### High profile messaging platforms designed in pre-era of cloud computing
+#### High profile messaging platforms designed in pre-era of cloud computing
     
   1. Websphere MQ (IBM centric, trying to open source)
   2. Apache QPID (AMQP, free)
@@ -168,7 +175,7 @@ Important aspects:
   5. ZeroMQ (library based, very fast but brokerless, requiring rendezvous)
     
 
-### High profile messaging platforms
+#### High profile messaging platforms
 	
    1. Tibco Rendezvous [RV] (Popular in financial applications, fast and expensive)
    2. Information Ultra Messaging
@@ -193,26 +200,13 @@ Important aspects:
     
     
     
-# Ask yourself
+# Ask yourself before choosing message borker?
 
    1. Do you neeed durability?
    2. What is your performance requirement?
    3. Do you neeed middleware? Or, are you fine with library mode for better latency like ZeroMQ?
-	
 
-[Architecture and Design aspects] Cloud native applications::
-
-   1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
-   2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
-   3. Need resilency! Mechanism to resilency is typically replicas. Note that replication is very different from scale.
-   4. Easy scalability! Many ways to achieve. Auto-addition of instances or partitioning are some ways to achieve same.
-   5. ATOMICITY. Application must be designed to take care of this. Leverage some tools or sequencing or something else to achieve it.
-
-
-
-    
-    
-    
+  
     
     
     
