@@ -17,7 +17,8 @@
           
           
 # Container technology
-[Heroku]https://devcenter.heroku.com/articles/getting-started-with-nodejs
+* Heroku
+     * [Getting started with nodejs](//devcenter.heroku.com/articles/getting-started-with-nodejs)
 
 
 # Implementation references
@@ -31,4 +32,4 @@
 
 
 # Vitess and other CNCF webinars
-* [Webniars] https://www.cncf.io/community/webinars/ 
+* [Webniars](https://www.cncf.io/community/webinars/)
