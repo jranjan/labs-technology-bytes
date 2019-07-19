@@ -69,7 +69,7 @@ The chronological order are:
 
 # Architecture, Design and Implementation aspect(s)
 
-See https://github.com/jranjan/labs-technology-bytes/edit/master/micro-services/microservice-patterns.txt 
+See [here](microservices-patterns.md)
 
 
    
