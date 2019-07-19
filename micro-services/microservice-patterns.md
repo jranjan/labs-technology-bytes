@@ -9,7 +9,7 @@
 
 
 ![Ask yourself](/micro-services/images/ask-03.png)
-### Ask yourself for cloud native application
+### Did you ask requirement of cloud native application?
    1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
    2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
    3. Need resilency! Mechanism to resilency is typically replicas. Note that replication is very different from scale.
@@ -126,8 +126,8 @@ Communications are the lifeblood of microservices. The following schemes are typ
    * RPC can be either sync of async.
    * REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
 
-### Ask yourself before you choose meessaging system?
-
+![Ask yourself](/micro-services/images/ask-03.png)
+### Did you ask before picking message broker?
    1.  Do you need streaming kind of scnearios to be solved?
    2.  Your calls are aync or async?
    3.  Is odering of async calls are needed?
@@ -281,9 +281,9 @@ No schema and hence so semantic validation is required. But there is is hidden t
       * Vertical paritioning is little not worthy as you need entire row in entity
       * Horizontal partitioning (or sharding) is faster almost proportional to number of rows.
 
-
 ![Ask yourself](/micro-services/images/ask-03.png)
-### Ask yourself before choosing peristet solution
+### Did you ask before picking persistent solution?
+
 1. Mechaism to scale: replicaiton and partitioning (vertical or horizontal or combination of both) 
 2. Do you query data most of times which involves join of tables? In that case, which partitioning technique.
 3. Choosing a database does not only performance but for easy ccoding, retrieval, speed etc. So, look at application logic!
@@ -398,6 +398,8 @@ Answer is no. It does not matter who tells what. Ceph tells that it is consisten
 be. Swift (anyhow) declares that it is eventual consitent. A bitter truth is that all distributed systems are eventual consistent.
 I am findinig difficulty to ingest. But the example of General(2)-Enemy(3)-General(3) problem gives data point which is difficult 
 to ignore. So, time to revisit CAP theorem for distributed system? :-)
+
+The problem is presented below:
 
 ![Attack enmey problem](/micro-services/uml/images/general-problem.png)
 
