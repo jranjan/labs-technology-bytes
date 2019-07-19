@@ -25,11 +25,11 @@ Communications are the lifeblood of microservices. The following schemes are typ
     * REST
     * RPC
 	* gRPC/ProtoBuf
-	   * Fast
-	   * Nice properties while decomposing monolith application
-	   * Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
-           * Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
-        * Apache Thrift
+            * Fast
+	    * Nice properties while decomposing monolith application
+	    * Complier makes it platform agnostic unlike REST where there are different SDK like bottle, flask etc.
+	    * Claim to be protocol independent but uses HTTP 2.0 mostly for implementaiton.
+	    * Apache Thrift
         * JSON RPC			
 2. Messaging
      * Broadcast
@@ -83,24 +83,16 @@ Communications are the lifeblood of microservices. The following schemes are typ
 	
 4. Implementation platforms (YOU NEED TO GET HANDS ON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. Remember difference between: Specification
    vs. Protocol vs. SDK or platforms.
-		- Java
-			- JAX-RS: Jersey, MOCy
-		- Python
-			- Django REST framework
-			- Flask
-		- Scala
-			- Play
-		- Node.js
-			- Connect
-			- Express
-		- Go
-			- Net/HTTP 
-			- gin (layer over Net/HTTP)
-		- Ruby
-			- Sinatra
-			- Rails-API
-		- PHP
-			- F3
+   
+    			 | Language       | Examples                          |
+                         | :------------- | :-------------------------------: |
+                         | Java           |  JAX-RS, Jersey                   |
+                         | python         |  DJANGO REST framework, Falsk     |
+                         | Scala          |  Play                             |
+                         | node.js        |  Connect, Express                 |
+                         | Golang         |  Ney/HTTP, gin                    |
+                         | Ruby           | Sinatra, Rails-API                |
+                         | PHP            | F3                                |
 					
 5. Open API Inititatives
 	- Vendor neutral open governance structure under the Linux foundation
@@ -171,7 +163,7 @@ Important aspects:
 	   - Not for the fastest messaging solution
 	   - Examples: NATS, Kafka, RabbitMQ, AWS SQS and SNS, AMQP
 	      
-High profile messaging platforms:: [@]
+#### High profile messaging platforms designed in pre-era of cloud computing
     
     - Websphere MQ (IBM centric, trying to open source)
     - Apache QPID (AMQP, free)
@@ -179,10 +171,8 @@ High profile messaging platforms:: [@]
     - RabbitMQ (Erlang basedm elegant, fast, reliable, Erlang is used in Telcos)
     - ZeroMQ (library based, very fast but brokerless, requiring rendezvous)
     
-[@] Designed in pre-era of cloud computing
 
-
-### High profile messaging platforms
+#### High profile messaging platforms
 	
     - Tibco Rendezvous [RV] (Popular in financial applications, fast and expensive)
     - Information Ultra Messaging
