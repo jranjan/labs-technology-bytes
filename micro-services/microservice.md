@@ -306,3 +306,8 @@ perspectives that those contexts embody.
 
 See https://martinfowler.com/bliki/BoundedContext.html for more details.
 
+
+### Service mesh:
+
+https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/
+
