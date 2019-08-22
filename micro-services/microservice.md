@@ -54,9 +54,9 @@ Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 The chronological order are:
 
 1. Service Oriented Architecture (SOA)
-       *  Service 
-       *  Layered architecture 
-       *  Usage of ESB (anti-pattern of Smart endpoint and Dumb queue)
+    *  Service 
+    *  Layered architecture 
+    *  Usage of ESB (anti-pattern of Smart endpoint and Dumb queue)
 2. Domain-Driven Design
 3. Hexagonal Architecture
 4. Agile methodology
