@@ -46,9 +46,9 @@ other. A good architect needs to understand this and should be able to create a 
 aspects:
 
 * XYZ scale-out mechanism.
-	1. Scale by adding by minions
-	2. Scale out by segregating functionalities and distributing load
-	3. Scale out by data partitioning 
+	* Scale out by adding minions
+	* Scale out by segregating functionalities and distributing load
+	* Scale out by data partitioning 
 * services are neither fat nor thin
 * ability to function a service without depending on each other 
 * divided around domain - a very fundamental need for designer to understand it
