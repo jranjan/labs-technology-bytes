@@ -1,6 +1,6 @@
 # Content
 
-- Concepts
+- Introduction
 - Architecture, Design and Implementation aspect(s)
 - 12-factor apps
 - Cloud native apps
@@ -12,7 +12,11 @@ Please look for tag [Architectural and Design aspect] if you are interested in a
 
 
 
-# Concepts
+# Introduction
+
+This sections covers many aspects, primarily to setting up the context. Ideally, it deserves an independent chapter which tells 
+how the landscape of delivering software has changed because of emerging requirements and how micro-services fits the bill in 
+the current context. For now, we will capture some aspects in focused paragraph. 
 
 1) What is microservice?
 2) What is microservice not?
@@ -54,7 +58,10 @@ Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 ### Microservice precursors
 
-The chronological order are:
+Microservice did not emerge out of sudden. Or, implementing software as service is a very new concept. In fact, SOA took its domin
+in era of 2000s. Amidst of these, computing has seen a signficant increase in peneteration of software in every corner of life,
+scale requirement and heterogenity in consumer. The below lists indicates how microservices has emerged chronologically by adapting 
+value adds of previous architecural style:
 
 1. Service Oriented Architecture (SOA)
     *  Service 
@@ -65,7 +72,7 @@ The chronological order are:
 4. Agile methodology
 5. Continuous integration and Continuous Delivery
 6. Virtualization
-7. DevOps (a new paradigm of release software)
+7. DevOps (a new paradigm of releasing software)
 
 
 
@@ -204,7 +211,7 @@ cloud native apps but not all rules apply as it is.
 
 
 
-# Best practices: steps or habit to adapt for goodness
+# Best practices: habits to successfully apply architecutre style
 
 1) Identifying areas to apply the principle of sole responsibility for each micro-service is crucial to application architecture.
 
