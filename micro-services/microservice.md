@@ -194,7 +194,7 @@ cloud native apps but not all rules apply as it is.
 	- Independent deployment
 * Engineering benefits from implementation perspective
 	- Independence between teams
-	- Implementation of isolation
+	- Implementation of isolation 
 	- An exclusive business domain for each microservice, facilitating the implementation of new features
 	- Better definition of business without cyclic dependency between them
 	- Organizational alignment
