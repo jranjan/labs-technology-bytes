@@ -1,22 +1,22 @@
 # Content
 
-- Introduction
-- Architecture, Design and Implementation aspect(s)
-- 12-factor apps
-- Cloud native apps
-- Benefits
-- Best practices
-- Good to know
+1) Introduction
+2) Architecture, Design and Implementation aspect(s)
+3) 12-factor apps
+4) Cloud native apps
+5) Benefits
+6) Best practices
+7) Good to know
 
-Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects specifically.
+Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects more.
 
 
 
 # Introduction
 
-This sections covers many aspects, primarily to setting up the context. Ideally, it deserves an independent chapter which tells 
-how the landscape of delivering software has changed because of emerging requirements and how micro-services fits the bill in 
-the current context. For now, we will capture some aspects in focused paragraph. 
+This sections covers many aspects, primarily to setting up the context with the aim to use same vocabulary. Practically, 
+it deserves an independent chapter which tells how the landscape of delivering software has changed because of emerging requirements 
+and how micro-services fits the bill in the current context. For now, we will capture some aspects in focused paragraph. 
 
 1) What is microservice?
 2) What is microservice not?
@@ -24,9 +24,15 @@ the current context. For now, we will capture some aspects in focused paragraph.
 4) Microservice precursors
 
 
+
 ### What is microservice?
 
-A fine grained atomically deployable service accessed by platform agnostic network API.
+Microservice is a fine grained atomically deployable service accessed by platform agnostic network API. It's implicit or explicty focus
+is on solving one portion of problem. It is desiged to follow SRP (Single Responsibility Principle) religiously. It's lifecycle 
+is completely independent and is expected scale up and down at its own will. At the same time, it expects an exo-system where it thrives
+by collaborating with othere microservices in safe, secured and transaparent manner. It is like a nuclear family in our society. The below picture try to convey microservice and its eco-system.
+
+![Microservice Ecosystem](/micro-services/images/microservice-ecosystem.png)
 
 ### What is microservice not?
 
