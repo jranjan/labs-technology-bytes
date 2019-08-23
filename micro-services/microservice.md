@@ -8,9 +8,6 @@
 6) Best practices
 7) Good to know
 
-Please look for tag [Architectural and Design aspect] if you are interested in architectural aspects more.
-
-
 
 # Introduction
 
