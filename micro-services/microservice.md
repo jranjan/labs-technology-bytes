@@ -18,10 +18,10 @@ This sections covers many aspects, primarily to setting up the context with the 
 it deserves an independent chapter which tells how the landscape of delivering software has changed because of emerging requirements 
 and how micro-services fits the bill in the current context. For now, we will capture some aspects in focused paragraph. 
 
-1) What is microservice?
-2) What is microservice not?
-3) Monoliths vs. Micro-services
-4) Microservice precursors
+* What is microservice?
+* What is microservice not?
+* Monoliths vs. Micro-services
+* Microservice precursors
 
 
 
@@ -268,9 +268,9 @@ listed here and remaining can be ancitipated from below picutre.
 * Heavy netwrok utilization and increased latency
 * Small to medium applications may be hard to deploy and manage
 
-![Microservice Ecosystem](/micro-services/images/microservice-challenges.jpg)
+![Microservice challenges](/micro-services/images/microservice-challenges.jpg)
 
-Every challenge is area of opportunity :-), are you ready to solve it? 
+Every challenge is area of opportunity :-). Are you game for it?
 
 # Open questions
 
@@ -297,7 +297,7 @@ items among academecian.
 #### What is role of gRPC and ProtoBuf in gRPC/ProtoBuf?
 
 
-#### What is service mesh?
+
 
 
 
