@@ -32,7 +32,7 @@ is on solving one portion of problem. It is desiged to follow SRP (Single Respon
 is completely independent and is expected scale up and down at its own will. At the same time, it expects an exo-system where it thrives
 by collaborating with othere microservices in safe, secured and transaparent manner. It is like a nuclear family in our society. The below picture try to convey microservice and its eco-system.
 
-![Microservice Ecosystem](/micro-services/images/microservice-ecosystem.png)
+![Microservice Ecosystem](/micro-services/images/microservice-ecosystem.jpg)
 
 ### What is microservice not?
 
