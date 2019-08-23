@@ -88,7 +88,6 @@ value adds of previous architecural style:
 See [here](microservice-patterns.md)
 
 
-   
 
 # 12-factor apps
 
@@ -171,23 +170,11 @@ container is not a web-app.
 
 
 
-# About cloud native apps   
+# Cloud native apps   
 
 
 ![Cloud native application attributes](/micro-services/images/cloud-native-application-attributes.jpg)
 
-These are characestristics of cloud native apps.
-
-* Operability
-     * Expose control of application/system lifecycle
-* Observability
-     * Provide meaningful signals for observing state, health, and performance
-* Elasticity
-     * Grow and shrink to fit in available resources and to meet fluctuating demon
-* Resilience
-     * Fast automatic recovery from failures
-* Agility
-     * Fast deployment, iteration, and reconfiguration.
 	
 Everyone is part of CNCF even Microsoft, Apple, Amazon. All these because of Kuberentes. Rules of 12-factor apps goes well with 
 cloud native apps but not all rules apply as it is.
