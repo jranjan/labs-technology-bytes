@@ -173,6 +173,9 @@ container is not a web-app.
 
 # About cloud native apps   
 
+
+![Cloud native application attributes](/micro-services/images/cloud-native-application-attributes.jpg)
+
 These are characestristics of cloud native apps.
 
 * Operability
