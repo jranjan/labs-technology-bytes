@@ -169,15 +169,16 @@ container is not a web-app.
 
 # Cloud native apps   
 
+After 6-7 years of conflicting and diverging conversion, we have come to common agreement what a cloud native application is or at leas
+to say what its chracteristics are. It's characteristics resemble like 12-factor app but it not exactly same. It is also not just about
+a typical conversation around Pet vs. Cattle. PET as nurtured and take care as it goes wrong while Cattle are instantiated as needed and 
+thrown as its usage is done. A cloud native application is all about achieving resiliency, observability, agility, scalability unlike 
+traditional applications. These attributes are amalagation of positiveness accumulated from the learnings of 12-factor app, Pet vs. 
+Cattle, microservices etc. The below picture convey same aspects.
 
 ![Cloud native application attributes](/micro-services/images/cloud-native-application-attributes.jpg)
 
-	
-Everyone is part of CNCF even Microsoft, Apple, Amazon. All these because of Kuberentes. Rules of 12-factor apps goes well with 
-cloud native apps but not all rules apply as it is.
-
-
-
+You will find more details at CNCF foundation site. 
 
 # Benefits
 
