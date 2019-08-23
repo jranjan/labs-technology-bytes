@@ -169,7 +169,7 @@ container is not a web-app.
 
 # Cloud native apps   
 
-After 6-7 years of conflicting and diverging conversion, we have come to common agreement what a cloud native application is or at leas
+After 6-7 years of conflicting and diverging conversion, we have come to common agreement what a cloud native application is or at least
 to say what its chracteristics are. It's characteristics resemble like 12-factor app but it not exactly same. It is also not just about
 a typical conversation around Pet vs. Cattle. PET as nurtured and take care as it goes wrong while Cattle are instantiated as needed and 
 thrown as its usage is done. A cloud native application is all about achieving resiliency, observability, agility, scalability unlike 
