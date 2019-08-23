@@ -217,7 +217,7 @@ cloud native apps but not all rules apply as it is.
 
 
 
-# Best practices to apply micro-service architecutre style
+# Best practices 
 
 1) Identifying areas to apply the principle of sole responsibility for each micro-service is crucial to application architecture.
 
