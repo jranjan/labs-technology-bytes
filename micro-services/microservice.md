@@ -259,13 +259,16 @@ cloud native apps but not all rules apply as it is.
 
 # Microservice challenges 
 
-Here are list:
+The quote is closer to me "Every NEW things come with Sorrow and Pleasure but Sorrow tends to come first" because it gives me resilience 
+to adopt a new environment. I think that it applies to microservices. Along with its benefits, it comes with set of challenges. Some are 
+listed here and remaining can be ancitipated from below picutre.
 
 * Explosion in the number of processes to manage
 * New and not well understood by many teams
 * Heavy netwrok utilization and increased latency
 * Small to medium applications may be hard to deploy and manage
-* Integration is not longer any one in development problem
+
+![Microservice Ecosystem](/micro-services/images/microservice-challenges.jpg)
 
 Every challenge is area of opportunity :-), are you ready to solve it? 
 
