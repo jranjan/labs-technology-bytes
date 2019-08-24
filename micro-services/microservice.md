@@ -112,19 +112,21 @@ miroservice but it is very important to understand that microservice is not nece
 By webapp, we mean by Heroku app here. Do not read the difference as hard difference between but as a subtle variation or flexibility 
 in case of microservice (like CaaS) as every container is not a web-app.
 
-> 1) Codebase 
+> 12 Factor rules
+>
+>> ### Codebase 
 >> - Rule: Each deployable app is tracked as one codebase in revision control.
 >> - Same for microservice and webapp
 >> - Push code for Heroku and application gets deployed.
 >> - Push code in Kuberentes and set of actions takes place to deploy new container.	
-	
-2) Dependencies
-	- Rule: An app explicitly declares and isolates dependencies via appropriate tooling (e.g. Maven, Bundler, NPM) rather than 
-	  depending on implicit dependencies in its deployment environment.
-	- Difference between microservice and webapp
-	- In case of PaaS, as you push the code, it builds the code. While in case of CaaS, you push container images. In other words,
-	  container images is the unit and use same for integration testing, governance issuse, license checks before deploying it but 
-	  PaaS does not emphasize so much of immutable images. Build once is the mantra of container but not of PaaS.
+>	
+>> ### Dependencies
+>> - Rule: An app explicitly declares and isolates dependencies via appropriate tooling (e.g. Maven, Bundler, NPM) rather than 
+>>   depending on implicit dependencies in its deployment environment.
+>> - Difference between microservice and webapp
+>> - In case of PaaS, as you push the code, it builds the code. While in case of CaaS, you push container images. In other words,
+>>   container images is the unit and use same for integration testing, governance issuse, license checks before deploying it but 
+>>   PaaS does not emphasize so much of immutable images. Build once is the mantra of container but not of PaaS.
 	  
 3) Config
         - Rule: Configuration or anything is likely to differ between deployment environment is injected bia operating system 
