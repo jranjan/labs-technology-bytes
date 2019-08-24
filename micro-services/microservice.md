@@ -105,11 +105,11 @@ if not same. At the same time, it very important to understand that microservice
 > 
 > The web app is always designed to face world wide web but not it does not always apply for microservice. Also, there 
 > is a fundamental difference in commnication among web applications. Web applications always follows North-South traffic if
-> they have to talk to each other. In case of micro-services, the internal communication is mostly East-West traffice
+> they have to talk to each other. In case of micro-services, the internal communication is mostly East-West traffic.
 
 12-factor app is meant for web app. So, everything applicable to web app does not apply for microservice. 
 By webapp, we mean by Heroku app here. Do not read the difference as hard difference between but as a subtle variation or flexibility 
-n case of microservice (like CaaS) as every container is not a web-app.
+in case of microservice (like CaaS) as every container is not a web-app.
 
 1) Codebase
 	- Rule: Each deployable app is tracked as one codebase in revision control.
