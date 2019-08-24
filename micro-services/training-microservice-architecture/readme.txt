@@ -1,1 +1,0 @@
-This captures contents and activity performed (as part of exercise)!
