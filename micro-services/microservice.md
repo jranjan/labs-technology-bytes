@@ -34,12 +34,11 @@ by collaborating with othere microservices in safe, secured and transaparent man
 
 ### What is microservice not?
 
-> It is a only a pattern! You apply where it fits. 
+It is not the only architecture style though its popularity has gone up by leaps and bounds in recent days. It is not supposed 
+or expected to be applied everywhere. There are many other architectural patterns which is not going to go away. For e.g. 
+monolithic systems for equity transaction as the focus here is of getting low latency more than anything else.
 
-It is not the only architecture style. It is not supposed or expected to be applied everywhere. There are many other 
-architectural patterns which is not going to go away. For e.g. monolithic systems for equity transaction as the focus here 
-is of getting low latency more than anything else.
-
+> Microservice is a only one of architecture style among many! You apply where it fits. 
 
 ### Monoliths vs. Micro-services
 
@@ -92,12 +91,13 @@ See [here](microservice-patterns.md)
 
 # 12-factor apps
 
+Web applications has beeon one of precursor of micro-service. There is a lot of commonality between webapp and microservice in terms
+if not same. At the same time, it very important to understand that microservice is not necessarily a web application. 
 
-It is very important to understand 'difference between microservice and webapp' before we proceed.
-
-OpenStack was competitor of AWS. Same with Heroku and Cloud Foundary. Web app is designed to face world wide web but not microservice. 
-Web app W1 wants to talks to web app W2. In this case, W1 has to travel north-south traffic and go to wwb and come back  to W2 even 
-if they are deployed in same environment.
+> #Context 
+> OpenStack was competitor of AWS. Same with Heroku and Cloud Foundary. Web app is designed to face world wide web but not microservice. 
+> Web app W1 wants to talks to web app W2. In this case, W1 has to travel north-south traffic and go to wwb and come back  to W2 even 
+> if they are deployed in same environment.
 
 12-factor app is meant for web app but everything is not meant for micro-service. By webapp, we mean by Heroku app here. Do not read 
 the difference as hard difference between but as a subtle variation or flexibility in case of microservice (like CaaS) as every
