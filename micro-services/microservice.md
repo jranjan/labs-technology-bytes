@@ -112,15 +112,16 @@ miroservice but it is very important to understand that microservice is not nece
 By webapp, we mean by Heroku app here. Do not read the difference as hard difference between but as a subtle variation or flexibility 
 in case of microservice (like CaaS) as every container is not a web-app.
 
+>  --------------------------------------------------------------------------------------------------------------------------------	
 > ## 12 Factor rules
->
+>>  --------------------------------------------------------------------------------------------------------------------------------	
 >> ### Codebase 
 > - Rule: Each deployable app is tracked as one codebase in revision control.
 > - Same for microservice and webapp
 > - Push code for Heroku and application gets deployed.
 > - Push code in Kuberentes and set of actions takes place to deploy new container.	
 > --------------------------------------------------------------------------------------------------------------------------------	
-> ### Dependencies
+>> ### Dependencies
 > - Rule: An app explicitly declares and isolates dependencies via appropriate tooling (e.g. Maven, Bundler, NPM) rather than 
 >   depending on implicit dependencies in its deployment environment.
 > - Difference between microservice and webapp
@@ -128,7 +129,7 @@ in case of microservice (like CaaS) as every container is not a web-app.
 >   container images is the unit and use same for integration testing, governance issuse, license checks before deploying it but 
 >   PaaS does not emphasize so much of immutable images. Build once is the mantra of container but not of PaaS.
 > --------------------------------------------------------------------------------------------------------------------------------	
-> ### Config
+>> ### Config
 > - Rule: Configuration or anything is likely to differ between deployment environment is injected bia operating system 
 >   level environment variables.
 > - Difference between microservice and webapp
@@ -136,50 +137,50 @@ in case of microservice (like CaaS) as every container is not a web-app.
 >   PaaS environment is little bit strong headed in usage of environment variable. So, usage of configmap, secrets etc are 
 >   common pattern in CaaS but not in the case of PaaS
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Backing services
+>> ### Backing services
 > - Rule: Backing services such as databases or message brokeres are treated as attached resources and consumed identically acroos
 >   all environment
 > - Same for microservice and webapp
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Build, release and run	
+>> ### Build, release and run	
 > - Rule: The stages of building an artefact, combining that artefact with configuration and starting one ore 
 >   more processes from that artefact/configuration combination are strictly separated.
 > - Different for microservice and webapp
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Processes
+>> ### Processes
 > - Rule: The app executues as one or more statelss process.
 > - Same for microservice and webapp
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Port bindings
+>> ### Port bindings
 > - Rule: The app is self-contained and exports any/all services via port binding (including HTTP)
 > - Differenct for microservice and webapp
 > - Containerized microservices can listen on any port they desire and benefit from consistent port usage across replicas
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Concurrency
+>> ### Concurrency
 > - Rule: Concurrency is usually accoomplished by scaling out app processes horizontally (though processes may also multiplex
 >   work via internally maanged thread if desired)
 > - Same for microservice and webapp
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Disposability
+>> ### Disposability
 > - Rule: Robustness is maximized via process that start up quickly and shut down gracefully, there aspects allow for rapid 
 >   elastic scaling, deployment of changes and recovery from crashes.
 > - Same for microservice and webapp
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Dev/prod parity
+>> ### Dev/prod parity
 > - Rule: Continuous delivery and deployment are enabled by keeping development, staging and production environments as 
 >   similar as possible.
 > - Same for microservice and webapp
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Logs
+>> ### Logs
 > - Rule: Rather than managing logfiles, treat logs as event streams, allowing the execution environment to collect, aggregate,
 >   index and analyze the events via centeralized services.
 > - Same for microservice and webapp
 >  --------------------------------------------------------------------------------------------------------------------------------	
-> ### Admin processes
+>> ### Admin processes
 > - Rule: Administrative or management tasks such as database migrations are executed as one-offf processes in environments 
 >   identical to the app's log-running processes.
 > - Same for microservice and webapp
-
+>  --------------------------------------------------------------------------------------------------------------------------------	
 
 
 # Cloud native apps   
