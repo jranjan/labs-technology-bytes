@@ -101,7 +101,7 @@ if not same. At the same time, it very important to understand that microservice
 > web application is concerend. 
 
 
-> **Microservice vs. Web application**
+> ### Microservice vs. Web application**
 > 
 > The web app is always designed to face world wide web but not it does not always apply for microservice. Also, there 
 > is a fundamental difference in commnication among web applications. Web applications always follows North-South traffic if
