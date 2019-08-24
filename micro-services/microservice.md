@@ -112,9 +112,8 @@ miroservice but it is very important to understand that microservice is not nece
 By webapp, we mean by Heroku app here. Do not read the difference as hard difference between but as a subtle variation or flexibility 
 in case of microservice (like CaaS) as every container is not a web-app.
 
-| Rule ID  |  Aspect  |  Detail \
-| --- | --- | --- |
-| 1 | Codebase | - Rule: Each deployable app is tracked as one codebase in revision control.
+1) Codebase 
+	- Rule: Each deployable app is tracked as one codebase in revision control.
 	- Same for microservice and webapp
 	- Push code for Heroku and application gets deployed.
 	- Push code in Kuberentes and set of actions takes place to deploy new container.	
