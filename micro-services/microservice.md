@@ -91,8 +91,8 @@ See [here](microservice-patterns.md)
 
 # 12-factor apps
 
-Web applications has beeon one of precursor of micro-service. There is a lot of
-| 1 | Codebase | -same time, it very important to understand that microservice is not necessarily a web application. 
+Web applications has beeon one of precursor of micro-service. There is a lot of postive influence of web application on
+miroservice but it is very important to understand that microservice is not necessarily a web application. 
 
 
 > ### Peer comparison
@@ -112,8 +112,8 @@ Web applications has beeon one of precursor of micro-service. There is a lot of
 By webapp, we mean by Heroku app here. Do not read the difference as hard difference between but as a subtle variation or flexibility 
 in case of microservice (like CaaS) as every container is not a web-app.
 
-| Rule ID  |  Aspect  |  Detail
-| --- | --- |
+| Rule ID  |  Aspect  |  Detail \
+| --- | --- | --- |
 | 1 | Codebase | - Rule: Each deployable app is tracked as one codebase in revision control.
 	- Same for microservice and webapp
 	- Push code for Heroku and application gets deployed.
