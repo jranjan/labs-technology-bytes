@@ -8,7 +8,7 @@
 - Microservice pattern
 
 
-![Ask yourself](/micro-services/images/ask-03.png)
+![Ask yourself](/micro-services/images/recall.png)
 ### Did you ask requirement of cloud native application?
    1. Needs durabiltiy! Do not rely on disks for durability! Rely on clustering.
    2. Immutability! Fail over is not so fancy strategy for durability. In stead, it is better to use set of immutable instances.
@@ -126,7 +126,7 @@ Communications are the lifeblood of microservices. The following schemes are typ
    * RPC can be either sync of async.
    * REST is sync by definition whe over HTTP. Schemes like chunked responses and long polling attempt to alleviate.
 
-![Ask yourself](/micro-services/images/ask-03.png)
+![Ask yourself](/micro-services/images/recall.png)
 ### Did you ask before picking message broker?
    1.  Do you need streaming kind of scnearios to be solved?
    2.  Your calls are aync or async?
@@ -281,7 +281,7 @@ No schema and hence so semantic validation is required. But there is is hidden t
       * Vertical paritioning is little not worthy as you need entire row in entity
       * Horizontal partitioning (or sharding) is faster almost proportional to number of rows.
 
-![Ask yourself](/micro-services/images/ask-03.png)
+![Ask yourself](/micro-services/images/recall.png)
 ### Did you ask before picking persistent solution?
 
 1. Mechaism to scale: replicaiton and partitioning (vertical or horizontal or combination of both) 
