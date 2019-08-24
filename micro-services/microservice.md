@@ -38,7 +38,7 @@ It is not the only architecture style though its popularity has gone up by leaps
 or expected to be applied everywhere. There are many other architectural patterns which is not going to go away. For e.g. 
 monolithic systems for equity transaction as the focus here is of getting low latency more than anything else.
 
-> *Microservice is a only one of architecture style among many! You apply ONLY where it fits.*
+> **Microservice is a only one of architecture style among many! You apply ONLY where it fits.**
 
 ### Monoliths vs. Micro-services
 
@@ -94,15 +94,22 @@ See [here](microservice-patterns.md)
 Web applications has beeon one of precursor of micro-service. There is a lot of commonality between webapp and microservice in terms
 if not same. At the same time, it very important to understand that microservice is not necessarily a web application. 
 
-> Context 
->
-> OpenStack was competitor of AWS. Same with Heroku and Cloud Foundary. Web app is designed to face world wide web but not microservice. 
-> Web app W1 wants to talks to web app W2. In this case, W1 has to travel north-south traffic and go to wwb and come back  to W2 even 
-> if they are deployed in same environment.
 
-12-factor app is meant for web app but everything is not meant for micro-service. By webapp, we mean by Heroku app here. Do not read 
-the difference as hard difference between but as a subtle variation or flexibility in case of microservice (like CaaS) as every
-container is not a web-app.
+> **Peer comparison**
+>
+> Like OpenStack is an alternate for AWS for IaaS, the same goes between Heroku and Cloud Foundary as far as deevlopment of
+> web application is concerend. 
+
+
+> **Microservice vs. Web application**
+> 
+> The web app is always designed to face world wide web but not it does not always apply for microservice. Also, there 
+> is a fundamental difference in commnication among web applications. Web applications always follows North-South traffic if
+> they have to talk to each other. In case of micro-services, the internal communication is mostly East-West traffice
+
+12-factor app is meant for web app. So, everything applicable to web app does not apply for microservice. 
+By webapp, we mean by Heroku app here. Do not read the difference as hard difference between but as a subtle variation or flexibility 
+n case of microservice (like CaaS) as every container is not a web-app.
 
 1) Codebase
 	- Rule: Each deployable app is tracked as one codebase in revision control.
