@@ -1,12 +1,12 @@
 # Content
 
-1) Introduction
-2) Architecture, Design and Implementation aspect(s)
-3) 12-factor apps
-4) Cloud native apps
-5) Benefits
-6) Best practices
-7) Good to know 
+> 1) Introduction
+> 2) Architecture, Design and Implementation aspect(s)
+> 3) 12-factor apps
+> 4) Cloud native apps
+> 5) Benefits
+> 6) Best practices
+> 7) Good to know 
 
  
 # Introduction
