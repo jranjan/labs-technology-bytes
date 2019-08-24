@@ -36,10 +36,9 @@ by collaborating with othere microservices in safe, secured and transaparent man
 
 It is a pattern! You apply where it fits. 
 
-```diff
 It is not supposed to be applied everywhere. There are many other architectural patterns which is not going to go away. 
 For e.g. monolithic systems for equity transaction as the focus here is of getting low latency more than anything else.
-```
+
 
 ### Monoliths vs. Micro-services
 
