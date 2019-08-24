@@ -95,7 +95,7 @@ Web applications has beeon one of precursor of micro-service. There is a lot of 
 if not same. At the same time, it very important to understand that microservice is not necessarily a web application. 
 
 
-> ###Peer comparison
+> ### Peer comparison
 >
 > Like OpenStack is an alternate for AWS for IaaS, the same goes between Heroku and Cloud Foundary as far as deevlopment of
 > web application is concerend. 
