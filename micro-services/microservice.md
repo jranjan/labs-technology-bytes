@@ -8,7 +8,7 @@
 6) Best practices
 7) Good to know
 
-
+ 
 # Introduction
 
 This sections covers many aspects, primarily to setting up the context with the aim to use same vocabulary. Practically, 
