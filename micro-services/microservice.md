@@ -6,7 +6,7 @@
 4) Cloud native apps
 5) Benefits
 6) Best practices
-7) Good to know
+7) Good to know 
 
  
 # Introduction
