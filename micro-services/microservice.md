@@ -116,7 +116,7 @@ in case of microservice (like CaaS) as every container is not a web-app.
 > ## 12 Factor rules
 >  --------------------------------------------------------------------------------------------------------------------------------	
 >> ### Codebase 
-> - Rule: Each deployable app is tracked as one codebase in revision control.
+> - Each deployable app is tracked as one codebase in revision control.
 > - Same for microservice and webapp
 > - Push code for Heroku and application gets deployed.
 > - Push code in Kuberentes and set of actions takes place to deploy new container.	
