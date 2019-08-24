@@ -20,9 +20,11 @@ and how micro-services fits the bill in the current context. For now, we will ca
 * Monoliths vs. Micro-services
 * Microservice precursors
 
+```diff
 
++### What is microservice? in green
 
-### What is microservice?
+```
 
 Microservice is a fine grained atomically deployable service accessed by platform agnostic network API. It's implicit or explicty focus
 is on solving one portion of problem. It is desiged to follow SRP (Single Responsibility Principle) religiously. It's lifecycle 
