@@ -38,7 +38,7 @@ It is not the only architecture style though its popularity has gone up by leaps
 or expected to be applied everywhere. There are many other architectural patterns which is not going to go away. For e.g. 
 monolithic systems for equity transaction as the focus here is of getting low latency more than anything else.
 
-> Microservice is a only one of architecture style among many! You apply where it fits. 
+> *Microservice is a only one of architecture style among many! You apply ONLY where it fits.*
 
 ### Monoliths vs. Micro-services
 
@@ -94,7 +94,8 @@ See [here](microservice-patterns.md)
 Web applications has beeon one of precursor of micro-service. There is a lot of commonality between webapp and microservice in terms
 if not same. At the same time, it very important to understand that microservice is not necessarily a web application. 
 
-> #Context 
+> Context 
+>
 > OpenStack was competitor of AWS. Same with Heroku and Cloud Foundary. Web app is designed to face world wide web but not microservice. 
 > Web app W1 wants to talks to web app W2. In this case, W1 has to travel north-south traffic and go to wwb and come back  to W2 even 
 > if they are deployed in same environment.
