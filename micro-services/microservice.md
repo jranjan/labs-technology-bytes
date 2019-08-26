@@ -262,8 +262,8 @@ I think that it applies to microservices. Can you identify some by looking at be
 
 ![Microservice new challenges](/micro-services/images/microservice-challenges-1.jpg)
 
-> ## Here are few! 
-> ## Can you spot startup solving some aspects as every challenge is area of opportunity. 
+> ### Here are few! 
+> ### Can you spot startup solving some aspects as every challenge is area of opportunity. 
 
 ![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
 
