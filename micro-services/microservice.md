@@ -43,9 +43,9 @@ monolithic systems for equity transaction as the focus here is of getting low la
 ### Monoliths vs. Micro-services
 
 Django kind of application relying on MVC pattern assumed layered architecture. It did apply separation of concern
-by segregating user layer, business layer and persistence layer. But all business layer was embedded in one place.
+by segregating user layer, business layer and persistence layer. But, all business layer was embedded in one place.
 So, if there is any scale required in some portion of business layer, entire model needs to be changed. That's why
-it is called a monoliths application. 
+these are type of applications are called as monoliths application. 
 
 Micro-services are different. They divide a domain into of set of functional unites which can interact with each 
 other. A good architect needs to understand this and should be able to create a design which address the following 
