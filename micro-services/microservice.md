@@ -253,18 +253,20 @@ You will find more details at CNCF foundation site.
 
 # Microservice challenges 
 
-The quote is closer to me "Every NEW things come with Sorrow and Pleasure but Sorrow tends to come first" because it gives me resilience 
-to adopt a new environment. I think that it applies to microservices. Along with its benefits, it comes with set of challenges. Some are 
-listed here and remaining can be ancitipated from below picutre.
+The below quote is closer to me whenever I go for orthogonal new environment because it gives me resilience and motivation to
+work hard even when my body does not support me.
 
-* Explosion in the number of processes to manage
-* New and not well understood by many teams
-* Heavy netwrok utilization and increased latency
-* Small to medium applications may be hard to deploy and manage
+> ## Every NEW things come with Sorrow and Pleasure but Sorrow tends to come first.
 
-![Microservice challenges](/micro-services/images/microservice-challenges.jpg)
+I think that it applies to microservices. Can you identify by looking at below picture.
 
-Every challenge is area of opportunity :-). Are you game for it?
+![Microservice new challenges](/micro-services/images/microservice-challenges-1.jpg)
+
+Here are few!
+
+![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
+
+> ## Every challenge is area of opportunity :-). How many startup you see here! 
 
 # Open questions
 
