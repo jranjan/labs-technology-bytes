@@ -256,7 +256,7 @@ You will find more details at CNCF foundation site.
 The below quote is closer to me whenever I go for orthogonal new environment because it gives me resilience and motivation to
 work hard even when my body does not support me.
 
-> ## Every NEW things come with Sorrow and Pleasure but Sorrow tends to come first.
+> ### Every NEW things come with sorrow and pleasure but former tendds to come first.
 
 I think that it applies to microservices. Can you identify by looking at below picture.
 
