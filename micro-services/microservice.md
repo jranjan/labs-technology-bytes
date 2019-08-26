@@ -263,7 +263,7 @@ I think that it applies to microservices. Can you identify some by looking at be
 ![Microservice new challenges](/micro-services/images/microservice-challenges-1.jpg)
 
 > ### Here are few! 
-> ![Innovation](/micro-services/images/innovation.jpg)
+> ![Innovation](/micro-services/images/innovation.png)
 > ### Can you spot startup and innovation here? 
 
 ![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
