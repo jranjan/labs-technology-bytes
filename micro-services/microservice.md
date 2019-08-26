@@ -258,12 +258,12 @@ work hard even when my body does not support me.
 
 > ### Every NEW things come with sorrow and pleasure but former tendds to come first.
 
-I think that it applies to microservices. Can you identify by looking at below picture.
+I think that it applies to microservices. Can you identify some by looking at below picture.
 
 ![Microservice new challenges](/micro-services/images/microservice-challenges-1.jpg)
 
 > ## Here are few! 
-> Can you spot startup solving some aspects as every challenge is area of opportunity. 
+> ## Can you spot startup solving some aspects as every challenge is area of opportunity. 
 
 ![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
 
