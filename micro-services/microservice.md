@@ -262,11 +262,12 @@ I think that it applies to microservices. Can you identify by looking at below p
 
 ![Microservice new challenges](/micro-services/images/microservice-challenges-1.jpg)
 
-> ## Here are few!
+> ## Here are few! 
+> Can you spot startup solving some aspects as every challenge is area of opportunity. 
 
 ![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
 
-> ## Every challenge is area of opportunity :-). How many startup do you see here? 
+
 
 
 
