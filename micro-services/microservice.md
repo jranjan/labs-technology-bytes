@@ -66,7 +66,8 @@ Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 Microservice did not emerge out of sudden. Or, implementing software as service is not a very new concept. In fact, SOA took 
 its dominancein era of 2000s. From that time frame to know, computing has seen a signficant increase in peneteration of software 
-in every corner of life, scale requirement and heterogenity in consumer. 
+in every corner of life, scale requirement and heterogenity in consumer. The below diagram illustrates how current world 
+microservice has evolved to use positive aspects of its precursors.
 
 ![Microservice Evolution](/micro-services/images/microservice-evolution.jpg)
 
