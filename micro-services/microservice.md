@@ -66,20 +66,9 @@ Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 Microservice did not emerge out of sudden. Or, implementing software as service is not a very new concept. In fact, SOA took 
 its dominancein era of 2000s. From that time frame to know, computing has seen a signficant increase in peneteration of software 
-in every corner of life, scale requirement and heterogenity in consumer. The below lists indicates how microservices has 
-emerged chronologically by adapting value adds of previous architecural style:
+in every corner of life, scale requirement and heterogenity in consumer. 
 
-1. Service Oriented Architecture (SOA)
-    *  Service 
-    *  Layered architecture 
-    *  Usage of ESB (anti-pattern of Smart endpoint and Dumb queue)
-2. Domain-Driven Design
-3. Hexagonal Architecture
-4. Agile methodology
-5. Continuous integration and Continuous Delivery
-6. Virtualization
-7. DevOps (a new paradigm of releasing software)
-
+![Microservice Evolution](/micro-services/images/microservice-evolution.jpg)
 
 
 
