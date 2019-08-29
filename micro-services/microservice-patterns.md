@@ -405,7 +405,71 @@ The problem is presented below:
 
 		   
 You just increase the probability of consistency with multiple phase commit at the cost of high latency but you are never guranted. :-)	
-		   
+
+
+
+
+# API Gateway
+
+/3par
+/3par/volumes
+/3par/volumes/{id}
+/3par/volumes/{id}/utilization
+/3par/volumes/{id}/billing
+/3par/volumes/{id}/events
+/3par/volumes/{id}/accessed-datasets
+
+
+Concerns:
+
+Generic volume information
+Utilization data: capacity and performance
+Cost data
+System events
+Dataset patterns
+
+Users:
+
+General user
+General user
+Billing and costing user
+Datacenter admin
+Data analytics
+
+Cross cutting concern:
+
+Security (certificates)
+Authentication
+Authorization
+
+API guards: acts as guard before hit to api url
+
+1) Security
+2) Authentication 
+3) Authorization
+4) Routing 
+5) Adaptor, unifies client calls. Replacing multiple client calls to single calls.
+6) Static files can be left shifted to API gateway. 
+7) Cache
+8) Load balancing: mobile calls and desktop calls are routed to different endpoints
+9) A/B testing
+10) Canary release
+11) Protocol diversity
+
+API gateway:
+
+self managed
+  Apache
+  HAProxy
+  nginx
+  spring cloud gateway
+  
+public cloud
+
+ Google cloud endpoints
+ Azure API gateway
+ AWS API gateway
+ Apigee
 
 
 
