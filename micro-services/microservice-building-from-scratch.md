@@ -55,7 +55,7 @@ enough to be owned by a team of 3-9 person.
 Before we start talking about design of services, let us identify goal of our system. We should know the destination 
 where we do want to reach before we plan for the vacation. Isn't it? 
 
-### Goals
+> ### Goals
 
 1. **Security**
      * It should use secured service endpoint.
@@ -77,7 +77,7 @@ where we do want to reach before we plan for the vacation. Isn't it?
      * It should be able to run multiple version of services at the same time, if desired.
      * It should support continuous delivery model.
 
-### Users
+> ### Users
 
 The system functionality should be accessible to following set of users.
 
@@ -89,7 +89,7 @@ The system functionality should be accessible to following set of users.
    access of some sensitive datasets and its analytics.
 
 
-## Iterative design 
+> ### Iterative design 
 
 To make the subject more explicit in understanding, we will follow iterative approach to conclude on acceptable design. This 
 section talks about follownig iterations.
@@ -102,20 +102,20 @@ section talks about follownig iterations.
 6. Support high perofrmant API using cache
 7. Support canary release ecosystem
 
-### Simplistic design
+#### Simplistic design
 
 ![Simplistic design](/micro-services/images/genetic-service-design-1.jpg)
 
-### Separating business logic from cross cutting concerns 
+#### Separating business logic from cross cutting concerns 
 
 ![Seperating cross cutting concenrs](/micro-services/images/genetic-service-design-2.jpg)
 
 
-### Granualrizing services 
-### Easy to use facade to simplifiy client interaction
-### Support loadbalncing
-### Support high perofrmant API using cache
-### Support canary release ecosystem
+#### Granualrizing services 
+#### Easy to use facade to simplifiy client interaction
+#### Support loadbalncing
+#### Support high perofrmant API using cache
+#### Support canary release ecosystem
 
 
 # Deployment strategy
