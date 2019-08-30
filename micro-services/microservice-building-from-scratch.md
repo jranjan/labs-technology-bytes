@@ -94,13 +94,13 @@ The system functionality should be accessible to following set of users.
 To make the subject more explicit in understanding, we will follow iterative approach to conclude on acceptable design. This 
 section talks about follownig iterations.
 
-	1. Simplistic design
-	2. Separating business logic from cross cutting concerns 
-	3. Granualrizing services 
-	4. Easy to use facade to simplifiy client interaction
-	5. Support loadbalncing
-	6. Support high perofrmant API using cache
-	7. Support canary release ecosystem
+1. Simplistic design
+2. Separating business logic from cross cutting concerns 
+3. Granualrizing services 
+4. Easy to use facade to simplifiy client interaction
+5. Support loadbalncing
+6. Support high perofrmant API using cache
+7. Support canary release ecosystem
 
 ### Simplistic design
 
