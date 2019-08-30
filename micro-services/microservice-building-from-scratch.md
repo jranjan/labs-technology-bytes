@@ -1,6 +1,6 @@
 # Building microservices
 
-# Business domain
+# Problem statement
 
 Our company is very large bioscience company and is involved in cutting research like genetic engineering.
 Our need is to have ability to realize end-to-end data lifecycle management. The size of data can be in order 
@@ -23,8 +23,12 @@ lot of interaction with domain experts and model engineers. This section is not 
 and hence we will not focus on how to identify entity, how to indetify relationship, how to discard less 
 useful entity to avoid cluttering etc. Let us assume that, we arrived at following model depicted below.
 
+![Domain model](/micro-services/images/genetic-domain.jpg)
+
+
 # Identifying API endpoints
 
+```go
 /data-center/
 /data-center/<dc-id>/storage-system/
 /data-center/<dc-id>/storage-system/<ss-id>/datastore
@@ -35,7 +39,7 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/utilization
 /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/events
 /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/performance
-
+```
 
 # Identifying microservices
 
@@ -51,35 +55,38 @@ enough to be owned by a team of 3-9 person.
 Before we start talking about design of services, let us identify goal of our system. We should know the destination 
 where we do want to reach before we plan for the vacation. Isn't it? 
 
-## Goals
+### Goals
 
-	1. Security 
-		* It should use secured service endpoint.
-		* It should be athenticated before any accessibility of functionality is provided.
-		* It should allow access of specific functionality only if he or she is authorized for it.
-	2. Scalability
-		* It should dynamically scale with zero to minimal human intervention.
-		* It should be scalable without change in code.
-		* It should provide flexibilty to scale specific piece of functionality instead of entire system.
-	3. Client accessibility
-		* Client should be provided simple view of system access instead of cluttered set of APIs
-	4. Loadbalancing		
-		* It should be able to loadbalnce the workload for specific functionality as there can be different number of instances running for different components.
-	5. Performance
-		* It should be highly perofrmant and should leverage caching wherever possible avoid unncessary computation.
-	6. Release		
-		* It should be able to release specific portion of functionality independently instead of releasing all bits of system
-		* It should be able to run multiple version of services at the same time, if desired.
-		* It should support continuous delivery model.
+1. **Security**
+     * It should use secured service endpoint.
+     * It should be athenticated before any accessibility of functionality is provided.
+     * It should allow access of specific functionality only if he or she is authorized for it.
+2. **Scalability**
+     * It should dynamically scale with zero to minimal human intervention.
+     * It should be scalable without change in code.
+     * It should provide flexibilty to scale specific piece of functionality instead of entire system.     
+3. **Client accessibility**
+     * Client should be provided simple view of system access instead of cluttered set of APIs
+4. **Loadbalancing**		
+     * It should be able to loadbalnce the workload for specific functionality as there can be different number of instances 
+       running for different components.
+5. **Performance**
+     * It should be highly perofrmant and should leverage caching wherever possible avoid unncessary computation.
+6. **Release**		
+     * It should be able to release specific portion of functionality independently instead of releasing all bits of system
+     * It should be able to run multiple version of services at the same time, if desired.
+     * It should support continuous delivery model.
 
-## Users
+### Users
 
 The system functionality should be accessible to following set of users.
 
-	1. Super admin. He or she should be able to access all API endpoints.
-	2. All authenticated users. He or she should be able to access API endpoints which is meant for common users only.
-	3. Analytic admin. He or she should be able to access API endpoints providing insights into datasets but should not be provided with infrastructure details.
-	4. Operation admin. He or she should be able to perform all operation related activities but should be prevented for access of some sensitive datasets and its analytics.
+1. **Super admin.** He or she should be able to access all API endpoints.
+2. All authenticated users. He or she should be able to access API endpoints which is meant for common users only.
+3. Analytic admin. He or she should be able to access API endpoints providing insights into datasets but should 
+   not be provided with infrastructure details.
+4. Operation admin. He or she should be able to perform all operation related activities but should be prevented for 
+   access of some sensitive datasets and its analytics.
 
 
 ## Iterative design 
@@ -96,7 +103,14 @@ section talks about follownig iterations.
 	7. Support canary release ecosystem
 
 ### Simplistic design
+
+![Simplistic design](/micro-services/images/genetic-service-design-1.jpg)
+
 ### Separating business logic from cross cutting concerns 
+
+![Seperating cross cutting concenrs](/micro-services/images/genetic-service-design-2.jpg)
+
+
 ### Granualrizing services 
 ### Easy to use facade to simplifiy client interaction
 ### Support loadbalncing
