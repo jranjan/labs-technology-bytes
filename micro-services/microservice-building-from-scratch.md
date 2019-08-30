@@ -28,7 +28,7 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 
 # Identifying API endpoints
 
-```go
+```
 /data-center/
 /data-center/<dc-id>/storage-system/
 /data-center/<dc-id>/storage-system/<ss-id>/datastore
