@@ -53,26 +53,22 @@ where we do want to reach before we plan for the vacation. Isn't it?
 
 ## Goals
 
-1. Security 
+1. **Security**
      * It should use secured service endpoint.
      * It should be athenticated before any accessibility of functionality is provided.
      * It should allow access of specific functionality only if he or she is authorized for it.
-2. Scalability
+2. **Scalability**
      * It should dynamically scale with zero to minimal human intervention.
      * It should be scalable without change in code.
-     * It should provide flexibilty to scale specific piece of functionality instead of entire system.
-     
-3. Client accessibility
+     * It should provide flexibilty to scale specific piece of functionality instead of entire system.     
+3. **Client accessibility**
      * Client should be provided simple view of system access instead of cluttered set of APIs
-
-4. Loadbalancing		
+4. **Loadbalancing**		
      * It should be able to loadbalnce the workload for specific functionality as there can be different number of instances 
        running for different components.
-
-5. Performance
+5. **Performance**
      * It should be highly perofrmant and should leverage caching wherever possible avoid unncessary computation.
-
-6. Release		
+6. **Release**		
      * It should be able to release specific portion of functionality independently instead of releasing all bits of system
      * It should be able to run multiple version of services at the same time, if desired.
      * It should support continuous delivery model.
