@@ -1,6 +1,6 @@
 # Building microservices
 
-# Business domain
+# Problem statement
 
 Our company is very large bioscience company and is involved in cutting research like genetic engineering.
 Our need is to have ability to realize end-to-end data lifecycle management. The size of data can be in order 
@@ -25,16 +25,16 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 
 # Identifying API endpoints
 
-/data-center/
-/data-center/<dc-id>/storage-system/
-/data-center/<dc-id>/storage-system/<ss-id>/datastore
-/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>
-/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume
-/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>
-/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets
-/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/utilization
-/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/events
-/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/performance
+> /data-center/
+> /data-center/<dc-id>/storage-system/
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/utilization
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/events
+> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/performance
 
 
 # Identifying microservices
