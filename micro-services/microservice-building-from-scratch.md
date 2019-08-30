@@ -56,6 +56,7 @@ Before we start talking about design of services, let us identify goal of our sy
 where we do want to reach before we plan for the vacation. Isn't it? 
 
 > ### Goals
+> ----------------------------------------------------------------------------------------------------------------------------
 
 1. **Security**
      * It should use secured service endpoint.
@@ -78,6 +79,7 @@ where we do want to reach before we plan for the vacation. Isn't it?
      * It should support continuous delivery model.
 
 > ### Users
+> ----------------------------------------------------------------------------------------------------------------------------
 
 The system functionality should be accessible to following set of users.
 
@@ -90,6 +92,7 @@ The system functionality should be accessible to following set of users.
 
 
 > ### Iterative design 
+> ----------------------------------------------------------------------------------------------------------------------------
 
 To make the subject more explicit in understanding, we will follow iterative approach to conclude on acceptable design. This 
 section talks about follownig iterations.
