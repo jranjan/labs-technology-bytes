@@ -25,17 +25,18 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 
 # Identifying API endpoints
 
-> /data-center/
-> /data-center/<dc-id>/storage-system/
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/utilization
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/events
-> /data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/performance
-
+```go
+/data-center/
+/data-center/<dc-id>/storage-system/
+/data-center/<dc-id>/storage-system/<ss-id>/datastore
+/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>
+/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume
+/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>
+/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets
+/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/utilization
+/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/events
+/data-center/<dc-id>/storage-system/<ss-id>/datastore/<ds-id>/volume/<volume-id>/datasets/performance
+```
 
 # Identifying microservices
 
