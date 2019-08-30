@@ -52,7 +52,7 @@ enough to be owned by a team of 3-9 person.
 Before we start talking about design of services, let us identify goal of our system. We should know the destination 
 where we do want to reach before we plan for the vacation. Isn't it? 
 
-## Goals
+### Goals
 
 1. **Security**
      * It should use secured service endpoint.
@@ -74,14 +74,16 @@ where we do want to reach before we plan for the vacation. Isn't it?
      * It should be able to run multiple version of services at the same time, if desired.
      * It should support continuous delivery model.
 
-## Users
+### Users
 
 The system functionality should be accessible to following set of users.
 
-	1. Super admin. He or she should be able to access all API endpoints.
-	2. All authenticated users. He or she should be able to access API endpoints which is meant for common users only.
-	3. Analytic admin. He or she should be able to access API endpoints providing insights into datasets but should not be provided with infrastructure details.
-	4. Operation admin. He or she should be able to perform all operation related activities but should be prevented for access of some sensitive datasets and its analytics.
+1. **Super admin.** He or she should be able to access all API endpoints.
+2. All authenticated users. He or she should be able to access API endpoints which is meant for common users only.
+3. Analytic admin. He or she should be able to access API endpoints providing insights into datasets but should 
+   not be provided with infrastructure details.
+4. Operation admin. He or she should be able to perform all operation related activities but should be prevented for 
+   access of some sensitive datasets and its analytics.
 
 
 ## Iterative design 
@@ -98,7 +100,14 @@ section talks about follownig iterations.
 	7. Support canary release ecosystem
 
 ### Simplistic design
+
+![Simplistic design](/micro-services/images/genetic-service-design-1.jpg)
+
 ### Separating business logic from cross cutting concerns 
+
+![Seperating cross cutting concenrs](/micro-services/images/genetic-service-design-2.jpg)
+
+
 ### Granualrizing services 
 ### Easy to use facade to simplifiy client interaction
 ### Support loadbalncing
