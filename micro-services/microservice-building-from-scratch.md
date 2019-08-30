@@ -23,6 +23,9 @@ lot of interaction with domain experts and model engineers. This section is not 
 and hence we will not focus on how to identify entity, how to indetify relationship, how to discard less 
 useful entity to avoid cluttering etc. Let us assume that, we arrived at following model depicted below.
 
+![Domain model](/micro-services/images/genetic-domain.jpg)
+
+
 # Identifying API endpoints
 
 ```go
