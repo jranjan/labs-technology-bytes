@@ -134,13 +134,13 @@ microservices:
 4. **datasets.** The service is responsible for use to allow paritioning of datastore into set of datasets of buckets, each of which can
    be used to store data of specific purpose. It does not have its own databased but perform algorithm operations like partitioning
    the datastore, setting storage policy etc.
-5. **events.** _The service represents a sepcific microservice which allows user to perform set of operation related to events 
-    _performed on datasets. It helps in enumerating who performed what and when with whom. It uses specific database like 
-    _InfluxDB for storing trends._
-6. **utilization.** _The service represents a sepcific microservice which allows user to determine capacity related metrics_ 
-    _associated with datasets. It uses specific database like InfluxDB for storing trends._
-7. **perofrmance.** _The service represents a sepcific microservice which allows user to determine performance related
-   _metrics associated with datasets. It uses specific database like InfluxDB for storing trends._
+5. **events.** The service represents a sepcific microservice which allows user to perform set of operation related to events 
+    performed on datasets. It helps in enumerating who performed what and when with whom. It uses specific database like 
+    nfluxDB for storing trends.
+6. **utilization.** The service represents a sepcific microservice which allows user to determine capacity related metrics 
+    associated with datasets. It uses specific database like InfluxDB for storing trends.
+7. **perofrmance.** The service represents a sepcific microservice which allows user to determine performance related
+   metrics associated with datasets. It uses specific database like InfluxDB for storing trends.
 
 
 
