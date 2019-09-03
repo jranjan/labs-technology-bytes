@@ -28,7 +28,7 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 
 # Identifying API endpoints
 
-```go
+```
 /data-center/
 /data-center/<dc-id>/storage-system/
 /data-center/<dc-id>/storage-system/<ss-id>/datastore
@@ -55,8 +55,8 @@ enough to be owned by a team of 3-9 person.
 Before we start talking about design of services, let us identify goal of our system. We should know the destination 
 where we do want to reach before we plan for the vacation. Isn't it? 
 
-> ### Goals
-> ----------------------------------------------------------------------------------------------------------------------------
+> ## Goals
+
 
 1. **Security**
      * It should use secured service endpoint.
@@ -78,8 +78,8 @@ where we do want to reach before we plan for the vacation. Isn't it?
      * It should be able to run multiple version of services at the same time, if desired.
      * It should support continuous delivery model.
 
-> ### Users
-> ----------------------------------------------------------------------------------------------------------------------------
+> ## Users
+
 
 The system functionality should be accessible to following set of users.
 
@@ -91,8 +91,8 @@ The system functionality should be accessible to following set of users.
    access of some sensitive datasets and its analytics.
 
 
-> ### Iterative design 
-> ----------------------------------------------------------------------------------------------------------------------------
+> ## Iterative design 
+
 
 To make the subject more explicit in understanding, we will follow iterative approach to conclude on acceptable design. This 
 section talks about follownig iterations.
