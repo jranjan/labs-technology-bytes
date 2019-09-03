@@ -150,7 +150,9 @@ microservices:
 
 ![Microservices for specific bounded context](/micro-services/images/genetic-service-design-3b.jpg)
 
-> ### Let us determine the interaction among microservices with high level constituents.
+> ### Let us determine the interaction among microservices with high level constituents. As you can see from below diagram that 
+> ### we did not use independent database for each service so that they are loosely coupled. Also, some of the services are completely
+> ### stateless as they do not need any persistence.
 
 ![Interaction among microservices](/micro-services/images/genetic-service-design-3c.jpg)
 
