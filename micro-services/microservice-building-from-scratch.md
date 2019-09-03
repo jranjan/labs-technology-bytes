@@ -121,32 +121,36 @@ will also promote loose coupling, independent deploymnt and update, granular exe
 different technology for different set of functionalities if desired. In this case, we will decompose the system in the following 
 microservices:
 
-1. datacenter. The service is responsible for user operation related to datacenter. It uses its indepndent database to store 
+1. ***datacenter.** The service is responsible for user operation related to datacenter. It uses its indepndent database to store 
    entities related to datacenter. The entities can be server, storage, network on physical infrastructure side. The entities can 
    be hardware management software like HPE OneView. Or, the entities can be public cloud virtual infrastructure. For simplification 
    of discussion, we will focus that service provides interface which allows us to perform CRUD operation on datacenter (a 
    logical entity).
-2. datstore. The service is responsible for user operation related to datastore. It uses its independent database to store 
+2. **datstore.** The service is responsible for user operation related to datastore. It uses its independent database to store 
    entities comprising datastore i.e. aset of volumes as well as maintaining datasets created for it. A datastore can be partitioned 
    into multiple datasets or buckets for specific purpose as needed. For simplification of discussion, we will focus that 
    service provides the interface which allows us to perform CRUD operation on datastore (a logical entity).
-3. volume. The service helps in attaching a volume to datastore as and when needed to scaleout capacity of datastore.
-4. datasets. The service is responsible for use to allow paritioning of datastore into set of datasets of buckets, each of which can
+3. **volume.** The service helps in attaching a volume to datastore as and when needed to scaleout capacity of datastore.
+4. **datasets.** The service is responsible for use to allow paritioning of datastore into set of datasets of buckets, each of which can
    be used to store data of specific purpose. It does not have its own databased but perform algorithm operations like partitioning
    the datastore, setting storage policy etc.
-5. events. The service represents a sepcific microservice which allows user to perform set of operation related to events performed 
+5. **events.** The service represents a sepcific microservice which allows user to perform set of operation related to events performed 
    on datasets. It helps in enumerating who performed what and when with whom. It uses specific database like InfluxDB for storing 
    trends.
-6. utilization. The service represents a sepcific microservice which allows user to determine capacity related metrics associated with
-   datasets. It uses specific database like InfluxDB for storing trends.
-7. perofrmance. The service represents a sepcific microservice which allows user to determine performance related metrics associated
+6. **utilization.** The service represents a sepcific microservice which allows user to determine capacity related metrics 
+    associated with datasets. It uses specific database like InfluxDB for storing trends.
+7. **perofrmance.** The service represents a sepcific microservice which allows user to determine performance related metrics associated
    with datasets. It uses specific database like InfluxDB for storing trends.
 
-> ## Did not we promote scaling by functonal decomposition.
+> ### Hey, we used functonal decomposition to promote scaling implicitly. Did you notice that?
 
 ![Segregation of responsibilities](/micro-services/images/genetic-service-design-3a.jpg)
 
+> ### Let us represent same using usage of microservice vocabulary.
+
 ![Microservices for specific bounded context](/micro-services/images/genetic-service-design-3b.jpg)
+
+> ### Let us determine the interaction among microservices with high level constituents.
 
 ![Interaction among microservices](/micro-services/images/genetic-service-design-3c.jpg)
 
