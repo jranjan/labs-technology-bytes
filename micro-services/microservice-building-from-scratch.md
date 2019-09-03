@@ -9,7 +9,7 @@ purpose generated using clincial trials. Need to have a IT platform which can su
 different vendors with ability to provide insights into data. At this point of time, we are primarily looking 
 for insights into utilization, performance, health, events but will very soon exxtend these with other 
 analyic based on genetic science like which age group of patients are more like to get asthma based on their
-historical health record. It is very important for proper authentication and authorization to be applied 
+historical health record. It is very important for proper authentication and authorization to be applied
 while accessing any behavior.
 
 
