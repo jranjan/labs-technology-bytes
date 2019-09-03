@@ -115,6 +115,13 @@ section talks about follownig iterations.
 
 
 #### Granualrizing services 
+
+![Segregation of responsibilities](/micro-services/images/genetic-service-design-3a.jpg)
+
+![Microservices for specific bounded context](/micro-services/images/genetic-service-design-3b.jpg)
+
+![Interaction among microservices](/micro-services/images/genetic-service-design-3c.jpg)
+
 #### Easy to use facade to simplifiy client interaction
 #### Support loadbalncing
 #### Support high perofrmant API using cache
