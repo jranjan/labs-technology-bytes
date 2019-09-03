@@ -84,10 +84,10 @@ where we do want to reach before we plan for the vacation. Isn't it?
 The system functionality should be accessible to following set of users.
 
 1. **Super admin.** He or she should be able to access all API endpoints.
-2. All authenticated users. He or she should be able to access API endpoints which is meant for common users only.
-3. Analytic admin. He or she should be able to access API endpoints providing insights into datasets but should 
+2. **All authenticated users.** He or she should be able to access API endpoints which is meant for common users only.
+3. **Analytic admin.** He or she should be able to access API endpoints providing insights into datasets but should 
    not be provided with infrastructure details.
-4. Operation admin. He or she should be able to perform all operation related activities but should be prevented for 
+4. **Operation admin.** He or she should be able to perform all operation related activities but should be prevented for 
    access of some sensitive datasets and its analytics.
 
 
