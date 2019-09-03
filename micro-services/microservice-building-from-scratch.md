@@ -121,7 +121,7 @@ will also promote loose coupling, independent deploymnt and update, granular exe
 different technology for different set of functionalities if desired. In this case, we will decompose the system in the following 
 microservices:
 
-1. ***datacenter.** The service is responsible for user operation related to datacenter. It uses its indepndent database to store 
+1. **datacenter.** The service is responsible for user operation related to datacenter. It uses its indepndent database to store 
    entities related to datacenter. The entities can be server, storage, network on physical infrastructure side. The entities can 
    be hardware management software like HPE OneView. Or, the entities can be public cloud virtual infrastructure. For simplification 
    of discussion, we will focus that service provides interface which allows us to perform CRUD operation on datacenter (a 
