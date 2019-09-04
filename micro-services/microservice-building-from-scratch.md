@@ -29,30 +29,30 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 # Identifying API endpoints
 
 ```
-> /data-center/
-> /data-center/<datacenter_id>
->
-> /data-center/storage-system/
-> /data-center/storage-system/<storage_system_id>
-> /data-center/storage-system/<storage_system_id>/telemetry
-> /data-center/storage-system/<storage_system_id>/volume
-> /data-center/storage-system/<storage_system_id>/volume/<volume_id>
-> /data-center/storage-system/<storage_system_id>/volume/<volume_id/telemetry
->
-> /data-center/storage-system/datastore
-> /data-center/storage-system/datastore/<datastore_id>
-> /data-center/storage-system/datastore/volume
-> /data-center/storage-system/datastore/<datastore_id>/telemetry
->
-> /data-center/storage-system/dataset
-> /data-center/storage-system/dataset/<dataset_id>
-> /data-center/storage-system/dataset/<dataset_id>/policy
-> /data-center/storage-system/dataset/<dataset_id>/telemetry
->
-> /data-center/storage-system/analytic
-> /data-center/storage-system/<entity_type>/event
-> /data-center/storage-system/<entity_type>/utilization
-> /data-center/storage-system/<entity_type>/performance
+/data-center/
+/data-center/<datacenter_id>
+
+/data-center/storage-system/
+/data-center/storage-system/<storage_system_id>
+/data-center/storage-system/<storage_system_id>/telemetry
+/data-center/storage-system/<storage_system_id>/volume
+/data-center/storage-system/<storage_system_id>/volume/<volume_id>
+/data-center/storage-system/<storage_system_id>/volume/<volume_id/telemetry
+
+/data-center/storage-system/datastore
+/data-center/storage-system/datastore/<datastore_id>
+/data-center/storage-system/datastore/volume
+/data-center/storage-system/datastore/<datastore_id>/telemetry
+
+/data-center/storage-system/dataset
+/data-center/storage-system/dataset/<dataset_id>
+/data-center/storage-system/dataset/<dataset_id>/policy
+/data-center/storage-system/dataset/<dataset_id>/telemetry
+
+/data-center/storage-system/analytic
+/data-center/storage-system/<entity_type>/event
+/data-center/storage-system/<entity_type>/utilization
+/data-center/storage-system/<entity_type>/performance
 ```
 
 
