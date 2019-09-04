@@ -198,10 +198,9 @@ Typically canary releases are implemented via a proxy like Envoy or HAProxy, sma
 releases can be triggered and orchestrated by continuous integration/delivery pipeline tooling, such as Jenkins or Spinnaker, 
 automated “DevOps” platform like Electric Cloud, or automate or feature management SaaS platforms like LaunchDarkly or Optimizely.
 
-See ![Canary release ]https://martinfowler.com/bliki/CanaryRelease.html to know more about it.
+See [canary release](https://martinfowler.com/bliki/CanaryRelease.html) to know more about it.
 
-> ### In simple words, we devised a maechanism which can effectively build scaleout applications with the ability for organization 
-> ### to adopt a culture of decentralized decision-making so that we can move faster. 
+> ### Is canary release ONLY release model for micro-services?
 
 # Deployment strategy
 
