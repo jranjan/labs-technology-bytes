@@ -209,6 +209,30 @@ those.  Let us call that service as Adapter service. Our eco-system will look li
 
 #### Support loadbalncing
 
+As we learnt that one of tenets of microservice is scalability. One easy way to achieve this is by creating immutable instances as 
+the service gets popular and demand grows or more and more entities needs to be managed. In any case, we do not need to grow all service
+togther. We can very well pick and scale model to dynamically scale the services and this process can be automated using various tooling 
+already available on container management platform like kubernetes. 
+
+Did you guess the need of extra component as we have multiple instances?
+Yes, you are right. We need a loadbalancer which can route the request to specific service instance as requested is routed to it.
+
+We can do so in two ways as depicted pictorially:
+
+1. Usage of loadbalancer in API gateway (most commonly used pattern)
+2. Usage of service specific loadbalancer instances
+
+See diagrams below:
+
+> ## Usage of loadbalancer in API gateway (most commonly used pattern)
+
+![Dashboard](/micro-services/images/genetic-service-design-5a.jpg)
+
+> ## Usage of service specific loadbalancer instances
+
+![Dashboard](/micro-services/images/genetic-service-design-5b.jpg)
+
+
 #### Support high perofrmant API using cache
 
 
