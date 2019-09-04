@@ -224,11 +224,11 @@ We can do so in two ways as depicted pictorially:
 
 See diagrams below:
 
-> ## Usage of loadbalancer in API gateway (most commonly used pattern)
+> ### Usage of loadbalancer in API gateway (most commonly used pattern)
 
 ![Dashboard](/micro-services/images/genetic-service-design-5a.jpg)
 
-> ## Usage of service specific loadbalancer instances
+> ### Usage of service specific loadbalancer instances
 
 ![Dashboard](/micro-services/images/genetic-service-design-5b.jpg)
 
