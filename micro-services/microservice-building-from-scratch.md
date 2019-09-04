@@ -28,6 +28,7 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 
 # Identifying API endpoints
 
+```
 > /data-center/
 > /data-center/<datacenter_id>
 >
@@ -52,6 +53,8 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 > /data-center/storage-system/<entity_type>/event
 > /data-center/storage-system/<entity_type>/utilization
 > /data-center/storage-system/<entity_type>/performance
+```
+
 
 # Identifying microservices
 
