@@ -177,14 +177,50 @@ microservices:
 > ### Hey, we used functonal decomposition to promote scaling implicitly. Did you notice that?
 
 #### Easy to use facade to simplifiy client interaction
+
 #### Support loadbalncing
+
 #### Support high perofrmant API using cache
+
+
 #### Support canary release ecosystem
 
+Canary release is a technique that is used to reduce the risk of introducing a new software version in production by gradually 
+rolling out the change to a small subgroup of users, before rolling it out to the entire platform/infrastructure and making it 
+available to everybody. As we have decomposed a system into fine-grained services, it is easy to implement canary release model
+as a failuer in one service is not likely to affect other parts of system till it abide by published intefaces. This release model 
+has following advantages:
 
+1. Gradual rollout of services limits the potential system blast because of operational issues
+2. Gradual release of new functionality to users reduces risk of negative outcomes impacting a large percentage of your user base
+
+Typically canary releases are implemented via a proxy like Envoy or HAProxy, smart router, or configurable load balancer. The 
+releases can be triggered and orchestrated by continuous integration/delivery pipeline tooling, such as Jenkins or Spinnaker, 
+automated “DevOps” platform like Electric Cloud, or automate or feature management SaaS platforms like LaunchDarkly or Optimizely.
+
+See ![Canary release ]https://martinfowler.com/bliki/CanaryRelease.html to know more about it.
+
+> ### In simple words, we devised a maechanism which can effectively build scaleout applications with the ability for organization 
+> ### to adopt a culture of decentralized decision-making so that we can move faster. 
 
 # Deployment strategy
 
 
 # Release 
 
+# Summary
+
+As we can see that the entire system is no more like a monolith application. It has been decomposed into fine grained microservices 
+which has its own independent existence. Certainly, services are dependent on each other to realize overall functionality but they
+can grow in decenteralized environment indepdently till they abide by contracts published (not necessarily public) interfaces. This 
+facilitates a great deal in realing following use cases:
+
+* A service can be comompletely owned by one team
+* A service can be developed using technology stack which suits the need of hour.
+* A service can have its independent development environment: repo, CI/CD pipeline, automated test cases.
+* A service can have its own release plan.
+* A service can be upgraded as a sub-part of overall eco-system.
+* A service can change its internal design and interaction with other services without affecting others unless and until it breaks 
+  the published interface.
+* A service can be scaled independently.
+* A service can be deployed in totally different environment if compared to rest.
