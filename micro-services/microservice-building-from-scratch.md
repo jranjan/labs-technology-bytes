@@ -235,6 +235,27 @@ See diagrams below:
 
 #### Support high perofrmant API using cache
 
+In today's era, ability to serve any service withing stipulated time is not only a desired activity but a critical aspect to fullfill
+SLA as well as avoid chain failure because of timeout of one service. Also, it is very important for good user interaction as anything
+which takes longer to respond causes the distraction and increase friction between service and its user. One of the way to solve is 
+a traditional approach of using cache. Depending upon service, one can device following caching mechanism:
+
+1. Leverage cache logic supportd by API gateway
+2. Usage of service centric caching technique
+3. Usage of combination of (1) and (2)
+
+> ###  Leverage cache logic supportd by API gateway
+
+![Dashboard](/micro-services/images/genetic-service-design-6a.jpg)
+
+> ###  Usage of service centric caching technique
+
+![Dashboard](/micro-services/images/genetic-service-design-6b.jpg)
+
+> ###  Usage of combination of (1) and (2)
+
+![Dashboard](/micro-services/images/genetic-service-design-6c.jpg)
+
 
 #### Support canary release ecosystem
 
