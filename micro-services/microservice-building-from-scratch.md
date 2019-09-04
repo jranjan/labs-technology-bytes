@@ -178,6 +178,35 @@ microservices:
 
 #### Easy to use facade to simplifiy client interaction
 
+So far, so good! We are able to decompose system into fine grained independent sub-systems. Let us change the focus from system to 
+client who is going to consume the services. As a client, he or she wants to develop a home portal page which comprises following 
+data points:
+
+* Overall system report
+* Display of trend of utilization of admin preferred 3 datastore 
+* Display of trend of performance of admin preferred 3 datastore 
+* Display of top active datasets 
+* Display of events for storage system, datastore and datasets
+
+A UI developer needs to make multiple calls to fetch data from different microservices as some of those are listed below:
+
+* Get number of storage system
+* Get number of datastore for each storage system and perform additive operations
+* Get number of datasets for each datastore and perform additive operations
+* Fetch admin preferences
+* Get utilization and performance trend for the admin choosen datastore and datasets
+* Get events for datastore
+* Get events for datasets
+* Get events for storage system
+
+![Dashboard](/micro-services/images/genetic-service-design-4a-dashboard.jpg)
+
+As we can see that a client needs to make multiple call. Life will be much simpler if there is adapter or facade service which can 
+provide simplified data by collecting from rest of service instead of making client to go and fetch individual details and assemble 
+those.  Let us call that service as Adapter service. Our eco-system will look like as depicted below. 
+
+![Adapter](/micro-services/images/genetic-service-design-4b.jpg)
+
 #### Support loadbalncing
 
 #### Support high perofrmant API using cache
