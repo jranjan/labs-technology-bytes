@@ -226,11 +226,11 @@ See diagrams below:
 
 > ### Usage of loadbalancer in API gateway (most commonly used pattern)
 
-![Dashboard](/micro-services/images/genetic-service-design-5a.jpg)
+![Usage of loadbalancer of API gateway](/micro-services/images/genetic-service-design-5a.jpg)
 
 > ### Usage of service specific loadbalancer instances
 
-![Dashboard](/micro-services/images/genetic-service-design-5b.jpg)
+![Service specific loadbalancer](/micro-services/images/genetic-service-design-5b.jpg)
 
 
 #### Support high perofrmant API using cache
@@ -246,15 +246,15 @@ a traditional approach of using cache. Depending upon service, one can device fo
 
 > ###  Leverage cache logic supportd by API gateway
 
-![Dashboard](/micro-services/images/genetic-service-design-6a.jpg)
+![API gateway cache](/micro-services/images/genetic-service-design-6a.jpg)
 
 > ###  Usage of service centric caching technique
 
-![Dashboard](/micro-services/images/genetic-service-design-6b.jpg)
+![Service centric cache](/micro-services/images/genetic-service-design-6b.jpg)
 
 > ###  Usage of combination of (1) and (2)
 
-![Dashboard](/micro-services/images/genetic-service-design-6c.jpg)
+![Service centric cache and API gateway cache](/micro-services/images/genetic-service-design-6c.jpg)
 
 
 #### Support canary release ecosystem
