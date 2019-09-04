@@ -199,7 +199,7 @@ A UI developer needs to make multiple calls to fetch data from different microse
 * Get events for datasets
 * Get events for storage system
 
-![Dashboard](/micro-services/images/genetic-service-design-4a-dashboard.jpg)
+![Dashboard](/micro-services/images/genetic-service-design-4a.jpg)
 
 As we can see that a client needs to make multiple call. Life will be much simpler if there is adapter or facade service which can 
 provide simplified data by collecting from rest of service instead of making client to go and fetch individual details and assemble 
