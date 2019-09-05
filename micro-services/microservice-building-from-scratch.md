@@ -79,16 +79,7 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 ```
 
 
-# Identifying microservices
-
-As we know, microservices is an architecture style. So, there is not a stone-casted rules for implementing a 
-large system using set of microservices. You can have 1 microservices doing every thing or many in order of 10s.
-It all depends upon the business requirement which is partially explict and partially implicit. The challenge in 
-designing software system is to represent explcity aspects with clarity, discover implicit aspects as much as 
-possible. At the same time, the focus should be on architecting and design a system which is extensible, scalable
-and performative. This is the place where three things matters: Knowledge, Wisdom and Experience. By experience,
-we do not mean by number of age. In this section, we will try to build system which is loosely coupled and granular
-enough to be owned by a team of 3-9 person. 
+# Identifying system goals and users
 
 Before we start talking about design of services, let us identify goal of our system. We should know the destination 
 where we do want to reach before we plan for the vacation. Isn't it? 
@@ -129,11 +120,19 @@ The system functionality should be accessible to following set of users.
    access of some sensitive datasets and its analytics.
 
 
-> ## Iterative design 
+# Identifying and designing microservices
 
+As we know, microservices is an architecture style. So, there is not a stone-casted rules for implementing a large system using set 
+of microservices. You can have 1 microservices doing every thing or many in order of 10s. It all depends upon the business requirement
+which is partially explict and partially implicit. The challenge in designing software system is to represent explcity aspects with
+clarity, discover implicit aspects as much as possible. At the same time, the focus should be on architecting and design a system which
+is extensible, scalable and performative. This is the place where three things matters: Knowledge, Wisdom and Experience. By experience,
+we do not mean by number of age. In this section, we will try to build system which is loosely coupled and granular enough to be owned
+by a team of 3-9 person. 
 
-To make the subject more explicit in understanding, we will follow iterative approach to conclude on acceptable design. This 
-section talks about follownig iterations.
+To make the subject more explicit and illustrative in understanding, we will follow iterative approach before we reach an acceptable
+design. This aligns with agile methodologies of incremental delivery where we can implement system in simplistic form and refactor
+as and when required. This section talks about follownig iterations:
 
 1. Simplistic design
 2. Separating business logic from cross cutting concerns 
@@ -143,16 +142,17 @@ section talks about follownig iterations.
 6. Support high perofrmant API using cache
 7. Support canary release ecosystem
 
-#### Simplistic design
+## Simplistic design
+
 
 ![Simplistic design](/micro-services/images/genetic-service-design-1.jpg)
 
-#### Separating business logic from cross cutting concerns 
+## Separating business logic from cross cutting concerns 
 
 ![Seperating cross cutting concenrs](/micro-services/images/genetic-service-design-2.jpg)
 
 
-#### Granualrizing services 
+## Granualrizing services 
 
 Let us embed scale by using segregating responsibilities. This will not only help to scale specific segment to scale independently but 
 will also promote loose coupling, independent deploymnt and update, granular execution of service implementation, ability to use 
@@ -199,7 +199,7 @@ microservices:
 
 > ### Hey, we used functonal decomposition to promote scaling implicitly. Did you notice that?
 
-#### Easy to use facade to simplifiy client interaction
+## Easy to use facade to simplify client interaction
 
 So far, so good! We are able to decompose system into fine grained independent sub-systems. Let us change the focus from system to 
 client who is going to consume the services. As a client, he or she wants to develop a home portal page which comprises following 
@@ -230,7 +230,7 @@ those.  Let us call that service as Adapter service. Our eco-system will look li
 
 ![Dashboard](/micro-services/images/genetic-service-design-4b.jpg)
 
-#### Support loadbalncing
+## Support loadbalancing
 
 As we learnt that one of tenets of microservice is scalability. One easy way to achieve this is by creating immutable instances as 
 the service gets popular and demand grows or more and more entities needs to be managed. In any case, we do not need to grow all service
@@ -256,7 +256,7 @@ See diagrams below:
 ![Service specific loadbalancer](/micro-services/images/genetic-service-design-5b.jpg)
 
 
-#### Support high perofrmant API using cache
+## Support high perofrmant API using cache
 
 In today's era, ability to serve any service withing stipulated time is not only a desired activity but a critical aspect to fullfill
 SLA as well as avoid chain failure because of timeout of one service. Also, it is very important for good user interaction as anything
@@ -299,7 +299,7 @@ the context and need, the system needs to use one or another or combination of b
 ![Service centric cache and API gateway cache](/micro-services/images/genetic-service-design-6c.jpg)
 
 
-#### Support canary release ecosystem
+## Support canary release ecosystem
 
 Canary release is a technique that is used to reduce the risk of introducing a new software version in production by gradually 
 rolling out the change to a small subgroup of users, before rolling it out to the entire platform/infrastructure and making it 
@@ -317,6 +317,10 @@ automated “DevOps” platform like Electric Cloud, or automate or feature mana
 See [canary release](https://martinfowler.com/bliki/CanaryRelease.html) to know more about it.
 
 > ### Is canary release ONLY release model for micro-services?
+
+
+
+
 
 # Code, Build and Release 
 
