@@ -20,19 +20,20 @@ Before we proceed, here is notable points:
 
 > Microservice is an architecture style like others. It is not a replacement for all other architecture style. 
 > It requires a change in mind shift and cultural change inside team whose accentuated benefits are seen if it is adppted 
-> alongwith with DevOps and Container ecoysystem
+> alongwith with DevOps and Container ecoysystem.
 
 # Problem statement
 
-Our company is very large bioscience company and is involved in cutting research like genetic engineering.
-Our need is to have ability to realize end-to-end data lifecycle management. The size of data can be in order 
-of PB and can vary in nature. Some are telemetry data. Some are very sensitive data. Some are for record
-purpose generated using clincial trials. Need to have a IT platform which can support storage system of 
-different vendors with ability to provide insights into data. At this point of time, we are primarily looking 
-for insights into utilization, performance, health, events but will very soon exxtend these with other 
-analyic based on genetic science like which age group of patients are more like to get asthma based on their
-historical health record. It is very important for proper authentication and authorization to be applied
-while accessing any behavior.
+Our company is very large bioscience company and is involved in cutting research like genetic engineering. Our need is to have 
+ability to realize end-to-end data lifecycle management. The size of data can be in order of PB and can vary in nature. Some 
+are telemetry data. Some are very sensitive data. Some are for record purpose generated using clincial trials. We need to have a 
+IT platform which can support storage system of different vendors with ability to provide insights into data. At this point of time, 
+we are primarily looking for insights into utilization, performance, health, events but will very soon exxtend these with other 
+analyic. For e.g. we will like to devise an AI based solution which can be predict the probability of a person having critical diseases
+like cancer based on study of genes. Considering that system is likely to host sensitive data for patients, it is implicitly desired
+that system supporst proper authentication and authorization wherever required. Also, the system is likely to host large amounts of data
+and new services are likely to be incepted in future, it is very desirable that system is designed for scale and easy to adopt new
+set of services as and when required.
 
 
 # Domain Driven Design
