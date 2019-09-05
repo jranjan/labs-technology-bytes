@@ -343,7 +343,7 @@ If we apply the above concept then we might end up our repo structure something 
 
 # Deployment strategy
 
-
+![Work in progress](/micro-services/images/work-in-progress.png)
 
 
 # Summary
