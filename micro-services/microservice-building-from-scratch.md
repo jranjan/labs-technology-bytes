@@ -120,7 +120,7 @@ The system functionality should be accessible to following set of users.
    access of some sensitive datasets and its analytics.
 
 
-# Defining microservices based system
+# Identifying microservices
 
 As we know, microservices is an architecture style. So, there is not a stone-casted rules for implementing a large system using set 
 of microservices. You can have 1 microservices doing every thing or many in order of 10s. It all depends upon the business requirement
