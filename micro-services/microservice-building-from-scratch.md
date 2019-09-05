@@ -1,5 +1,27 @@
 # Building microservices
 
+Let us take a problem statement to design a system which follows microservice architecture style. As we progress on discussion, we will 
+try to solve various pieces of puzzle which a truly scalable, resilient and easy to manage system should have. It is not possible to 
+cover all corner of a microservice in single document but will try to address following aspects:
+
+1. Defining a **domain model** representing system
+2. Identifying microservices
+3. Segrgating cross cutting concerns so that a single microservice focus completely on its buisness logic.
+4. Simplifying user interaction with system
+5. Auto-scaling and using loadbalancer to share the load across multiple instances of services
+6. Leveraging caching logic to create high-perofrmant service
+7. Supporting canary release model
+8. Repository organization for individual microservice
+9. Various deployment strategy to suite the system need as and when required
+
+It is assumed that reader is familar about microservice, DevOps, container at high level. 
+
+Before we proceed, here is notable points:
+
+> # Microservice is an architecture style like others. It is not a replacement for all other architecture style. It requires
+> # a change in mind shift and cultural change inside team. Its accentuated benefits are seen if it is adppted 
+> # alongwith with DevOps and Container ecoysystem
+
 # Problem statement
 
 Our company is very large bioscience company and is involved in cutting research like genetic engineering.
