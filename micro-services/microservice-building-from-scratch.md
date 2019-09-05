@@ -363,10 +363,11 @@ facilitates a great deal in realizing following use cases:
 * A service can be scaled independently.
 * A service can be deployed in totally different environment if compared to rest.
 
-> To summarize, we carried out following:
->> * Comprehending problem statement
->> * Creating domain model
->> * Defining goals
->> * Identifying microservices and its interface (public or published)
->> * Setting up code repoistory for microservices
->> * Setting up DevOps phases
+To summarize, we carried out following activites to design the system:
+
+* Comprehending problem statement
+* Creating domain model
+* Defining goals
+* Identifying microservices and its interface (public or published)
+* Setting up code repoistory for microservices
+* Setting up DevOps phases
