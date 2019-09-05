@@ -18,9 +18,9 @@ It is assumed that reader is familar about microservice, DevOps, container at hi
 
 Before we proceed, here is notable points:
 
-> ### Microservice is an architecture style like others. It is not a replacement for all other architecture style. It requires
-> ### a change in mind shift and cultural change inside team. Its accentuated benefits are seen if it is adppted 
-> ### alongwith with DevOps and Container ecoysystem
+> ### Microservice is an architecture style like others. It is not a replacement for all other architecture style. 
+> ### It requires a change in mind shift and cultural change inside team. 
+> ### Its accentuated benefits are seen if it is adppted alongwith with DevOps and Container ecoysystem
 
 # Problem statement
 
