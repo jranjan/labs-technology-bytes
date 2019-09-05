@@ -65,7 +65,7 @@ designing software system is to represent explcity aspects with clarity, discove
 possible. At the same time, the focus should be on architecting and design a system which is extensible, scalable
 and performative. This is the place where three things matters: Knowledge, Wisdom and Experience. By experience,
 we do not mean by number of age. In this section, we will try to build system which is loosely coupled and granular
-enough to be owned by a team of 3-9 person.
+enough to be owned by a team of 3-9 person. 
 
 Before we start talking about design of services, let us identify goal of our system. We should know the destination 
 where we do want to reach before we plan for the vacation. Isn't it? 
