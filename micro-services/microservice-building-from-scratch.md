@@ -205,7 +205,7 @@ As we can see that a client needs to make multiple call. Life will be much simpl
 provide simplified data by collecting from rest of service instead of making client to go and fetch individual details and assemble 
 those.  Let us call that service as Adapter service. Our eco-system will look like as depicted below. 
 
-![Adapter service](/micro-services/images/genetic-service-design-4b.jpg)
+![Dashboard](/micro-services/images/genetic-service-design-4b.jpg)
 
 #### Support loadbalncing
 
