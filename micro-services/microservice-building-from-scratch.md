@@ -318,10 +318,29 @@ See [canary release](https://martinfowler.com/bliki/CanaryRelease.html) to know 
 
 > ### Is canary release ONLY release model for micro-services?
 
+# Code, Build and Release 
+
+
+It is time to organize sevices to generate artefacts which can be deployed. 
+
+Microservice goes very well with image based release where we do accept or discard complete image in contrast to usage of patches to
+update specific bits. To keep discussion simple and illustrative, we will pick core services and focus on below microservices.
+
+![Interaction among microservices](/micro-services/images/genetic-service-design-3c.jpg)
+
+The fundamental artifact is an container image. It is good to follow the below cardinal relationship as much as possible.
+
+![Cardinal relationship](/micro-services/images/genetic-service-cardinal-relationship.jpg)
+
+If we apply the above concept then we might end up our repo structure something like as mentioned below.
+
+![Repository structure](/micro-services/images/microservice-repository-structure.png)
+
+
 # Deployment strategy
 
 
-# Release 
+
 
 # Summary
 
