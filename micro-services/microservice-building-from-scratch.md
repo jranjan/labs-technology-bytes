@@ -4,15 +4,15 @@ Let us take a problem statement to design a system which follows microservice ar
 try to solve various pieces of puzzle which a truly scalable, resilient and easy to manage system should have. It is not possible to 
 cover all corner of a microservice in single document but will try to address following aspects:
 
-1. Defining a **domain model** representing system
-2. Identifying microservices
-3. Segrgating cross cutting concerns so that a single microservice focus completely on its buisness logic.
-4. Simplifying user interaction with system
-5. Auto-scaling and using loadbalancer to share the load across multiple instances of services
-6. Leveraging caching logic to create high-perofrmant service
-7. Supporting canary release model
-8. Repository organization for individual microservice
-9. Various deployment strategy to suite the system need as and when required
+* Defining a **domain model** representing system
+* Identifying microservices
+* Segrgating cross cutting concerns so that a single microservice focus completely on its buisness logic.
+* Simplifying user interaction with system
+* Auto-scaling and using loadbalancer to share the load across multiple instances of services
+* Leveraging caching logic to create high-perofrmant service
+* Supporting canary release model
+* Repository organization for individual microservice
+* Various deployment strategy to suite the system need as and when required
 
 It is assumed that reader is familar about microservice, DevOps, container at high level. 
 
