@@ -120,7 +120,7 @@ The system functionality should be accessible to following set of users.
    access of some sensitive datasets and its analytics.
 
 
-# Defining microservices based system
+# Identifying microservices
 
 As we know, microservices is an architecture style. So, there is not a stone-casted rules for implementing a large system using set 
 of microservices. You can have 1 microservices doing every thing or many in order of 10s. It all depends upon the business requirement
@@ -351,7 +351,7 @@ If we apply the above concept then we might end up our repo structure something 
 As we can see that the entire system is no more like a monolith application. It has been decomposed into fine grained microservices 
 which has its own independent existence. Certainly, services are dependent on each other to realize overall functionality but they
 can grow in decenteralized environment indepdently till they abide by contracts published (not necessarily public) interfaces. This 
-facilitates a great deal in realing following use cases:
+facilitates a great deal in realizing following use cases:
 
 * A service can be comompletely owned by one team
 * A service can be developed using technology stack which suits the need of hour.
@@ -362,3 +362,12 @@ facilitates a great deal in realing following use cases:
   the published interface.
 * A service can be scaled independently.
 * A service can be deployed in totally different environment if compared to rest.
+
+To summarize, we carried out following:
+
+* Comprehending problem statement
+* Creating domain model
+* Defining goals
+* Identifying microservices and its interface (public or published)
+* Setting up code repoistory for microservices
+* Setting up DevOps phases
