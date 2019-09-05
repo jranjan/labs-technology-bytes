@@ -205,7 +205,7 @@ As we can see that a client needs to make multiple call. Life will be much simpl
 provide simplified data by collecting from rest of service instead of making client to go and fetch individual details and assemble 
 those.  Let us call that service as Adapter service. Our eco-system will look like as depicted below. 
 
-![Adapter](/micro-services/images/genetic-service-design-4b.jpg)
+![Adapter service](/micro-services/images/genetic-service-design-4b.jpg)
 
 #### Support loadbalncing
 
@@ -240,19 +240,38 @@ SLA as well as avoid chain failure because of timeout of one service. Also, it i
 which takes longer to respond causes the distraction and increase friction between service and its user. One of the way to solve is 
 a traditional approach of using cache. Depending upon service, one can device following caching mechanism:
 
-1. Leverage cache logic supportd by API gateway
+1. Leverage cache logic supported by API gateway
 2. Usage of service centric caching technique
 3. Usage of combination of (1) and (2)
 
 > ###  Leverage cache logic supportd by API gateway
 
+One can configure gateway to route request to micro-service only if it can not be served by gateway cache. For e.g. user
+exercises requests for utilization data 10 times an hour but analytic service updates data only once in an hour. In that case, gateway
+can be configured to route request to analytic service only once in hour. And, user requess will be served from local cache for gateway
+raised within one hour timeframe. It significantly reduces workload on service. Isn't it?
+
 ![API gateway cache](/micro-services/images/genetic-service-design-6a.jpg)
 
 > ###  Usage of service centric caching technique
 
+One can configure service specific cache. It helps in two ways:
+
+1. Faster processing of request whenever service receives it. The service understand the data pattern more closely than API gateway or
+   other parts of eco-system. Henceforth, specific caching technique pertaining to service can be employed.
+2. Cache logic can be applied to services which are not frontend by public interfaces but participates in realization of entire system
+   through their published interface.
+
+The cache logic need not to be part of service's buisness logic. It can be a third party component or indigeneous code 
+providing functionality of caching and can be deployed as independent service unit as depicted in picture below.
+
 ![Service centric cache](/micro-services/images/genetic-service-design-6b.jpg)
 
 > ###  Usage of combination of (1) and (2)
+
+As we discussed above, API gateway helps in reducing number of requests routed to service and thus improving the load on service. On the
+other hand, service specific cache empowers it to serve the request in faster way whenever a request is routed to it. Depending upon 
+the context and need, the system needs to use one or another or combination of both.
 
 ![Service centric cache and API gateway cache](/micro-services/images/genetic-service-design-6c.jpg)
 
