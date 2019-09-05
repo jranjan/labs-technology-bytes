@@ -343,7 +343,7 @@ If we apply the above concept then we might end up our repo structure something 
 
 # Deployment strategy
 
-![Work in progress](/micro-services/images/work-in-progress.png)
+![Work in progress](/micro-services/images/work-in-progress.PNG)
 
 
 # Summary
@@ -363,7 +363,7 @@ facilitates a great deal in realizing following use cases:
 * A service can be scaled independently.
 * A service can be deployed in totally different environment if compared to rest.
 
-To summarize, we carried out following:
+To summarize, we carried out following activites to design the system:
 
 * Comprehending problem statement
 * Creating domain model
