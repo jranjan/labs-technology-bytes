@@ -1,22 +1,14 @@
 # Content
 
 1. [Introduction](#introduction)
-	1. [What is microservice?](#what-is-microservice)
-	2. [What a microservice is not?](#what-is-microservice-not)
-	3. [Monolith vs. Microservice](#monolith-vs-microservice)
-	4. [Precursor](#microservice-precursor)
+	* [What is microservice?](#what-is-microservice)
+	* [What a microservice is not?](#what-is-microservice-not)
+	* [Monolith vs. Microservice](#monolith-vs-microservice)
+	* [Precursor](#microservice-precursor)
 2. [Architecture, Design and Implementation aspect(s)](#architcture-and-design)      
 3. [12 factor Apps](#12-factor-apps)
 4. [Best practices](#best-practices)
 5. [Challenges](#challenges)
-
-1) Introduction
-2) Architecture, Design and Implementation aspect(s)
-3) 12-factor apps
-4) Cloud native apps
-5) Benefits
-6) Best practices
-7) Good to know 
 
  
 # Introduction <a name="introduction">
