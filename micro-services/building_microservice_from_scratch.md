@@ -393,4 +393,4 @@ This is grossly reflected in below picture.
 
 Here are set of areas which address above aspects if we do categorize them in different buckets.
 
-![Microservice next](/micro-services/images/genetic-service-next.jpg)
+![Microservice next](/micro-services/images/genetic-service-design-next.jpg)
