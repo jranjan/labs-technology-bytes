@@ -46,7 +46,7 @@ lot of interaction with domain experts and model engineers. This section is not 
 and hence we will not focus on how to identify entity, how to indetify relationship, how to discard less 
 useful entity to avoid cluttering etc. Let us assume that, we arrived at following model depicted below.
 
-![Domain model](/micro-services/images/genetic-domain.jpg)
+![Domain model](/micro-services/images/building-micro-service/genetic-domain.jpg)
 
 
 # Identifying API endpoints
@@ -145,11 +145,11 @@ as and when required. This section talks about follownig iterations:
 ## Simplistic design
 
 
-![Simplistic design](/micro-services/images/genetic-service-design-1.jpg)
+![Simplistic design](/micro-services/images/building-micro-service/genetic-service-design-1.jpg)
 
 ## Separating business logic from cross cutting concerns 
 
-![Seperating cross cutting concenrs](/micro-services/images/genetic-service-design-2.jpg)
+![Seperating cross cutting concenrs](/micro-services/images/building-micro-service/genetic-service-design-2.jpg)
 
 
 ## Granualrizing services 
@@ -185,17 +185,17 @@ microservices:
    entities. It does not have any database and use inline processing to dervie the required result.
 
     
-![Segregation of responsibilities](/micro-services/images/genetic-service-design-3a.jpg)
+![Segregation of responsibilities](/micro-services/images/building-micro-service/genetic-service-design-3a.jpg)
 
 > Let us represent same using usage of microservice vocabulary.
 
-![Microservices for specific bounded context](/micro-services/images/genetic-service-design-3b.jpg)
+![Microservices for specific bounded context](/micro-services/images/building-micro-service/genetic-service-design-3b.jpg)
 
 > Let us determine the interaction among microservices with high level constituents. 
 > As you can see from below diagram that wee did not use independent database for each service so that they are loosely coupled. 
 > Also, some of the services are completely stateless as they do not need any persistence.
 
-![Interaction among microservices](/micro-services/images/genetic-service-design-3c.jpg)
+![Interaction among microservices](/micro-services/images/building-micro-service/genetic-service-design-3c.jpg)
 
 > ### Hey, we used functonal decomposition to promote scaling implicitly. Did you notice that?
 
@@ -222,13 +222,13 @@ A UI developer needs to make multiple calls to fetch data from different microse
 * Get events for datasets
 * Get events for storage system
 
-![Dashboard](/micro-services/images/genetic-service-design-4a.jpg)
+![Dashboard](/micro-services/images/building-micro-service/genetic-service-design-4a.jpg)
 
 As we can see that a client needs to make multiple call. Life will be much simpler if there is adapter or facade service which can 
 provide simplified data by collecting from rest of service instead of making client to go and fetch individual details and assemble 
 those.  Let us call that service as Adapter service. Our eco-system will look like as depicted below. 
 
-![Dashboard](/micro-services/images/genetic-service-design-4b.jpg)
+![Dashboard](/micro-services/images/building-micro-service/genetic-service-design-4b.jpg)
 
 ## Support loadbalancing
 
@@ -249,11 +249,11 @@ See diagrams below:
 
 > ### Usage of loadbalancer in API gateway (most commonly used pattern)
 
-![Usage of loadbalancer of API gateway](/micro-services/images/genetic-service-design-5a.jpg)
+![Usage of loadbalancer of API gateway](/micro-services/images/building-micro-service/genetic-service-design-5a.jpg)
 
 > ### Usage of service specific loadbalancer instances
 
-![Service specific loadbalancer](/micro-services/images/genetic-service-design-5b.jpg)
+![Service specific loadbalancer](/micro-services/images/building-micro-service/genetic-service-design-5b.jpg)
 
 
 ## Support high perofrmant API using cache
@@ -288,7 +288,7 @@ One can configure service specific cache. It helps in two ways:
 The cache logic need not to be part of service's buisness logic. It can be a third party component or indigeneous code 
 providing functionality of caching and can be deployed as independent service unit as depicted in picture below.
 
-![Service centric cache](/micro-services/images/genetic-service-design-6b.jpg)
+![Service centric cache](/micro-services/images/building-micro-service/genetic-service-design-6b.jpg)
 
 > ###  Usage of combination of (1) and (2)
 
@@ -296,7 +296,7 @@ As we discussed above, API gateway helps in reducing number of requests routed t
 other hand, service specific cache empowers it to serve the request in faster way whenever a request is routed to it. Depending upon 
 the context and need, the system needs to use one or another or combination of both.
 
-![Service centric cache and API gateway cache](/micro-services/images/genetic-service-design-6c.jpg)
+![Service centric cache and API gateway cache](/micro-services/images/building-micro-service/genetic-service-design-6c.jpg)
 
 
 ## Support canary release ecosystem
@@ -330,15 +330,15 @@ It is time to organize sevices to generate artefacts which can be deployed.
 Microservice goes very well with image based release where we do accept or discard complete image in contrast to usage of patches to
 update specific bits. To keep discussion simple and illustrative, we will pick core services and focus on below microservices.
 
-![Interaction among microservices](/micro-services/images/genetic-service-design-3c.jpg)
+![Interaction among microservices](/micro-services/images/building-micro-service/genetic-service-design-3c.jpg)
 
 The fundamental artifact is an container image. It is good to follow the below cardinal relationship as much as possible.
 
-![Cardinal relationship](/micro-services/images/genetic-service-cardinal-relationship.jpg)
+![Cardinal relationship](/micro-services/images/building-micro-service/genetic-service-cardinal-relationship.jpg)
 
 If we apply the above concept then we might end up our repo structure something like as mentioned below.
 
-![Repository structure](/micro-services/images/microservice-repository-structure.png)
+![Repository structure](/micro-services/images/building-micro-service/microservice-repository-structure.png)
 
 
 # Deployment strategy
@@ -389,8 +389,8 @@ in aspects mentioned below:
 
 > ## Addressing challenges
 
-![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
+![Microservice challenges](/micro-services/images/microservice/microservice-challenges-2.jpg)
 
 > ## Related areas, worth to be explored
 
-![Microservice next](/micro-services/images/genetic-service-design-next.jpg)
+![Microservice next](/micro-services/images/building-micro-service/genetic-service-design-next.jpg)
