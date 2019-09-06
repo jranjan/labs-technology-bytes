@@ -20,8 +20,6 @@
      * [Related aspets](#collaborators)
 
 
-# Summary <a name="summary">
-
 
 # Introduction <a name="introduction">
 
