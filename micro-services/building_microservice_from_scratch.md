@@ -389,4 +389,8 @@ in aspects mentioned below:
 
 This is grossly reflected in below picture.
 
+![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
 
+Here are set of areas which address above aspects if we do categorize them in different buckets.
+
+![Microservice next](/micro-services/images/genetic-service-next.jpg)
