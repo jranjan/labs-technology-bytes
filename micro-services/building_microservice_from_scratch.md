@@ -371,3 +371,22 @@ To summarize, we carried out following activites to design the system:
 * Identifying microservices and its interface (public or published)
 * Setting up code repoistory for microservices
 * Setting up DevOps phases
+
+# Next?
+
+At this point of time, we are equipped to define a model for business domain, identify microservice and translate those to independent 
+ownership, manageable and deployable unit. In this process, we created a many minions which is going to create a new set of problems 
+in aspects mentioned below:
+
+* Mechanism of communication among services
+* Dynamic communication management
+* Centeralized logging
+* Loadblancing (how to achieve efficiently, not what part)?
+* Monitoring
+* Broader level observability of who, what, how and where aspects of services
+* Need to fullfil the promise of automated release pipeline: development -> staging -> production
+* Need to live in hybrid cloud ecos sytem (**this is not our created problem but an expectation**)
+
+This is grossly reflected in below picture.
+
+
