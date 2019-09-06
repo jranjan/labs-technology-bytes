@@ -2,19 +2,19 @@
 
 Let us take a problem statement to design a system which follows microservice architecture style. As we progress on discussion, we will 
 try to solve various pieces of puzzle which a truly scalable, resilient and easy to manage system should have. It is not possible to 
-cover all corner of a microservice in single document but will try to address following aspects:
+cover all corner of a microservice in a single document but will try to address following aspects:
 
 * Defining a **domain model** representing system
 * Identifying microservices
-* Segrgating cross cutting concerns so that a single microservice focus completely on its buisness logic.
+* Segregating cross cutting concerns so that a single microservice focus completely on its buisness logic.
 * Simplifying user interaction with system
 * Auto-scaling and using loadbalancer to share the load across multiple instances of services
-* Leveraging caching logic to create high-perofrmant service
+* Leveraging caching logic to create high-performant service
 * Supporting canary release model
 * Repository organization for individual microservice
 * Various deployment strategy to suite the system need as and when required
 
-It is assumed that reader is familar about microservice, DevOps, container at high level. 
+It is assumed that reader is familar about microservice, DevOps, container etc at basic level. 
 
 Before we proceed, here is notable points:
 
@@ -24,16 +24,16 @@ Before we proceed, here is notable points:
 
 # Problem statement
 
-Our company is very large bioscience company and is involved in cutting research like genetic engineering. Our need is to have 
-ability to realize end-to-end data lifecycle management. The size of data can be in order of PB and can vary in nature. Some 
-are telemetry data. Some are very sensitive data. Some are for record purpose generated using clincial trials. We need to have a 
-IT platform which can support storage system of different vendors with ability to provide insights into data. At this point of time, 
-we are primarily looking for insights into utilization, performance, health, events but will very soon exxtend these with other 
-analyic. For e.g. we will like to devise an AI based solution which can be predict the probability of a person having critical diseases
-like cancer based on study of genes. Considering that system is likely to host sensitive data for patients, it is implicitly desired
-that system supporst proper authentication and authorization wherever required. Also, the system is likely to host large amounts of data
-and new services are likely to be incepted in future, it is very desirable that system is designed for scale and easy to adopt new
-set of services as and when required.
+Our company is a very large bioscience company and is involved in cutting research like genetic engineering. Our need is to have 
+ability to realize end-to-end data lifecycle management. The size of data can be in order of PB and can vary in nature in terms of
+governance, performance, capacity, accessibilty etc. Some are telemetry data. Some are very sensitive data. Some are for record 
+purpose generated during clincial trials. We need to have an IT platform which can support storage system of different vendors 
+with ability to provide insights into data. At this point of time, we are primarily looking for insights into utilization, performance,
+health, events but will very soon extend these with other analyic solution. For e.g. we will like to devise an AI based solution 
+which can be predict the probability of a person having critical diseases like cancer based on study of genes. Considering that 
+system is likely to host sensitive data for patients, it is implicitly desired that system supports proper authentication 
+and authorization wherever required. Also, the system is likely to host large amounts of data and new services are likely to be 
+incepted in future, it is very desirable that system is designed for scale and easy to adopt new set of services as and when required.
 
 
 # Domain Driven Design
