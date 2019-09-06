@@ -1,4 +1,29 @@
-# Building microservices
+# Content
+
+1. [Introduction](#introduction)
+2. [Problem statement](#problem)
+3. [Domain Driven Design](#domain-model)
+4. [Identifying API endpoints](#api)
+5. [Identifying system goals and users](#goal-and-user)
+6. [Identifying microservices](#identify-service)
+        * [Simplistic design](#monolith-system)
+        * [Granualrizing services](#monolith-system-concern-separation)
+        * [Easy to use facade to simplify client interaction](#)
+        * [Support loadbalancing](#loadbalancing)
+        * [Support high perofrmant API using cache](#cache)
+        * [Support canary release ecosystem](#canary-release)
+7. [Code, Build and Release](#devops)
+8. [Deployment strategy](#deployment)
+9. [Summary](#summary)
+10. [Next](#next)
+        * [Challenges](#next-address-challenges)
+        * [Related aspets](#collaborators)
+
+
+# Summary <a name="summary">
+
+
+# Introduction <a name="introduction">
 
 Let us take a problem statement to design a system which follows microservice architecture style. As we progress on discussion, we will 
 try to solve various pieces of puzzle which a truly scalable, resilient and easy to manage system should have. It is not possible to 
@@ -22,7 +47,7 @@ Before we proceed, here is notable points:
 > It requires a change in mind shift and cultural change inside team whose accentuated benefits are seen if it is adppted 
 > alongwith with DevOps and Container ecoysystem.
 
-# Problem statement
+# Problem statement <a name="problem">
 
 Our company is a very large bioscience company and is involved in cutting research like genetic engineering. Our need is to have 
 ability to realize end-to-end data lifecycle management. The size of data can be in order of PB and can vary in nature in terms of
@@ -36,7 +61,7 @@ and authorization wherever required. Also, the system is likely to host large am
 incepted in future, it is very desirable that system is designed for scale and easy to adopt new set of services as and when required.
 
 
-# Domain Driven Design
+# Domain Driven Design <a name="domain-model">
 
 In this section, we will try to sketch high livel model which defines problem and solution aspects of above
 problem with a closer to accuracy. The model will thrive to accurate representation and hence should not be 
@@ -49,7 +74,7 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 ![Domain model](/micro-services/images/building-micro-service/genetic-domain.jpg)
 
 
-# Identifying API endpoints
+# Identifying API endpoints <a name="api">
 
 ```
 /data-center/
@@ -79,7 +104,7 @@ useful entity to avoid cluttering etc. Let us assume that, we arrived at followi
 ```
 
 
-# Identifying system goals and users
+# Identifying system goals and users <a name="goal-and-user">
 
 Before we start talking about design of services, let us identify goal of our system. We should know the destination 
 where we do want to reach before we plan for the vacation. Isn't it? 
@@ -120,7 +145,7 @@ The system functionality should be accessible to following set of users.
    access of some sensitive datasets and its analytics.
 
 
-# Identifying microservices
+# Identifying microservices <a name="identify-service">
 
 As we know, microservices is an architecture style. So, there is not a stone-casted rules for implementing a large system using set 
 of microservices. You can have 1 microservices doing every thing or many in order of 10s. It all depends upon the business requirement
@@ -142,17 +167,17 @@ as and when required. This section talks about follownig iterations:
 6. Support high perofrmant API using cache
 7. Support canary release ecosystem
 
-## Simplistic design
+## Simplistic design <a name="monolith-system">
 
 
 ![Simplistic design](/micro-services/images/building-micro-service/genetic-service-design-1.jpg)
 
-## Separating business logic from cross cutting concerns 
+## Separating business logic from cross cutting concerns <a name="monolith-system-concern-separation">
 
 ![Seperating cross cutting concenrs](/micro-services/images/building-micro-service/genetic-service-design-2.jpg)
 
 
-## Granualrizing services 
+## Granualrizing services <a name="granual-service">
 
 Let us embed scale by using segregating responsibilities. This will not only help to scale specific segment to scale independently but 
 will also promote loose coupling, independent deploymnt and update, granular execution of service implementation, ability to use 
@@ -199,7 +224,7 @@ microservices:
 
 > ### Hey, we used functonal decomposition to promote scaling implicitly. Did you notice that?
 
-## Easy to use facade to simplify client interaction
+## Easy to use facade to simplify client interaction <a name="adapter">
 
 So far, so good! We are able to decompose system into fine grained independent sub-systems. Let us change the focus from system to 
 client who is going to consume the services. As a client, he or she wants to develop a home portal page which comprises following 
@@ -230,7 +255,7 @@ those.  Let us call that service as Adapter service. Our eco-system will look li
 
 ![Dashboard](/micro-services/images/building-micro-service/genetic-service-design-4b.jpg)
 
-## Support loadbalancing
+## Support loadbalancing <a name="loadbalancing">
 
 As we learnt that one of tenets of microservice is scalability. One easy way to achieve this is by creating immutable instances as 
 the service gets popular and demand grows or more and more entities needs to be managed. In any case, we do not need to grow all service
@@ -256,7 +281,7 @@ See diagrams below:
 ![Service specific loadbalancer](/micro-services/images/building-micro-service/genetic-service-design-5b.jpg)
 
 
-## Support high perofrmant API using cache
+## Support high perofrmant API using cache <a name="cache">
 
 In today's era, ability to serve any service withing stipulated time is not only a desired activity but a critical aspect to fullfill
 SLA as well as avoid chain failure because of timeout of one service. Also, it is very important for good user interaction as anything
@@ -299,7 +324,7 @@ the context and need, the system needs to use one or another or combination of b
 ![Service centric cache and API gateway cache](/micro-services/images/building-micro-service/genetic-service-design-6c.jpg)
 
 
-## Support canary release ecosystem
+## Support canary release ecosystem <a name="canary-release">
 
 Canary release is a technique that is used to reduce the risk of introducing a new software version in production by gradually 
 rolling out the change to a small subgroup of users, before rolling it out to the entire platform/infrastructure and making it 
@@ -322,7 +347,7 @@ See [canary release](https://martinfowler.com/bliki/CanaryRelease.html) to know 
 
 
 
-# Code, Build and Release 
+# Code, Build and Release <a name="devops">
 
 
 It is time to organize sevices to generate artefacts which can be deployed. 
@@ -341,12 +366,12 @@ If we apply the above concept then we might end up our repo structure something 
 ![Repository structure](/micro-services/images/building-micro-service/microservice-repository-structure.png)
 
 
-# Deployment strategy
+# Deployment strategy <a name="deployment">
 
 ![Work in progress](/micro-services/images/general/work-in-progress.png)
 
 
-# Summary
+# Summary <a name="summary">
 
 As we can see that the entire system is no more like a monolith application. It has been decomposed into fine grained microservices 
 which has its own independent existence. Certainly, services are dependent on each other to realize overall functionality but they
@@ -372,7 +397,7 @@ To summarize, we carried out following activites to design the system:
 * Setting up code repoistory for microservices
 * Setting up DevOps phases
 
-# Next?
+# Next? <a name="next">
 
 At this point of time, we are equipped to define a model for business domain, identify microservice and translate those to independent 
 ownership, manageable and deployable unit. In this process, we created a many minions which is going to create a new set of problems 
@@ -387,10 +412,10 @@ in aspects mentioned below:
 * Need to fullfil the promise of automated release pipeline: development -> staging -> production
 * Need to live in hybrid cloud ecos sytem (**this is not our created problem but an expectation**)
 
-> ## Addressing challenges
+> ## Addressing challenges <a name="next-address-challenges">
 
 ![Microservice challenges](/micro-services/images/microservice/microservice-challenges-2.jpg)
 
-> ## Related areas, worth to be explored
+> ## Related areas, worth to be explored <a name="collaborators">
 
 ![Microservice next](/micro-services/images/building-micro-service/genetic-service-design-next.jpg)
