@@ -1,9 +1,14 @@
 # Content
 
-1. [Introduction](#Introduction)
-2. [Architecture, Design and Implementation aspect(s)](#Architecture,-Design-and-Implementation-aspect(s))
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+1. [Introduction](#introduction)
+	1. [What is microservice?](#what-is-microservice)
+	2. [What a microservice is not?](#what-is-microservice-not)
+	3. [Monolith vs. Microservice](#monolith-vs-microservice)
+	4. [Precursor](#microservice-precursor)
+2. [Architecture, Design and Implementation aspect(s)](#architcture-and-design)      
+3. [12 factor Apps](#12-factor-apps)
+4. [Best practices](#best-practices)
+5. [Challenges](#challenges)
 
 1) Introduction
 2) Architecture, Design and Implementation aspect(s)
@@ -14,7 +19,7 @@
 7) Good to know 
 
  
-# Introduction
+# Introduction <a name="introduction">
 
 This sections covers many aspects, primarily to setting up the context with the aim to use same vocabulary. Practically, 
 it deserves an independent chapter which tells how the landscape of delivering software has changed because of emerging requirements 
@@ -27,7 +32,7 @@ and how micro-services fits the bill in the current context. For now, we will ca
 
 
 
-## What is microservice? 
+### What is microservice? <a name="what-is-microservice">
 
 
 Microservice is a fine grained atomically deployable service accessed by platform agnostic network API. It's implicit or explicty focus
@@ -37,7 +42,7 @@ by collaborating with othere microservices in safe, secured and transaparent man
 
 ![Microservice Ecosystem](/micro-services/images/microservice/microservice-ecosystem.jpg)
 
-## What is microservice not?
+## What is microservice not? <a name="what-is-microservice-not">
 
 It is not the only architecture style though its popularity has gone up by leaps and bounds in recent days. It is not supposed 
 or expected to be applied everywhere. There are many other architectural patterns which is not going to go away. For e.g. 
@@ -45,7 +50,7 @@ monolithic systems for equity transaction as the focus here is of getting low la
 
 > **Microservice is a only one of architecture style among many! You apply ONLY where it fits.**
 
-## Monoliths vs. Micro-services
+## Monoliths vs. Micro-services <a name="monolith-vs-microservice">
 
 Django kind of application relying on MVC pattern assumed layered architecture. It did apply separation of concern
 by segregating user layer, business layer and persistence layer. But, all business layer was embedded in one place.
@@ -67,7 +72,7 @@ aspects:
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 
-## Microservice precursors
+## Microservice precursors <a name="microservice-precursor">
 
 Microservice did not emerge out of sudden. Or, implementing software as service is not a very new concept. In fact, SOA took 
 its dominancein era of 2000s. From that time frame to know, computing has seen a signficant increase in peneteration of software 
@@ -78,13 +83,13 @@ microservice has evolved to use positive aspects of its precursors.
 
 
 
-# Architecture, Design and Implementation aspect(s)
+# Architecture, Design and Implementation aspect(s) <a name="architcture-and-design">
 
 See [here](microservice-patterns.md)
 
 
 
-# 12-factor apps
+# 12-factor apps <a name="12-factor-apps">
 
 Web applications has beeon one of precursor of micro-service. There is a lot of postive influence of web application on
 miroservice but it is very important to understand that microservice is not necessarily a web application. 
@@ -216,7 +221,7 @@ You will find more details at CNCF foundation site.
 
 
 
-# Best practices 
+# Best practices <a name="best-practices">
 
 1) Identifying areas to apply the principle of sole responsibility for each micro-service is crucial to application architecture.
 
@@ -256,7 +261,7 @@ You will find more details at CNCF foundation site.
 
 
 
-# Microservice challenges 
+# Microservice challenges <a name="challenges">
 
 The below quote is closer to me whenever I go for orthogonal new environment because it gives me resilience and motivation to
 work hard even when my body does not support me.
