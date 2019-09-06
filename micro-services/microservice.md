@@ -30,7 +30,7 @@ is on solving one portion of problem. It is desiged to follow SRP (Single Respon
 is completely independent and is expected scale up and down at its own will. At the same time, it expects an exo-system where it thrives
 by collaborating with othere microservices in safe, secured and transaparent manner. It is like a nuclear family in our society. The below picture try to convey microservice and its eco-system.
 
-![Microservice Ecosystem](/micro-services/images/microservice-ecosystem.jpg)
+![Microservice Ecosystem](/micro-services/images/microservice/microservice-ecosystem.jpg)
 
 ### What is microservice not?
 
@@ -69,7 +69,7 @@ its dominancein era of 2000s. From that time frame to know, computing has seen a
 in every corner of life, scale requirement and heterogenity in consumer. The below diagram illustrates how current world 
 microservice has evolved to use positive aspects of its precursors.
 
-![Microservice Evolution](/micro-services/images/microservice-evolution.jpg)
+![Microservice Evolution](/micro-services/images/microservice/microservice-evolution.jpg)
 
 
 
@@ -182,7 +182,7 @@ thrown as its usage is done. A cloud native application is all about achieving r
 traditional applications. These attributes are amalagation of positiveness accumulated from the learnings of 12-factor app, Pet vs. 
 Cattle, microservices etc. The below picture convey same aspects.
 
-![Cloud native application attributes](/micro-services/images/cloud-native-application-attributes.jpg)
+![Cloud native application attributes](/micro-services/images/microservice/cloud-native-application-attributes.jpg)
 
 You will find more details at CNCF foundation site. 
 
@@ -260,12 +260,12 @@ work hard even when my body does not support me.
 
 I think that it applies to microservices. Can you identify some by looking at below picture.
 
-![Microservice new challenges](/micro-services/images/microservice-challenges-1.jpg)
+![Microservice new challenges](/micro-services/images/microservice/microservice-challenges-1.jpg)
 
 > ### Here are few! 
 > ### Can you spot startup? A plenty of opportunity to innovate, isn't it?
 
-![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
+![Microservice challenges](/micro-services/images/microservice/microservice-challenges-2.jpg)
 
 
 
