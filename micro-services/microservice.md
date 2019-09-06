@@ -1,7 +1,7 @@
 # Content
 
 1. [Introduction](#Introduction)
-2. [What is microservice?](#paragraph1)
+2. [rchitecture, Design and Implementation aspect(s)](#paragraph1)
 3. [Third Example](#third-example)
 4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
 
@@ -27,7 +27,7 @@ and how micro-services fits the bill in the current context. For now, we will ca
 
 
 
-### What is microservice? 
+## What is microservice? 
 
 
 Microservice is a fine grained atomically deployable service accessed by platform agnostic network API. It's implicit or explicty focus
@@ -37,7 +37,7 @@ by collaborating with othere microservices in safe, secured and transaparent man
 
 ![Microservice Ecosystem](/micro-services/images/microservice/microservice-ecosystem.jpg)
 
-### What is microservice not?
+## What is microservice not?
 
 It is not the only architecture style though its popularity has gone up by leaps and bounds in recent days. It is not supposed 
 or expected to be applied everywhere. There are many other architectural patterns which is not going to go away. For e.g. 
@@ -45,7 +45,7 @@ monolithic systems for equity transaction as the focus here is of getting low la
 
 > **Microservice is a only one of architecture style among many! You apply ONLY where it fits.**
 
-### Monoliths vs. Micro-services
+## Monoliths vs. Micro-services
 
 Django kind of application relying on MVC pattern assumed layered architecture. It did apply separation of concern
 by segregating user layer, business layer and persistence layer. But, all business layer was embedded in one place.
@@ -67,7 +67,7 @@ aspects:
 Be careful when we talk of scatter gather or MVC vs. micro-services patterns.
 
 
-### Microservice precursors
+## Microservice precursors
 
 Microservice did not emerge out of sudden. Or, implementing software as service is not a very new concept. In fact, SOA took 
 its dominancein era of 2000s. From that time frame to know, computing has seen a signficant increase in peneteration of software 
