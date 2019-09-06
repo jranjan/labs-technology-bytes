@@ -15,5 +15,7 @@ meant for self-learning or self-exploration purpose.
 # Subjects
 
 * [Microservices](micro-services)
+    * [Concepts, benefits and challenges](https://github.com/jranjan/labs-technology-bytes/blob/master/micro-services/microservice.md)
+    * [Building microservice](https://github.com/jranjan/labs-technology-bytes/blob/master/micro-services/building_microservice_from_scratch.md)
 * [Docker](docker)
 * [Kubernetes](kubernetes)

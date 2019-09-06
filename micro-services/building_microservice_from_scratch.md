@@ -387,10 +387,10 @@ in aspects mentioned below:
 * Need to fullfil the promise of automated release pipeline: development -> staging -> production
 * Need to live in hybrid cloud ecos sytem (**this is not our created problem but an expectation**)
 
-This is grossly reflected in below picture.
+> ## Addressing challenges
 
 ![Microservice challenges](/micro-services/images/microservice-challenges-2.jpg)
 
-Here are set of areas which address above aspects if we do categorize them in different buckets.
+> ## Related areas, worth to be explored
 
 ![Microservice next](/micro-services/images/genetic-service-design-next.jpg)
