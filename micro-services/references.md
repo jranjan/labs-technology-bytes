@@ -6,6 +6,7 @@
 # DevOps for microservices
 * [CI/CD pipeline for containers](https://medium.com/@alokmalakar/architecting-a-ci-cd-pipeline-for-container-and-microservice-based-applications-120f4b470681)
 * [Fuelling Your Move to DevSecOps](https://blog.paloaltonetworks.com/2019/03/containers-fueling-move-devsecops/)
+* [Development v. Stage vs. Production](https://dev.to/flippedcoding/difference-between-development-stage-and-production-d0p)
 
 # Container technology
 * Heroku
