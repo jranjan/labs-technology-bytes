@@ -1,0 +1,97 @@
+Contents
+
+	- About Devops
+	- HPE eco-system
+	- DevOps bytes
+	- Tools
+	- References
+	- Inventions
+
+======================================================================================================================
+About Devops
+======================================================================================================================
+
+CALMS:
+	Culture
+	Automation
+		- Develop -> Test -> Release 
+		- Not only about automation but also about consistency
+	Lean
+		- Feeback loops
+		- Not over desigining
+	Measurement
+		- Notion of continuous feedback
+		- Fail early
+		- Willingness to lear quickly
+	Sharing 
+		- Breaking silos
+		- Devops days (smart conferences) : sharing practices not selling 
+		- Having a separate devops team is not a good idea -> create silos
+
+
+======================================================================================================================
+HPE eco-system
+======================================================================================================================
+
+- Move out of HPE coorprate 
+- More of social decision than technical decision
+- GitLabs competes with GitHub. It integrates SCM with CI. GitHub Registry, GitHub Actions etc are coming features.
+		
+
+======================================================================================================================
+Devops bytes
+======================================================================================================================
+
+*) Tools 10% of DevOps	
+*) Devps vs. DevSecOps - a new jargon being thrown by security companies
+*) DevOps - first coined - 2009 
+*) Continuous Integration -> Continuous Delivery -> Continuous Release / Deployment 
+		- Developer submits code and gets merged only after test passes
+		- As codes gets merged, artefacts are created and published into repository
+		- Publish it to production environment
+*) Merge operation and release team - break down silos 	
+*) SRE (site reliabilit engineering) is new label for Devops team.	
+	
+	
+======================================================================================================================
+Tools:
+======================================================================================================================
+
+- GitLabs, AWS 
+- Jenkins, CircleCI
+- Cloud Native Cloud Foundation (CNCF)
+- SCM (Git, Gerrit, GitHub)
+- Container technologies 
+- Infrastructure code (Terraform, Kuberentes)
+
+
+
+
+======================================================================================================================
+References
+======================================================================================================================
+
+https://apiumhub.com/tech-blog-barcelona/devops-blogs/
+
+
+
+======================================================================================================================
+Invention 
+======================================================================================================================
+
+>> Security Leak Detection
+
+Leakage of sensitive information has increased because of proliferation of software 
+in every aspect of life and accessibility of computing devices by novice. Now a days, the hackers subjects system 
+to unorthodox test scenarios to collect sensitive data. They use leaked sensitive information to device sophisticated 
+techniques to breach application security. The emergence of micro-services and DevOps has increased 
+the surface area of attack and reduced time for rigorous checking of security leak respectively. The proposal aims 
+to detect or fence the system from security leak as early as possible. It works in two modes: proactive and reactive mode. 
+In proactive mode, the service is subjected to rigorous test environment in articulated way to provoke the service 
+to leak sensitive information through logs, failed call stack trace, UI screen display or API response. This 
+is applied before a service is promoted or upgrade from development to production. In reactive mode, 
+the system police micro-services to find leakage of any sensitive information as it occurs then and there. 
+In both cases, the system raises security alert so that the risk is mitigated as soon as possible. 
+The system enables security admin to define service-centric custom set of dataset 
+to be scanned for as well as security rules it should be subjected for leak detection.
+
